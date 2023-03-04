@@ -55,11 +55,16 @@ public class User {
     public static boolean authentification(String motDePasse, String pseudo) {
 
     for(User utilisateur : utilisateurs) {
-        if(utilisateur.getMotDePasse() == motDePasse && utilisateur.getPseudo() == pseudo) {
+        if(utilisateur.getMotDePasse().equals(motDePasse) && utilisateur.getPseudo().equals(pseudo)) {
+            afficheUtilisateur(utilisateur);
             return true;
         }
     }
     return false;
+    }
+
+    public static void afficheUtilisateur(User utilisateur) {
+        System.out.print(utilisateur.getPrenom() + " " + utilisateur.getNom() + ", ");
     }
 
     //Modifier son profil
@@ -69,6 +74,10 @@ public class User {
         this.photoPath = newPhotoPath;
         this.nom = newNom;
         this.prenom = newPrenom; 
+    }
+
+    public void modifierMotDePasse(String newMotDePasse) {
+        this.motDePasse = newMotDePasse;
     }
 
     public boolean modification() {
@@ -85,22 +94,52 @@ public class User {
             String pseudo = sc.nextLine();
             System.out.println("Saisissez votre mot de passe:");
             String mdp = sc.nextLine();
-            if(authentification(pseudo, mdp)) {
-                System.out.println("Authentification réussi ! Bienvenu ");
+            if(authentification(mdp, pseudo) == true) {
+                System.out.println("nous vous souhaitons la bienvenue sur votre compte !" );
+                System.out.println("Voulez-vous modifier un élement de votre profil ? [yes/no]");
+                String b = sc.nextLine();
+                if(b.equals("yes")){
+                    System.out.println("Quel élément voulez-vous modifier ?");
+                    System.out.println("Le mot de passe ? [yes/no]");
+                    String a = sc.nextLine();
+                    if(a.equals("yes")){
+                        System.out.println("Saisissez votre nouveau mot de passe:");
+                        String u = sc.nextLine();
+                        mdp = u;
+                        System.out.println("Votre nouveau mot de passe est: " + mdp);
+                    }
+                    if(a.equals("no")) {
+                        System.out.println("Le pseudo ? [yes/no]");
+                        String k = sc.nextLine();
+                        if(k.equals("yes")) {
+                            System.out.println("Saisissez votre nouveau pseudo:");
+                            String z = sc.nextLine();
+                            pseudo = z;
+                            System.out.println("Votre nouveau pseudo est: " + pseudo);
+                        }
+                    }
+                }
+            } else {
+                System.out.println("Authentification échouée, voulez-vous rééssayer ? [yes/no]");
+                String y = sc.nextLine();
+                if(y.equals("yes")){
+                    connexion();
+                }
             }
+        }
+        if(x.equals("no")) {
+            System.out.println("Voulez-vous vous inscrire ? [yes/no]");
+            
         }
     }
 
     
     public static void main(String args[]) {
-        User utilisateur1 = new User("naloufi", "amel", "AmelNal22", "photoPath", "motDePasse");
-        User utilisateur2 = new User("gulam", "meryam", "MerGul22", "photoPath", "motDePasse1");
+        User utilisateur1 = new User("Naloufi", "Amel", "AmelNal22", "photoPath", "motDePasse");
+        User utilisateur2 = new User("Gulam", "Meryam", "MerGul22", "photoPath", "motDePasse1");
         ajoutUtilisateur(utilisateur1);
         ajoutUtilisateur(utilisateur2);
-        /*for(User user: utilisateurs) {
-            System.out.println(user);
-        }*/
-        System.out.println(authentification("motDePasse", "AmelNal22"));
+        connexion();
     }
 
 }
