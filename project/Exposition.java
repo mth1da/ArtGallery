@@ -15,4 +15,5 @@ public class Exposition {
         this.nbVisiteMax = nbVisiteMax;
         this.superficieSalle = superficieSalle;
     }
+
 }

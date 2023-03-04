@@ -12,13 +12,13 @@ public enum Pays {
     TUNISIE("Tunisie"),
     PAKISTAN("Pakistan");
 
-    public static String pays;
+    public String pays;
 
     Pays(String pays) {
-
+        this.pays = pays;
     }
 
-    public static String getPays() {
-        return pays;
+    public String getPays() {
+        return this.pays;
     }
 }

@@ -2,8 +2,9 @@ package project;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public abstract class User {
+public class User {
 
     public int id;
     public String email;
@@ -13,7 +14,7 @@ public abstract class User {
     public String photoPath;
     public String pseudo;
 
-    List<User> utilisateurs = new ArrayList<User>(); 
+    static List<User> utilisateurs = new ArrayList<User>(); 
 
     public User(String nom, String prenom, String pseudo, String photoPath, String motDePasse) {
         this.nom = nom;
@@ -41,16 +42,17 @@ public abstract class User {
 
     //Ajouter un utilisateur (système d’inscription)
 
-    public List<User> ajoutUtilisateur(User utilisateur) {
+    public static List<User> ajoutUtilisateur(User utilisateur) {
 
-    utilisateurs.add(utilisateur);
-    return utilisateurs;
+        utilisateurs.add(utilisateur);
+        return utilisateurs;
+
     }
 
     //Authentification d’un utilisateur avec un système propre à votre application ou via 
     //des systèmes existants (Google, Facebook, Apple..)
 
-    public boolean authentification(String motDePasse, String pseudo) {
+    public static boolean authentification(String motDePasse, String pseudo) {
 
     for(User utilisateur : utilisateurs) {
         if(utilisateur.getMotDePasse() == motDePasse && utilisateur.getPseudo() == pseudo) {
@@ -71,6 +73,34 @@ public abstract class User {
 
     public boolean modification() {
         return false;
+    }
+
+    static Scanner sc = new Scanner(System.in);
+
+    public static void connexion() {
+        System.out.println("Avez-vous un compte ? [yes/no]");
+        String x = sc.nextLine();
+        if(x.equals("yes")) {
+            System.out.println("Saisissez votre pseudo:");
+            String pseudo = sc.nextLine();
+            System.out.println("Saisissez votre mot de passe:");
+            String mdp = sc.nextLine();
+            if(authentification(pseudo, mdp)) {
+                System.out.println("Authentification réussi ! Bienvenu ");
+            }
+        }
+    }
+
+    
+    public static void main(String args[]) {
+        User utilisateur1 = new User("naloufi", "amel", "AmelNal22", "photoPath", "motDePasse");
+        User utilisateur2 = new User("gulam", "meryam", "MerGul22", "photoPath", "motDePasse1");
+        ajoutUtilisateur(utilisateur1);
+        ajoutUtilisateur(utilisateur2);
+        /*for(User user: utilisateurs) {
+            System.out.println(user);
+        }*/
+        System.out.println(authentification("motDePasse", "AmelNal22"));
     }
 
 }

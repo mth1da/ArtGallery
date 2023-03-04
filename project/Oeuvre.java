@@ -1,6 +1,5 @@
 package project;
 
-
 import java.util.List;
 
 public class Oeuvre {
@@ -10,13 +9,15 @@ public class Oeuvre {
     public String mouvement;
     public Artiste artiste;
     public int prix;
+    public Critique critique;
 
-    public Oeuvre(String nomOeuvre, String dateOeuvre, String mouvement, Artiste artiste, int prix) {
+    public Oeuvre(String nomOeuvre, String dateOeuvre, String mouvement, Artiste artiste, int prix, Critique critique) {
         this.nomOeuvre = nomOeuvre;
         this.dateOeuvre = dateOeuvre;
         this.mouvement = mouvement;
         this.artiste = artiste;
         this.prix = prix;
+        this.critique = critique;
     }
 
     public String getNomOeuvre() {
@@ -55,12 +56,12 @@ public class Oeuvre {
 
     //Afficher les informations d’une oeuvre
 
-    public void afficheInfosOeuvre(Oeuvre oeuvre) {
+    public void afficheInfosOeuvre(Oeuvre oeuvre, Pays pays, Artiste artiste) {
         System.out.println("Nom de l'oeuvre: " + oeuvre.getNomOeuvre());
         System.out.println("Date de l'oeuvre: " + oeuvre.getDateOeuvre());
         System.out.println("Mouvement: " + oeuvre.getMouvement());
-        System.out.println("Thème de l'oeuvre: " + Pays.getPays());
-        System.out.println("Artiste: " + Artiste.getArtiste());
+        System.out.println("Thème de l'oeuvre: " + pays.getPays());
+        System.out.println("Artiste: " + artiste.getArtiste());
         System.out.println("Prix: " + oeuvre.getPrix());
     }
 
