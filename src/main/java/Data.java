@@ -9,6 +9,7 @@ public class Data {
 
         while(re.next()){
             System.out.println(re.getString("firstName"));
+
         }
 
     }
