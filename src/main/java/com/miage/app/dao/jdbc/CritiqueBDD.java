@@ -4,36 +4,36 @@ import com.miage.app.Entity.Critique;
 import com.miage.app.dao.CritiqueDAO;
 
 public class CritiqueBDD implements CritiqueDAO {
-    @Override
+
     public void createCritique(Critique cr) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createCritique'");
     }
 
-    @Override
     public void updateCritiqueNote(Critique cr) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateCritiqueNote'");
     }
 
-    @Override
     public void updateCritiqueComment(Critique cr) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateCritiqueComment'");
     }
 
-
-    @Override
     public void deleteCritique(Critique cr) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteCritique'");
     }
 
-    @Override
     public Critique getCritiqueById(int id) {
-        return null;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCritiqueById'");
     }
 
-    @Override
     public Iterable<Critique> getAllCritiques() {
-        return null;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllCritiques'");
     }
-
+    
 
 }

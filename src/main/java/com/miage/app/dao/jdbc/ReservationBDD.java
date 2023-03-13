@@ -4,30 +4,32 @@ import com.miage.app.Entity.Reservation;
 import com.miage.app.dao.ReservationDAO;
 
 public class ReservationBDD implements ReservationDAO {
-    @Override
+
     public void createReservation(Reservation r) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createReservation'");
     }
 
-    @Override
     public void updateReservation(Reservation r) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateReservation'");
     }
 
-    @Override
     public void deleteReservation(Reservation r) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteReservation'");
     }
 
-    @Override
     public Reservation getReservationById(int id) {
-        return null;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getReservationById'");
     }
 
-    @Override
     public Iterable<Reservation> getAllReservations() {
-        return null;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllReservations'");
     }
+    
 
 
 }

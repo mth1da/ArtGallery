@@ -3,28 +3,30 @@ package com.miage.app.services;
 import com.miage.app.Entity.User;
 
 public class InscriptionVisiteur implements Inscription {
-    @Override
+
     public User creeCompte() {
-        return null;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'creeCompte'");
     }
 
-    @Override
     public boolean verifCompteExiste(String email) {
-        return false;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'verifCompteExiste'");
     }
 
-    @Override
     public boolean mdpValide(String mdp) {
-        return false;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mdpValide'");
     }
 
-    @Override
     public void saveAccount(User user) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'saveAccount'");
     }
 
-    @Override
     public void deleteAccount(User user) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteAccount'");
     }
+    
 }

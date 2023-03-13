@@ -4,30 +4,32 @@ import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.OeuvreDAO;
 
 public class OeuvreBDD implements OeuvreDAO {
-    @Override
+
     public void createOeuvre(Oeuvre o) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createOeuvre'");
     }
 
-    @Override
     public void updateOeuvre(Oeuvre o) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateOeuvre'");
     }
 
-    @Override
     public void deleteOeuvre(Oeuvre o) {
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteOeuvre'");
     }
 
-    @Override
     public Oeuvre getOeuvreById(Oeuvre o) {
-        return null;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getOeuvreById'");
     }
 
-    @Override
     public Iterable<Oeuvre> getAllOeuvres() {
-        return null;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllOeuvres'");
     }
+    
 
 
 }
