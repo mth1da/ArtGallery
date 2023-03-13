@@ -10,22 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddb17758-6b2d-4461-a5f7-0abe64b013ad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Exposition/Expo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Fonctionnalitees/Authentification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Fonctionnalitees/Critique.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Fonctionnalitees/InsciptionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Fonctionnalitees/InscriptionProprio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Fonctionnalitees/InscriptionVisiteur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Oeuvre/Oeuvre.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Oeuvre/Pays.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Personne/Artiste.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Personne/Proprio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Personne/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Personne/Visiteur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Repertoire/Repertoire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +46,10 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="2MeYB1vM2fTyKzNDGBLHTuRRjdt" />
@@ -76,7 +66,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/merya/IdeaProjects/ArtGalleryClone/ArtGallery",
+    "last_opened_file_path": "C:/Users/mathi/OneDrive/Documenti/cours_L3/S6/aoo/ArtGallery",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -99,7 +89,7 @@
       <recent name="C:\Users\merya\IdeaProjects\ArtGallery\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.tomcat 10.1">
+  <component name="RunManager" selected="Application.Data">
     <configuration name="Data" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Data" />
       <module name="ArtGallery" />
@@ -401,6 +391,7 @@
       <workItem from="1678695271034" duration="870000" />
       <workItem from="1678696236234" duration="3941000" />
       <workItem from="1678704269480" duration="497000" />
+      <workItem from="1678712795202" duration="4371000" />
     </task>
     <servers />
   </component>
