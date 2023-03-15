@@ -1,8 +1,11 @@
 package com.miage.app.services;
 
 import com.miage.app.Entity.User;
+import com.miage.app.dao.UserDAO;
 
-public class InscriptionUser implements Inscription{
+public class InscriptionProprietaire implements Inscription{
+
+
     @Override
     public User creeCompte() {
         return null;
@@ -23,8 +26,4 @@ public class InscriptionUser implements Inscription{
 
     }
 
-    @Override
-    public void deleteAccount(User user) {
-
-    }
 }

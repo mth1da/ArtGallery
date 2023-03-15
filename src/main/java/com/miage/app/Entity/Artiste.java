@@ -2,7 +2,7 @@ package com.miage.app.Entity;
 
 import java.util.List;
 
-public abstract class Artiste {
+public class Artiste {
 
     private final int id;
 
@@ -44,10 +44,6 @@ public abstract class Artiste {
     public void addOeuvre(Oeuvre o){
         this.oeuvres.add(o);
     }
-
-    protected abstract void pesentationOeuvres();
-
-    protected abstract void presentationArtiste();
 
     public int getAge(){
         return this.age;
