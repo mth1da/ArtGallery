@@ -26,15 +26,14 @@ public class Servlet extends HttpServlet {
         String status = request.getParameter("status");
         out.println(status);
 
-        /**String email=request.getParameter("email");
-        String [] str=new String[5];
+        String email=request.getParameter("email");
+        String [] str=new String[3];
         str[0]=request.getParameter("name");
         str[1]=request.getParameter("firstname");
-        str[2]=request.getParameter("status");
-        str[3]=request.getParameter("password");
-        str[4]=request.getParameter("email");
-        UserDAO ust=new UserRepository();
+        str[2]=request.getParameter("password");
+        str[3]=request.getParameter("email");
+        UserDAO ust=new UserBDD();
         Inscription v=new InscriptionVisiteur(str,ust);
-        v.creeCompte();**/
+        v.creeCompte();
     }
 }

@@ -1,5 +1,6 @@
 package com.miage.app.dao.jdbc;
 
+import com.miage.app.Entity.Proprietaire;
 import com.miage.app.Entity.Reservation;
 import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
@@ -17,14 +18,14 @@ public class UserBDD extends DAOContext implements UserDAO{
     @Override
     public void createUser(User r) {
         connexion = DAOContext.getConnect();
-        String strSql="INSERT INTO VISITEUR (name,firstname,mail,status,password) VALUES (?,?,?,?,?)";
+        String strSql="INSERT INTO USER (firstname,lastname,email,password,status) VALUES (?,?,?,?,?)";
         try{
             st = connexion.prepareStatement(strSql);
-            st.setString(1, r.getNom());
-            st.setString(2, r.getPreNom());
+            st.setString(1, r.getPreNom());
+            st.setString(2, r.getNom());
             st.setString(3, r.getEmail());
-            st.setString(4,r.getType());
-            st.setString(5,r.getMdp());
+            st.setString(4,r.getMdp());
+            st.setString(5,r.getType());
             st.executeUpdate();
         }catch (Exception exception){
 
@@ -39,7 +40,7 @@ public class UserBDD extends DAOContext implements UserDAO{
     @Override
     public void deleteUser(User r) {
         connexion = DAOContext.getConnect();
-        String strSql="DELETE FROM VISITEUR WHERE mail= ?";
+        String strSql="DELETE FROM user WHERE email= ?";
         try{
             st = connexion.prepareStatement(strSql);
             st.setString(1, r.getEmail());
@@ -51,12 +52,18 @@ public class UserBDD extends DAOContext implements UserDAO{
     }
 
     public User creatingUserObject(ResultSet re) throws SQLException {
-        String name=re.getString("name");
+        User user=null;
+        String name=re.getString("lastname");
         String firstname=re.getString("firstname");
-        String mail=re.getString("mail");
-        String city=re.getString("city");
+        String mail=re.getString("email");
+        String status=re.getString("status");
         String password=re.getString("password");
-        User user=new Visiteur(name,firstname,mail,password);
+        if(status=="visiteur"){
+            user=new Visiteur(name,firstname,mail,password);
+        }else{
+            user=new Proprietaire(name,firstname,mail,password);
+        }
+
         return user;
     }
 
@@ -64,13 +71,13 @@ public class UserBDD extends DAOContext implements UserDAO{
     public User getUserById(int idUser) {
         User user=null;
         connexion = DAOContext.getConnect();
-        String strSql="select * FROM VISITEUR WHERE id= ?";
+        String strSql="select * FROM USER WHERE idUser= ?";
         try{
             st = connexion.prepareStatement(strSql);
             st.setInt(1, idUser);
             ResultSet re=st.executeQuery();
             while(re.next()){
-                user=creatingUserObject(re);
+                user=creatingObject(re);
             }
         }catch (Exception exception){
 
@@ -83,7 +90,7 @@ public class UserBDD extends DAOContext implements UserDAO{
     public User getUserByMail(String email) {
         User user=null;
         connexion = DAOContext.getConnect();
-        String strSql="select * FROM VISITEUR WHERE mail= ?";
+        String strSql="select * FROM USER WHERE email= ?";
         try{
             st = connexion.prepareStatement(strSql);
             st.setString(1, email);
@@ -102,17 +109,28 @@ public class UserBDD extends DAOContext implements UserDAO{
     public Iterable<User> getAllUser() {
         List<User> userList=new ArrayList<>();
         connexion = DAOContext.getConnect();
-        String strSql="select * FROM VISITEUR";
+        String strSql="select * FROM USER";
         try{
             st = connexion.prepareStatement(strSql);
             ResultSet re=st.executeQuery();
             while(re.next()){
-                User user=creatingUserObject(re);
+                User user=creatingObject(re);
                 userList.add(user);
             }
         }catch (Exception exception){
 
         }
         return userList;
+    }
+
+    @Override
+    protected User creatingObject(ResultSet re) throws SQLException {
+        String name=re.getString("lastname");
+        String firstname=re.getString("firstname");
+        String mail=re.getString("email");
+        String status=re.getString("status");
+        String password=re.getString("password");
+        User user=new Visiteur(name,firstname,mail,password);
+        return user;
     }
 }

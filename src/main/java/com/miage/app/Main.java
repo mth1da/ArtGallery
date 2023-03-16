@@ -12,16 +12,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args){
-        UserDAO u=new UserBDD();
-        User user=new Visiteur("kk","kkk","ivry","lefl@");
+      /**  UserDAO u=new UserBDD();
+        User user=new Visiteur("GHULALM","MDSFDF","ivry","OKKK");
         UserDAO dao=new UserBDD();
-    //    dao.createUser(user);
+       dao.createUser(user);
         dao.getUserById(1).displayUser();
       //  dao.deleteUser(user);
         Iterable<User> po=dao.getAllUser();
         for(User us:po){
             us.displayUser();
         }
+       **/
 
     }
 }

@@ -17,7 +17,7 @@ public class InscriptionVisiteur implements Inscription {
     public User creeCompte() {
         //appel les methodes pour verifier compte existe deja ou non mdp valide ...
        // tring nom, String prenom, String city, String mdp, String email
-        User user=new Visiteur(infoCompte[0],infoCompte[1],infoCompte[2],infoCompte[3],infoCompte[4]);
+        User user=new Visiteur(infoCompte[0],infoCompte[1],infoCompte[2],infoCompte[3]);
         saveAccount(user);
         return null;
     }
