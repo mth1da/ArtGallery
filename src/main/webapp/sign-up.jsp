@@ -41,14 +41,6 @@
       </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom03">City</label>
-      <input type="text" class="form-control" name="city" id="validationCustom03" placeholder="City" required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
-      </div>
-    </div>
     <div class="col-md-3 mb-3">
       <label for="validationCustom04">State</label>
       <input type="text" class="form-control" name="password" id="validationCustom04" placeholder="State" required>
@@ -69,6 +61,12 @@
       </div>
     </div>
   </div>
+    <label for="status">Status</label>
+    <select name="status" id="status">
+      <option value="proprietaire">Propriétaire</option>
+      <option value="visiteur">Visiteur</option>
+    </select>
+  <br>
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 

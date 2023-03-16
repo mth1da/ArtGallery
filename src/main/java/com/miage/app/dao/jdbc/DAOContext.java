@@ -8,11 +8,11 @@ import java.sql.SQLException;
 
 public class DAOContext {
 
-    protected static String dbURL="jdbc:mariadb://localhost:3308/artgallery";
-    protected static String dbPassWord="meryam";
+    protected static String dbURL="jdbc:mysql://localhost:3306/artGallery";
+    protected static String dbPassWord="";
     protected static String dbLogin="root";
 
-    protected static String driver="org.mariadb.jdbc.Driver";
+    protected static String driver="com.mysql.jdbc.Driver";
 
     public static Connection getConnect() {
         Connection con = null;

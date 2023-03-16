@@ -17,13 +17,13 @@ public class UserBDD extends DAOContext implements UserDAO{
     @Override
     public void createUser(User r) {
         connexion = DAOContext.getConnect();
-        String strSql="INSERT INTO VISITEUR (name,firstname,mail,city,password) VALUES (?,?,?,?,?)";
+        String strSql="INSERT INTO VISITEUR (name,firstname,mail,status,password) VALUES (?,?,?,?,?)";
         try{
             st = connexion.prepareStatement(strSql);
             st.setString(1, r.getNom());
             st.setString(2, r.getPreNom());
             st.setString(3, r.getEmail());
-            st.setString(4,r.getCity());
+            st.setString(4,r.getType());
             st.setString(5,r.getMdp());
             st.executeUpdate();
         }catch (Exception exception){
@@ -56,7 +56,7 @@ public class UserBDD extends DAOContext implements UserDAO{
         String mail=re.getString("mail");
         String city=re.getString("city");
         String password=re.getString("password");
-        User user=new Visiteur(name,firstname,mail,city,password);
+        User user=new Visiteur(name,firstname,mail,password);
         return user;
     }
 
