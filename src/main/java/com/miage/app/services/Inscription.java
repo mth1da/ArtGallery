@@ -7,10 +7,6 @@ public interface Inscription {
 
     public User creeCompte();
 
-    public static boolean compteExiste(String email){
-
-        return true;
-    }
     public static boolean verifCompteExiste(String email){
         return true;
     }

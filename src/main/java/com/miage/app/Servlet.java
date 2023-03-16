@@ -2,9 +2,12 @@ package com.miage.app;
 
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.DAOContext;
+import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.UserBDD;
+import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.dao.repository.UserRepository;
 import com.miage.app.services.Inscription;
+import com.miage.app.services.InscriptionProprietaire;
 import com.miage.app.services.InscriptionVisiteur;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -32,8 +35,17 @@ public class Servlet extends HttpServlet {
         out.println(str[2]);
         out.println(str[3]);
         out.println(status);
-        UserDAO ust=new UserBDD();
-        Inscription v=new InscriptionVisiteur(str,ust);
-        v.creeCompte();
+        if(status.equals("visiteur")){
+            UserDAO ust=new VisiteurBDD();
+            Inscription v=new InscriptionVisiteur(str,ust);
+            v.creeCompte();
+            out.println("visieittttttttttttttttsg okkk");
+        }else if(status.equals("proprietaire")){
+            UserDAO ust=new ProprietaireBDD();
+            Inscription v=new InscriptionProprietaire(str,ust);
+            v.creeCompte();
+            out.println("visieitttproporioooooooooooosg okkk");
+        }
+
     }
 }

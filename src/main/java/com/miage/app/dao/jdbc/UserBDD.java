@@ -10,14 +10,16 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserBDD extends DAOContext implements UserDAO{
+public abstract class UserBDD extends DAOContext implements UserDAO{
     Connection connexion=null;
     PreparedStatement st = null;
 
+    public UserBDD(){
+        this.connexion=DAOContext.getConnect();
+    }
 
     @Override
     public void createUser(User r) {
-        connexion = DAOContext.getConnect();
         String strSql="INSERT INTO USER (firstname,lastname,email,password,status) VALUES (?,?,?,?,?)";
         try{
             st = connexion.prepareStatement(strSql);
@@ -39,7 +41,6 @@ public class UserBDD extends DAOContext implements UserDAO{
 
     @Override
     public void deleteUser(User r) {
-        connexion = DAOContext.getConnect();
         String strSql="DELETE FROM user WHERE email= ?";
         try{
             st = connexion.prepareStatement(strSql);
@@ -51,26 +52,9 @@ public class UserBDD extends DAOContext implements UserDAO{
 
     }
 
-    public User creatingUserObject(ResultSet re) throws SQLException {
-        User user=null;
-        String name=re.getString("lastname");
-        String firstname=re.getString("firstname");
-        String mail=re.getString("email");
-        String status=re.getString("status");
-        String password=re.getString("password");
-        if(status=="visiteur"){
-            user=new Visiteur(name,firstname,mail,password);
-        }else{
-            user=new Proprietaire(name,firstname,mail,password);
-        }
-
-        return user;
-    }
-
     @Override
     public User getUserById(int idUser) {
         User user=null;
-        connexion = DAOContext.getConnect();
         String strSql="select * FROM USER WHERE idUser= ?";
         try{
             st = connexion.prepareStatement(strSql);
@@ -89,14 +73,13 @@ public class UserBDD extends DAOContext implements UserDAO{
     @Override
     public User getUserByMail(String email) {
         User user=null;
-        connexion = DAOContext.getConnect();
         String strSql="select * FROM USER WHERE email= ?";
         try{
             st = connexion.prepareStatement(strSql);
             st.setString(1, email);
             ResultSet re=st.executeQuery();
             while(re.next()){
-                user=creatingUserObject(re);
+                user=creatingObject(re);
             }
         }catch (Exception exception){
 
@@ -108,7 +91,6 @@ public class UserBDD extends DAOContext implements UserDAO{
     @Override
     public Iterable<User> getAllUser() {
         List<User> userList=new ArrayList<>();
-        connexion = DAOContext.getConnect();
         String strSql="select * FROM USER";
         try{
             st = connexion.prepareStatement(strSql);
@@ -123,14 +105,7 @@ public class UserBDD extends DAOContext implements UserDAO{
         return userList;
     }
 
-    @Override
-    protected User creatingObject(ResultSet re) throws SQLException {
-        String name=re.getString("lastname");
-        String firstname=re.getString("firstname");
-        String mail=re.getString("email");
-        String status=re.getString("status");
-        String password=re.getString("password");
-        User user=new Visiteur(name,firstname,mail,password);
-        return user;
-    }
+    protected abstract User creatingObject(ResultSet re) throws SQLException;
+
+
 }
