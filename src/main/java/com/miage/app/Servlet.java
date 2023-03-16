@@ -20,18 +20,18 @@ public class Servlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        PrintWriter out = response.getWriter();
-
         String status = request.getParameter("status");
-        out.println(status);
-
-        String email=request.getParameter("email");
-        String [] str=new String[3];
+        String [] str=new String[4];
         str[0]=request.getParameter("name");
         str[1]=request.getParameter("firstname");
         str[2]=request.getParameter("password");
         str[3]=request.getParameter("email");
+        PrintWriter out = response.getWriter();
+        out.println(str[0]);
+        out.println(str[1]);
+        out.println(str[2]);
+        out.println(str[3]);
+        out.println(status);
         UserDAO ust=new UserBDD();
         Inscription v=new InscriptionVisiteur(str,ust);
         v.creeCompte();

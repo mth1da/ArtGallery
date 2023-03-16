@@ -7,11 +7,19 @@ public interface Inscription {
 
     public User creeCompte();
 
-    public boolean verifCompteExiste(String email);
+    public static boolean compteExiste(String email){
 
-    public boolean mdpValide(String mdp);
+        return true;
+    }
+    public static boolean verifCompteExiste(String email){
+        return true;
+    }
 
-    public void saveAccount(User user);
+    public static boolean mdpValide(String mdp){
+        return  true;
+    }
+
+    public abstract void saveAccount(User user);
 
 
 

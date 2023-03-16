@@ -23,16 +23,6 @@ public class InscriptionVisiteur implements Inscription {
     }
 
     @Override
-    public boolean verifCompteExiste(String email) {
-        return false;
-    }
-
-    @Override
-    public boolean mdpValide(String mdp) {
-        return false;
-    }
-
-    @Override
     public void saveAccount(User user) {
         userDAO.createUser(user);
     }

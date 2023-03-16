@@ -42,7 +42,7 @@
     </div>
   </div>
     <div class="col-md-3 mb-3">
-      <label for="validationCustom04">State</label>
+      <label for="validationCustom04">Password</label>
       <input type="text" class="form-control" name="password" id="validationCustom04" placeholder="State" required>
       <div class="invalid-feedback">
         Please provide a valid state.
