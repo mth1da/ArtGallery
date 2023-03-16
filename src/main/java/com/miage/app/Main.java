@@ -13,7 +13,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args){
         UserDAO u=new UserBDD();
-        User user=new Visiteur("kk","kkk","ivry","metz","lefl@");
+        User user=new Visiteur("kk","kkk","ivry","lefl@");
         UserDAO dao=new UserBDD();
     //    dao.createUser(user);
         dao.getUserById(1).displayUser();

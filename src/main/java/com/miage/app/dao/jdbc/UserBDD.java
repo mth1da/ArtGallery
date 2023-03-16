@@ -10,20 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserBDD extends DAOContext implements UserDAO{
+    Connection connexion=null;
+    PreparedStatement st = null;
 
-    public UserBDD(){
-        this.connexion=DAOContext.getConnect();
-    }
 
     @Override
     public void createUser(User r) {
-        String strSql="INSERT INTO VISITEUR (name,firstname,mail,city,password) VALUES (?,?,?,?,?)";
+        connexion = DAOContext.getConnect();
+        String strSql="INSERT INTO VISITEUR (name,firstname,mail,status,password) VALUES (?,?,?,?,?)";
         try{
             st = connexion.prepareStatement(strSql);
             st.setString(1, r.getNom());
             st.setString(2, r.getPreNom());
             st.setString(3, r.getEmail());
-            st.setString(4,r.getCity());
+            st.setString(4,r.getType());
             st.setString(5,r.getMdp());
             st.executeUpdate();
         }catch (Exception exception){
@@ -38,6 +38,7 @@ public class UserBDD extends DAOContext implements UserDAO{
 
     @Override
     public void deleteUser(User r) {
+        connexion = DAOContext.getConnect();
         String strSql="DELETE FROM VISITEUR WHERE mail= ?";
         try{
             st = connexion.prepareStatement(strSql);
@@ -49,16 +50,27 @@ public class UserBDD extends DAOContext implements UserDAO{
 
     }
 
+    public User creatingUserObject(ResultSet re) throws SQLException {
+        String name=re.getString("name");
+        String firstname=re.getString("firstname");
+        String mail=re.getString("mail");
+        String city=re.getString("city");
+        String password=re.getString("password");
+        User user=new Visiteur(name,firstname,mail,password);
+        return user;
+    }
+
     @Override
     public User getUserById(int idUser) {
         User user=null;
+        connexion = DAOContext.getConnect();
         String strSql="select * FROM VISITEUR WHERE id= ?";
         try{
             st = connexion.prepareStatement(strSql);
             st.setInt(1, idUser);
             ResultSet re=st.executeQuery();
             while(re.next()){
-                user=creatingObject(re);
+                user=creatingUserObject(re);
             }
         }catch (Exception exception){
 
@@ -70,13 +82,14 @@ public class UserBDD extends DAOContext implements UserDAO{
     @Override
     public User getUserByMail(String email) {
         User user=null;
+        connexion = DAOContext.getConnect();
         String strSql="select * FROM VISITEUR WHERE mail= ?";
         try{
             st = connexion.prepareStatement(strSql);
             st.setString(1, email);
             ResultSet re=st.executeQuery();
             while(re.next()){
-                user=creatingObject(re);
+                user=creatingUserObject(re);
             }
         }catch (Exception exception){
 
@@ -88,28 +101,18 @@ public class UserBDD extends DAOContext implements UserDAO{
     @Override
     public Iterable<User> getAllUser() {
         List<User> userList=new ArrayList<>();
+        connexion = DAOContext.getConnect();
         String strSql="select * FROM VISITEUR";
         try{
             st = connexion.prepareStatement(strSql);
             ResultSet re=st.executeQuery();
             while(re.next()){
-                User user=creatingObject(re);
+                User user=creatingUserObject(re);
                 userList.add(user);
             }
         }catch (Exception exception){
 
         }
         return userList;
-    }
-
-    @Override
-    protected User creatingObject(ResultSet re) throws SQLException {
-        String name=re.getString("name");
-        String firstname=re.getString("firstname");
-        String mail=re.getString("mail");
-        String city=re.getString("city");
-        String password=re.getString("password");
-        User user=new Visiteur(name,firstname,mail,city,password);
-        return user;
     }
 }
