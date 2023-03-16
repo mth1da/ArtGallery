@@ -2,17 +2,19 @@ package com.miage.app.dao.jdbc;
 
 import jakarta.servlet.ServletContext;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class DAOContext {
+public abstract class DAOContext {
 
     protected static String dbURL="jdbc:mariadb://localhost:3308/artgallery";
     protected static String dbPassWord="meryam";
     protected static String dbLogin="root";
-
     protected static String driver="org.mariadb.jdbc.Driver";
+
+    protected abstract Object creatingObject(ResultSet re) throws SQLException ;
+
+    protected Connection connexion=null;
+    protected PreparedStatement st = null;
 
     public static Connection getConnect() {
         Connection con = null;

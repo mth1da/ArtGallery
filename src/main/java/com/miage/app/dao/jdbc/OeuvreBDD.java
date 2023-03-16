@@ -3,7 +3,15 @@ package com.miage.app.dao.jdbc;
 import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.OeuvreDAO;
 
-public class OeuvreBDD implements OeuvreDAO {
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class OeuvreBDD extends DAOContext implements OeuvreDAO {
+
+    public OeuvreBDD(){
+        this.connexion=DAOContext.getConnect();
+    }
+
     @Override
     public void createOeuvre(Oeuvre o) {
 
@@ -30,4 +38,8 @@ public class OeuvreBDD implements OeuvreDAO {
     }
 
 
+    @Override
+    protected Oeuvre creatingObject(ResultSet re) throws SQLException {
+        return null;
+    }
 }

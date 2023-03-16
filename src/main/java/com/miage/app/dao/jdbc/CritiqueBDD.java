@@ -3,7 +3,17 @@ package com.miage.app.dao.jdbc;
 import com.miage.app.Entity.Critique;
 import com.miage.app.dao.CritiqueDAO;
 
-public class CritiqueBDD implements CritiqueDAO {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class CritiqueBDD extends DAOContext implements CritiqueDAO {
+
+    public CritiqueBDD(){
+        this.connexion=DAOContext.getConnect();
+    }
+
     @Override
     public void createCritique(Critique cr) {
 
@@ -36,4 +46,8 @@ public class CritiqueBDD implements CritiqueDAO {
     }
 
 
+    @Override
+    protected Critique creatingObject(ResultSet re) throws SQLException  {
+        return null;
+    }
 }
