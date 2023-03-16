@@ -1,5 +1,11 @@
 package com.miage.app;
 
+import com.miage.app.dao.UserDAO;
+import com.miage.app.dao.jdbc.DAOContext;
+import com.miage.app.dao.jdbc.UserBDD;
+import com.miage.app.dao.repository.UserRepository;
+import com.miage.app.services.Inscription;
+import com.miage.app.services.InscriptionVisiteur;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -11,17 +17,18 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "Servlet", urlPatterns = "/servlet")
 public class Servlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name=request.getParameter("name");
-        String email=request.getParameter("lastName");
-        PrintWriter out =response.getWriter();
-        out.println(name);
-        out.println(email);
+        String email=request.getParameter("email");
+        String [] str=new String[5];
+        str[0]=request.getParameter("name");
+        str[1]=request.getParameter("firstname");
+        str[2]=request.getParameter("city");
+        str[3]=request.getParameter("password");
+        str[4]=request.getParameter("email");
+        UserDAO ust=new UserRepository();
+        Inscription v=new InscriptionVisiteur(str,ust);
+        v.creeCompte();
     }
 }

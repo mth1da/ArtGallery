@@ -1,4 +1,4 @@
 package com.miage.app.Entity;
 
-public abstract class Reservation {
+public class Reservation {
 }

@@ -1,32 +1,41 @@
 package com.miage.app.services;
 
 import com.miage.app.Entity.User;
+import com.miage.app.Entity.Visiteur;
+import com.miage.app.dao.UserDAO;
 
 public class InscriptionVisiteur implements Inscription {
+    private String[] infoCompte;
+    private UserDAO userDAO;
 
+    public InscriptionVisiteur(String[] str,UserDAO userDAO){
+        this.infoCompte=str;
+        this.userDAO=userDAO;
+    }
+
+    @Override
     public User creeCompte() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'creeCompte'");
+        //appel les methodes pour verifier compte existe deja ou non mdp valide ...
+       // tring nom, String prenom, String city, String mdp, String email
+        User user=new Visiteur(infoCompte[0],infoCompte[1],infoCompte[2],infoCompte[3],infoCompte[4]);
+        saveAccount(user);
+        return null;
     }
 
+    @Override
     public boolean verifCompteExiste(String email) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'verifCompteExiste'");
+        return false;
     }
 
+    @Override
     public boolean mdpValide(String mdp) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mdpValide'");
+        return false;
     }
 
+    @Override
     public void saveAccount(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'saveAccount'");
+        userDAO.createUser(user);
     }
 
-    public void deleteAccount(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteAccount'");
-    }
-    
+
 }
