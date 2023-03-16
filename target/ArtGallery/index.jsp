@@ -13,7 +13,8 @@
 <body>
 <h1>Welcome to the ArtGallery</h1>
 <a href="sign-up.jsp">login user</a>
-<a href="logout">login admin</a>
+<a href="login.jsp">se connecter</a>
 <a href="">login propriétaire</a>
+
 </body>
 </html>

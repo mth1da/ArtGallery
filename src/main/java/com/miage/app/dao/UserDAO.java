@@ -11,8 +11,10 @@ public interface UserDAO {
 
     public abstract void deleteUser(User r);
 
-    public abstract Reservation getUserById(int id);
+    public abstract User getUserById(int id);
 
-    public abstract Iterable<Reservation> getAllUser();
+    public abstract User getUserByMail(String mail);
+
+    public abstract Iterable<User> getAllUser();
 
 }

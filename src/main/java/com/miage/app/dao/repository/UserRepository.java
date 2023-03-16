@@ -25,12 +25,18 @@ public class UserRepository implements UserDAO {
     }
 
     @Override
-    public Reservation getUserById(int id) {
+    public User getUserById(int id) {
         return null;
     }
 
     @Override
-    public Iterable<Reservation> getAllUser() {
+    public User getUserByMail(String mail) {
+        return null;
+    }
+
+
+    @Override
+    public Iterable<User> getAllUser() {
         return null;
     }
 }
