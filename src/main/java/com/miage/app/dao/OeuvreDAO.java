@@ -12,7 +12,7 @@ public interface OeuvreDAO {
 
     public abstract void deleteOeuvre(Oeuvre o);
 
-    public abstract Oeuvre getOeuvreById(Oeuvre o);
+    public abstract Oeuvre getOeuvreById(int o);
 
     public abstract Iterable<Oeuvre> getAllOeuvres();
 }

@@ -28,7 +28,7 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
     }
 
     @Override
-    public Oeuvre getOeuvreById(Oeuvre o) {
+    public Oeuvre getOeuvreById(int o) {
         return null;
     }
 
