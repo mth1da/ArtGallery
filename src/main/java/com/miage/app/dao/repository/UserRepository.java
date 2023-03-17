@@ -21,7 +21,7 @@ public class UserRepository implements UserDAO {
 
     @Override
     public void deleteUser(User r) {
-
+        us.remove(r);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class UserRepository implements UserDAO {
 
     @Override
     public Iterable<User> getAllUser() {
-        return null;
+        return us;
     }
 }

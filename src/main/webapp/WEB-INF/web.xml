@@ -8,8 +8,19 @@
   <servlet-name>Servlet</servlet-name>
   <servlet-class>com.miage.app.Servlet</servlet-class>
 </servlet>
+  <servlet>
+    <servlet-name>register</servlet-name>
+    <servlet-class>com.miage.app.UserServlet</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>Servlet</servlet-name>
     <url-pattern>/servlet</url-pattern>
   </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>register</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+
 </web-app>
