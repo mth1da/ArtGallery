@@ -24,6 +24,8 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String status = request.getParameter("status");
+        PrintWriter out = response.getWriter();
+
         String [] str=new String[4];
         str[0]=request.getParameter("name");
         str[1]=request.getParameter("firstname");
@@ -38,6 +40,7 @@ public class Servlet extends HttpServlet {
             Inscription v=new InscriptionProprietaire(str,ust);
             v.creeCompte();
         }
+        out.println("firstname");
 
     }
 }
