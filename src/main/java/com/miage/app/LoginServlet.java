@@ -37,8 +37,6 @@ public class LoginServlet extends HttpServlet{
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        out.println(email);
-        out.println(password);
 
         try {
             Class.forName("org.mariadb.jdbc.Driver");

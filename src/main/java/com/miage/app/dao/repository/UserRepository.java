@@ -1,5 +1,6 @@
 package com.miage.app.dao.repository;
 
+import com.miage.app.Entity.Oeuvre;
 import com.miage.app.Entity.Reservation;
 import com.miage.app.Entity.User;
 import com.miage.app.dao.UserDAO;
@@ -26,12 +27,24 @@ public class UserRepository implements UserDAO {
 
     @Override
     public User getUserById(int id) {
-        return null;
+        User user=null;
+        for(User currUser : us){
+            if(currUser.getId()==id){
+                user=currUser;
+            }
+        }
+        return user;
     }
 
     @Override
     public User getUserByMail(String mail) {
-        return null;
+        User user=null;
+        for(User currUser : us){
+            if(currUser.getEmail().equals(mail)){
+                user=currUser;
+            }
+        }
+        return user;
     }
 
 

@@ -2,6 +2,7 @@ package com.miage.app.dao.repository;
 
 import com.miage.app.Entity.Artiste;
 import com.miage.app.Entity.Critique;
+import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.CritiqueDAO;
 
 import java.util.ArrayList;
@@ -33,7 +34,13 @@ public class CritiqueRepository implements CritiqueDAO {
 
     @Override
     public Critique getCritiqueById(int id) {
-        return critiqueList.get(id);
+        Critique critique=null;
+        for(Critique currCritique : critiqueList){
+            if(currCritique.getIdCritique()==id){
+                critique=currCritique;
+            }
+        }
+        return critique;
     }
 
     @Override

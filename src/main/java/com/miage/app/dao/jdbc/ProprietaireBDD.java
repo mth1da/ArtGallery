@@ -17,7 +17,6 @@ public class ProprietaireBDD extends UserBDD{
         String name=re.getString("lastname");
         String firstname=re.getString("firstname");
         String mail=re.getString("email");
-        String status=re.getString("status");
         String password=re.getString("password");
         User user=new Proprietaire(name,firstname,mail,password);
         return user;
