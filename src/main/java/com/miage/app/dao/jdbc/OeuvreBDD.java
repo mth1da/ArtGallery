@@ -3,33 +3,43 @@ package com.miage.app.dao.jdbc;
 import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.OeuvreDAO;
 
-public class OeuvreBDD implements OeuvreDAO {
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+public class OeuvreBDD extends DAOContext implements OeuvreDAO {
+
+    public OeuvreBDD(){
+        this.connexion=DAOContext.getConnect();
+    }
+
+    @Override
     public void createOeuvre(Oeuvre o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createOeuvre'");
+
     }
 
+    @Override
     public void updateOeuvre(Oeuvre o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateOeuvre'");
+
     }
 
+    @Override
     public void deleteOeuvre(Oeuvre o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteOeuvre'");
+
     }
 
-    public Oeuvre getOeuvreById(Oeuvre o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOeuvreById'");
+    @Override
+    public Oeuvre getOeuvreById(int o) {
+        return null;
     }
 
+    @Override
     public Iterable<Oeuvre> getAllOeuvres() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllOeuvres'");
+        return null;
     }
-    
 
 
+    @Override
+    protected Oeuvre creatingObject(ResultSet re) throws SQLException {
+        return null;
+    }
 }

@@ -1,4 +1,8 @@
 package com.miage.app.services;
 
-public interface Connexion {
+public class Connexion {
+
+
+
+
 }

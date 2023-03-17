@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Proprietaire extends Visiteur{
     private List<Oeuvre> mesOeuvres=new ArrayList<Oeuvre>();
-    private String condi;
 
-    public Proprietaire(String nom, String prenom,String pseudo,String mdp,String email,String conditions) {
-        super(nom, prenom, pseudo,mdp,email);
-        this.condi=conditions;
+
+    public Proprietaire(String nom, String prenom,String mdp,String email) {
+        super(nom, prenom, mdp,email);
+
     }
 
     @Override
@@ -29,5 +29,10 @@ public class Proprietaire extends Visiteur{
 
     public List<Oeuvre> getOeuvres(){
         return this.mesOeuvres;
+    }
+
+    @Override
+    public String getType() {
+        return "proprietaire";
     }
 }

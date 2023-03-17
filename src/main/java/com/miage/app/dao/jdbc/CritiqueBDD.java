@@ -3,37 +3,51 @@ package com.miage.app.dao.jdbc;
 import com.miage.app.Entity.Critique;
 import com.miage.app.dao.CritiqueDAO;
 
-public class CritiqueBDD implements CritiqueDAO {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+public class CritiqueBDD extends DAOContext implements CritiqueDAO {
+
+    public CritiqueBDD(){
+        this.connexion=DAOContext.getConnect();
+    }
+
+    @Override
     public void createCritique(Critique cr) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createCritique'");
+
     }
 
+    @Override
     public void updateCritiqueNote(Critique cr) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateCritiqueNote'");
+
     }
 
+    @Override
     public void updateCritiqueComment(Critique cr) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateCritiqueComment'");
+
     }
 
+
+    @Override
     public void deleteCritique(Critique cr) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteCritique'");
+
     }
 
+    @Override
     public Critique getCritiqueById(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCritiqueById'");
+        return null;
     }
 
+    @Override
     public Iterable<Critique> getAllCritiques() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllCritiques'");
+        return null;
     }
-    
 
+
+    @Override
+    protected Critique creatingObject(ResultSet re) throws SQLException  {
+        return null;
+    }
 }

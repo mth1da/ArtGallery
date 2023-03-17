@@ -1,17 +1,22 @@
 package com.miage.app.services;
 
 import com.miage.app.Entity.User;
+import com.miage.app.dao.UserDAO;
 
 public interface Inscription {
 
     public User creeCompte();
 
-    public boolean verifCompteExiste(String email);
+    public static boolean verifCompteExiste(String email){
+        return true;
+    }
 
-    public boolean mdpValide(String mdp);
+    public static boolean mdpValide(String mdp){
+        return  true;
+    }
 
-    public void saveAccount(User user);
+    public abstract void saveAccount(User user);
 
-    public void deleteAccount(User user);
+
 
 }

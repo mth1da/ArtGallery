@@ -1,12 +1,14 @@
 package com.miage.app.dao.repository;
 
 import com.miage.app.Entity.Artiste;
+import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.ArtisteDAO;
+import com.miage.app.dao.DataStorageDAO;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArtisteRepository implements ArtisteDAO {
+public class ArtisteRepository implements ArtisteDAO, DataStorageDAO {
     private static List<Artiste> artisteList=new ArrayList<>();
     @Override
     public void createArtiste(Artiste artiste) {
@@ -31,5 +33,30 @@ public class ArtisteRepository implements ArtisteDAO {
     @Override
     public List<Artiste> getAllArtistes() {
         return artisteList;
+    }
+
+    @Override
+    public void create(Object object) {
+
+    }
+
+    @Override
+    public void update(Object object) {
+
+    }
+
+    @Override
+    public void delete(Object object) {
+
+    }
+
+    @Override
+    public Oeuvre getObjectById(Object object) {
+        return null;
+    }
+
+    @Override
+    public Iterable<Object> getAllObjects() {
+        return null;
     }
 }

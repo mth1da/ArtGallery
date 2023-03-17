@@ -3,15 +3,13 @@ package com.miage.app.Entity;
 public abstract class  User {
 private String nom;
 private String prenom;
-private String pseudo;
 private String mdp;
 private final String EMAIL;
 private boolean estConnecter;
 
-protected User(String nom,String prenom,String pseudo,String mdp,String email){
+protected User(String nom,String prenom,String mdp,String email){
         this.nom=nom;
         this.prenom=prenom;
-        this.pseudo=pseudo;
         this.mdp=mdp;
         this.EMAIL=email;
         }
@@ -26,10 +24,6 @@ public String getNom(){
 
 public String getPreNom(){
         return this.prenom;
-        }
-
-public String getPseudo(){
-        return this.pseudo;
         }
 
 public String getMdp(){
@@ -58,5 +52,5 @@ public void setMdp(String mdp){
         this.mdp=mdp;
 }
 
-
+public abstract String getType();
 }

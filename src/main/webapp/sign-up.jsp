@@ -23,45 +23,31 @@
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom02">Last name</label>
-      <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" name="lastName" value="Otto" required>
+      <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" name="firstname" value="Otto" required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
-      <label for="validationCustomUsername">Username</label>
+      <label for="validationCustomUsername">email</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroupPrepend">@</span>
         </div>
-        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+        <input type="text" class="form-control" id="validationCustomUsername" placeholder="email" name="email" aria-describedby="inputGroupPrepend" required>
         <div class="invalid-feedback">
-          Please choose a username.
+          Please choose a email.
         </div>
       </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom03">City</label>
-      <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
-      </div>
-    </div>
     <div class="col-md-3 mb-3">
-      <label for="validationCustom04">State</label>
-      <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+      <label for="validationCustom04">Password</label>
+      <input type="text" class="form-control" name="password" id="validationCustom04" placeholder="State" required>
       <div class="invalid-feedback">
         Please provide a valid state.
       </div>
     </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationCustom05">Zip</label>
-      <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-      <div class="invalid-feedback">
-        Please provide a valid zip.
-      </div>
     </div>
   </div>
   <div class="form-group">
@@ -75,6 +61,12 @@
       </div>
     </div>
   </div>
+    <label for="status">Status</label>
+    <select name="status" id="status">
+      <option value="proprietaire">Propriétaire</option>
+      <option value="visiteur">Visiteur</option>
+    </select>
+  <br>
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 
