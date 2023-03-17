@@ -4,7 +4,7 @@ public class Connexion {
 
 
 
-    public boolean emailValide(String email);
+    public static boolean emailValide(String email){return true;}
     public static boolean mdpValide(String mdp){
         return  true;
     }
