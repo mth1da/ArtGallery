@@ -29,22 +29,14 @@ public class Servlet extends HttpServlet {
         str[1]=request.getParameter("firstname");
         str[2]=request.getParameter("password");
         str[3]=request.getParameter("email");
-        PrintWriter out = response.getWriter();
-        out.println(str[0]);
-        out.println(str[1]);
-        out.println(str[2]);
-        out.println(str[3]);
-        out.println(status);
         if(status.equals("visiteur")){
             UserDAO ust=new VisiteurBDD();
             Inscription v=new InscriptionVisiteur(str,ust);
             v.creeCompte();
-            out.println("visieittttttttttttttttsg okkk");
         }else if(status.equals("proprietaire")){
             UserDAO ust=new ProprietaireBDD();
             Inscription v=new InscriptionProprietaire(str,ust);
             v.creeCompte();
-            out.println("visieitttproporioooooooooooosg okkk");
         }
 
     }

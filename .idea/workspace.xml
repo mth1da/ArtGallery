@@ -10,16 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddb17758-6b2d-4461-a5f7-0abe64b013ad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/OeuvreClassLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlet/Bar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlet/CCRun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlet/Foo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/OeuvreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/OeuvreDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/OeuvreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/OeuvreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Connexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Servlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/OeuvreClassLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/UpdateProfil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/UpdateProfil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlet/Bar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlet/CCRun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlet/Foo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <recent name="C:\Users\merya\IdeaProjects\ArtGallery\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Tomcat Server.tomcat 10.1">
     <configuration name="Data" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Data" />
       <module name="ArtGallery" />
@@ -406,7 +405,8 @@
       <workItem from="1678696236234" duration="3941000" />
       <workItem from="1678704269480" duration="497000" />
       <workItem from="1678902133896" duration="9565000" />
-      <workItem from="1678956781590" duration="34277000" />
+      <workItem from="1678956781590" duration="34839000" />
+      <workItem from="1679039092209" duration="5534000" />
     </task>
     <servers />
   </component>
