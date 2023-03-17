@@ -16,11 +16,11 @@ public class Main {
     public static void main(String[] args){
 
 
-        User user=new Visiteur("amel","naloufi","okkk","OKKK");
+        /**User user=new Visiteur("amel","naloufi","okkk","OKKK");**/
         UserDAO dao=new ProprietaireBDD();
-       dao.createUser(user);
+        /**dao.createUser(user);**/
 
-       /**
+
 
         dao.getUserById(1).displayUser();
       //  dao.deleteUser(user);
@@ -28,7 +28,7 @@ public class Main {
         for(User us:po){
             us.displayUser();
         }
-*/
+
 
     }
 }
