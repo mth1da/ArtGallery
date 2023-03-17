@@ -29,6 +29,7 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
             st.setString(4,r.getMdp());
             st.setString(5,r.getType());
             st.executeUpdate();
+            r.setId(getUserIdBymail(r.getEmail()));
         }catch (Exception exception){
 
         }
@@ -67,6 +68,22 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
 
         }
         System.out.println(user);
+        return user;
+    }
+
+    public int getUserIdBymail(String email){
+        int user=0;
+        String strSql="select idUser FROM USER WHERE email= ?";
+        try{
+            st = connexion.prepareStatement(strSql);
+            st.setString(1, email);
+            ResultSet re=st.executeQuery();
+            while(re.next()){
+                user= re.getInt("id");
+            }
+        }catch (Exception exception){
+
+        }
         return user;
     }
 
