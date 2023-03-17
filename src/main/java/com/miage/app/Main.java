@@ -9,21 +9,16 @@ import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.CritiqueBDD;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.UserBDD;
-import com.miage.app.services.Connexion;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args){
 
-        /**
-        User user=new Proprietaire("aqse","MDSFDF","ivry","OKKK");
+
+        /**User user=new Visiteur("amel","naloufi","okkk","OKKK");**/
         UserDAO dao=new ProprietaireBDD();
-       dao.createUser(user);
+        /**dao.createUser(user);**/
 
 
 
@@ -33,7 +28,7 @@ public class Main {
         for(User us:po){
             us.displayUser();
         }
-*/
+
 
     }
 }
