@@ -28,14 +28,17 @@ L'inscription d'un user à l'autre se fait de manière différente car ils n'ont
 modularité : chaque
 
 
-abstraction :
+abstraction : le système est découper en composant indépendant avec des classes différentes pour les inscriptions la connexion ainsi que la modification du profil et l'accés à la bdd.
 
 
-polymorphisme :
+polymorphisme : Utilisation du polymorphisme avec les ovverride et le principe de ségrégation des interfaces.
 
 
-injection de dépendance :
+injection de dépendance : On le retrouve beaucoup dans les classes représentant les serives tq l'inscription qui possède un attribut UserDao qui est une interface.
+C'est donc grace à cela qu'on peut choisir d'utiliser la bdd mysql ou bien la bdd avec les listes.
 
+
+encapsulation : les attributs des classes sont tous privé et récupérer par des getter et modifier par des setter.
 
 
 
@@ -50,10 +53,16 @@ principe de ouvert fermé :  pour ajouter un nouveau type d'oeuvre ou un nouveau
 principe de liskov : 
 
 
-principe de ségrégation des interfaces : 
+principe de ségrégation des interfaces : Nous utilisons les abstractions les plus hautes afin d'utiliser toutes les fonctionnalité nécessaire.
 
 
-principe de inversion de dépendance : 
+principe de inversion de dépendance : On le retrouve beaucoup dans les classes représentant les serives tq l'inscription qui possède un attribut UserDao qui est une interface.
+C'est donc grace à cela qu'on peut choisir d'utiliser la bdd mysql ou bien la bdd avec les listes. Les classes inscriptions dépendent d'une abstraction de la bdd et non pas directement de la bdd.
+
+
+
+
+
 
 
 
