@@ -1,5 +1,6 @@
 package com.miage.app;
 
+import com.miage.app.dao.jdbc.DAOContext;
 import com.miage.app.services.Connexion;
 
 import java.io.IOException;
@@ -39,27 +40,26 @@ public class LoginServlet extends HttpServlet{
         String password = request.getParameter("password");
 
         try {
-            Class.forName("org.mariadb.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3308/artGallery","root","meryam");
+
+            DAOContext.getConnect();
+            //Charger le driver mysql
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //Création de la connexion
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/artGallery","root","");
 
             PreparedStatement stm;
             String strSql="select * FROM USER WHERE email=? AND password=? ";
 
-                stm = con.prepareStatement(strSql);
-                stm.setString(1, email);
-                stm.setString(2, password);
+            stm = con.prepareStatement(strSql);
+            stm.setString(1, email);
+            stm.setString(2, password);
 
-                ResultSet re=stm.executeQuery();
+            ResultSet re=stm.executeQuery();
 
+            Connexion.connexionValide(response, re);
 
-            if(re.next()) {
-                //si l'email et le mdp sont bon alors on est dirigé vers la page Home.html
-
-                response.sendRedirect("Home.jsp");
-            } else {
-                //mdp et email incorrect
-                out.println("Mot de passe et email incorrects...");
-            }
+            out.println("Mot de passe et email incorrects...");
 
             //ici on ferme la connection
             con.close();
