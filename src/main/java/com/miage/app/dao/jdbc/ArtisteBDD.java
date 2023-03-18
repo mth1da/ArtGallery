@@ -28,7 +28,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             st.setInt(4, artiste.getAge());
             st.setString(5, artiste.getStatus());
             st.executeUpdate();
-            //DAOContext.getDeconnect();
+            DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -49,7 +49,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             st = connexion.prepareStatement(strSql);
             st.setInt(1, artiste.getId());
             st.executeUpdate();
-            //DAOContext.getDeconnect();
+            DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -67,7 +67,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             while(re.next()){
                 artiste=creatingObject(re);
             }
-            //DAOContext.getDeconnect();
+            DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }

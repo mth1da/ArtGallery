@@ -30,7 +30,7 @@ public class Main {
             us.displayUser();
         }
 
-        Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/artGallery","root","");
+        Connection con= DriverManager.getConnection("jdbc:mariadb://localhost:3308/artGallery","root","meryam");
         Statement statement=con.createStatement();
         ResultSet re=statement.executeQuery("Select * from user");
 

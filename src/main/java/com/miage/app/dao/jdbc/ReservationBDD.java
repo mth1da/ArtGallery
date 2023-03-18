@@ -25,7 +25,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             st.setDouble(3, r.getPrice());
             st.setInt(4,r.getIdUser());
             st.executeUpdate();
-            //DAOContext.getDeconnect();
+            DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -45,7 +45,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             st = connexion.prepareStatement(strSql);
             st.setInt(1, r.getIdReservation());
             st.executeUpdate();
-            //DAOContext.getDeconnect();
+            DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -66,7 +66,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             while(re.next()){
                 reservation=creatingObject(re);
             }
-            //DAOContext.getDeconnect();
+            DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -85,7 +85,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
                 Reservation reservation=creatingObject(re);
                 reservationList.add(reservation);
             }
-            //DAOContext.getDeconnect();
+            DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
