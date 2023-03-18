@@ -19,7 +19,7 @@ Dans le projet on retrouve plusieurs répertoire :
       l'ajout de nouvelles oeuvres, la modification de profil ...
 
 
-modularité :
+modularité : \n
 abstraction :
 polymorphisme :
 injection de dépendance :
