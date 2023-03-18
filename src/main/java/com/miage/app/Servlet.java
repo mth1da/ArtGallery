@@ -9,13 +9,12 @@ import com.miage.app.services.InscriptionVisiteur;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
-@WebServlet(name = "ServletUser", urlPatterns = "/svUser")
-public class SignupServletUser extends HttpServlet {
-
+@WebServlet(name = "servlet", value = "/srv")
+public class Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String status = request.getParameter("status");

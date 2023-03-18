@@ -18,7 +18,7 @@ public class Connexion {
 
     public  String connexionValide(String email,String mdp){
         if(!verifCompteExiste(email)){
-            return "Votre compte n'existe pas, veuillez vous connecter";
+            return "Votre compte n'existe pas, veuillez vous inscrire";
         }
         if(!mdpValide(email,mdp)){
             return "Mot de passe invalide";

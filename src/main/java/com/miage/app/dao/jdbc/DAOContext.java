@@ -10,12 +10,14 @@ public abstract class DAOContext {
     protected static String dbURL="jdbc:mariadb://localhost:3308/artGallery";
     protected static String dbPassWord="meryam";
     protected static String dbLogin="root";
-    protected static String driver="org.mariadb.jdbc.Driver";
+
 
     protected abstract Object creatingObject(ResultSet re) throws SQLException ;
 
     protected static Connection connexion=null;
     protected PreparedStatement st = null;
+
+    protected static String driver="org.mariadb.jdbc.Driver";
 
     public static Connection getConnect() {
         try {
@@ -30,6 +32,9 @@ public abstract class DAOContext {
         }
         return null;
     }
+
+
+
 
     public static void getDeconnect() throws SQLException {
         connexion.close();
