@@ -50,7 +50,7 @@ principe de responsabilité unique :    chaque classe a une seul responsabilité
 principe de ouvert fermé :  pour ajouter un nouveau type d'oeuvre ou un nouveau type de user il suffit d'étendre la classe user avec une nouvelle classe qui va extend de user ou oeuvre. Donc pas besoin de modifier le code à  l'intérieur des classes.
 
 
-principe de liskov : 
+principe de liskov : Les classes sont substituable car nous utilisons des abstractions dans les variables des méthodes et constructeur afin d'avoir des objets substituables.
 
 
 principe de ségrégation des interfaces : Nous utilisons les abstractions les plus hautes afin d'utiliser toutes les fonctionnalité nécessaire.
