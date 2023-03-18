@@ -57,9 +57,7 @@ public class LoginServlet extends HttpServlet{
 
             ResultSet re=stm.executeQuery();
 
-            if(Connexion.connexionValide(re)) {
-                response.sendRedirect("Home.jsp");
-            }
+            Connexion.connexionValide(response, re);
 
             out.println("Mot de passe et email incorrects...");
 

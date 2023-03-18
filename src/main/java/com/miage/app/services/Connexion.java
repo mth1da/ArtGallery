@@ -1,15 +1,17 @@
 package com.miage.app.services;
 
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Connexion {
 
-    public static boolean connexionValide(ResultSet re) throws SQLException {
+    public static void connexionValide(HttpServletResponse response, ResultSet re) throws SQLException, IOException {
         if(re.next()) {
-            return true;
+            response.sendRedirect("Home.jsp");
         }
-        return false;
     }
 
     public static boolean emailValide(String email){return true;}
