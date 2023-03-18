@@ -50,12 +50,15 @@ public class LoginServlet extends HttpServlet{
 
             //Préparer l'état de connexion
             PreparedStatement stm;
+
+            //Requête permettant la selection du user ayant l'email et le mot de passe correspondant
             String strSql="select * FROM USER WHERE email=? AND password=? ";
 
             stm = con.prepareStatement(strSql);
             stm.setString(1, email);
             stm.setString(2, password);
 
+            //Execution de la requête
             ResultSet re=stm.executeQuery();
 
             //Vérifie si l'email et le mot de passe correspondent

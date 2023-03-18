@@ -13,7 +13,9 @@ public class Data {
         //Création d'une requête de sélection
         ResultSet re=statement.executeQuery("Select * from user");
 
+        //Tant que l'on parcourt les données de la table
         while(re.next()){
+            //On affiche la récupération du nom
             System.out.println(re.getString("firstName"));
         }
 
