@@ -25,10 +25,10 @@ l'ajout de nouvelles oeuvres, la modification de profil.
 L'inscription d'un user à l'autre se fait de manière différente car ils n'ont pas tous forcément les memes attributs. Donc on a crée une interface inscription implémenter par une classe InscriptionVisiteur et InscriptionPropriétaire.
 
 
-modularité : chaque
+modularité : le système est découper en composant indépendant avec des classes différentes pour les inscriptions la connexion ainsi que la modification du profil et l'accés à la bdd.
 
 
-abstraction : le système est découper en composant indépendant avec des classes différentes pour les inscriptions la connexion ainsi que la modification du profil et l'accés à la bdd.
+abstraction : Les détails inutiles sont masquée car utilisation de nombreuse interface et classe abstraite
 
 
 polymorphisme : Utilisation du polymorphisme avec les ovverride et le principe de ségrégation des interfaces.
