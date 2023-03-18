@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   <servlet-name>Servlet</servlet-name>
-  <servlet-class>com.miage.app.Servlet</servlet-class>
+  <servlet-class>com.miage.app.servlets.Servlet</servlet-class>
 </servlet>
   <servlet-mapping>
     <servlet-name>Servlet</servlet-name>

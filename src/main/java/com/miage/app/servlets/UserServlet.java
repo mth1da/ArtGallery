@@ -1,4 +1,4 @@
-package com.miage.app;
+package com.miage.app.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,56 +1,74 @@
 package com.miage.app.Entity;
 
 public abstract class  User {
-private String nom;
-private String prenom;
-private String mdp;
-private final String EMAIL;
-private boolean estConnecter;
+        private int id;
+        private String nom;
+        private String prenom;
+        private String mdp;
+        private final String email;
+        private boolean estConnecte;
 
-protected User(String nom,String prenom,String mdp,String email){
-        this.nom=nom;
-        this.prenom=prenom;
-        this.mdp=mdp;
-        this.EMAIL=email;
+        protected User(String nom,String prenom,String mdp,String email)
+        {
+                this.nom=nom;
+                this.prenom=prenom;
+                this.mdp=mdp;
+                this.email=email;
         }
 
-public void setConnexion(boolean resp){
-        this.estConnecter=resp;
+        public void setConnexion(boolean resp)
+        {
+                this.estConnecte=resp;
         }
 
-public String getNom(){
-        return this.nom;
+        public int getId()
+        {
+                return this.id;
         }
 
-public String getPreNom(){
-        return this.prenom;
+        public String getNom()
+        {
+                return this.nom;
         }
 
-public String getMdp(){
-        return this.mdp;
+        public void setNom(String nom)
+        {
+                this.nom=nom;
         }
 
-public String getEmail(){
-        return this.EMAIL;
+        public String getPreNom()
+        {
+                return this.prenom;
         }
 
-public boolean getInfoConnexion(){
-        return this.estConnecter;
+        public void setPrenom(String prenom)
+        {
+                this.prenom=prenom;
         }
 
-public abstract void displayUser();
+        public String getMdp()
+        {
+                return this.mdp;
+        }
 
-public void setNom(String nom){
-        this.nom=nom;
-}
+        public void setMdp(String mdp)
+        {
+                this.mdp=mdp;
+        }
 
-public void setPrenom(String prenom){
-        this.prenom=prenom;
-}
+        public String getEmail()
+        {
+                return this.email;
+        }
 
-public void setMdp(String mdp){
-        this.mdp=mdp;
-}
+        public abstract String getType();
 
-public abstract String getType();
+        public boolean getInfoConnexion()
+        {
+                return this.estConnecte;
+        }
+
+        public abstract void displayUser();
+
+
 }

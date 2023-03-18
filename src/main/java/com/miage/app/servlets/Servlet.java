@@ -1,4 +1,4 @@
-package com.miage.app;
+package com.miage.app.servlets;
 
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.DAOContext;
