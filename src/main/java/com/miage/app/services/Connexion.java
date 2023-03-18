@@ -1,10 +1,9 @@
 package com.miage.app.services;
 
-public class Connexion {
+public interface Connexion {
 
 
 
-    public static boolean emailValide(String email){return true;}
     public static boolean mdpValide(String mdp){
         return  true;
     }
@@ -12,4 +11,5 @@ public class Connexion {
         return true;
     }
 
+    public boolean emailValide(String email);
 }
