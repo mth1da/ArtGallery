@@ -12,7 +12,7 @@
   <title>Title</title>
 </head>
 <body>
-<form method="post" action="servlet" class="needs-validation" novalidate>
+<form id="myForm" method="post" action="" class="needs-validation" novalidate>
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">First name</label>
@@ -77,12 +77,19 @@
     window.addEventListener('load', function() {
       // Fetch all the forms we want to apply custom Bootstrap validation styles to
       let forms = document.getElementsByClassName('needs-validation');
+      let actions=document.getElementById('status').value;
+
       // Loop over them and prevent submission
       let validation = Array.prototype.filter.call(forms, function(form) {
         form.addEventListener('submit', function(event) {
           if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
+          }
+          if(actions==="proprietaire"){
+              form.action="servletProprietaire";
+          }if(actions==="visiteur"){
+              form.actions="servletVisiteur";
           }
           form.classList.add('was-validated');
         }, false);

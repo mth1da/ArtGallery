@@ -10,10 +10,11 @@ import com.miage.app.dao.jdbc.CritiqueBDD;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.UserBDD;
 
+import java.sql.*;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws SQLException {
 
 
         /**User user=new Visiteur("amel","naloufi","okkk","OKKK");**/
@@ -28,6 +29,16 @@ public class Main {
         for(User us:po){
             us.displayUser();
         }
+
+        Connection con= DriverManager.getConnection("jdbc:mariadb://localhost:3308/artGallery","root","meryam");
+        Statement statement=con.createStatement();
+        ResultSet re=statement.executeQuery("Select * from user");
+
+        while(re.next()){
+            System.out.println(re.getString("email"));
+        }
+
+        con.close();
 
 
     }

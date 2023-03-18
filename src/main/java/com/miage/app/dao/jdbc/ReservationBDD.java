@@ -13,21 +13,20 @@ import java.util.List;
 
 public class ReservationBDD extends DAOContext implements ReservationDAO {
 
-    public ReservationBDD(){
-        this.connexion=DAOContext.getConnect();
-    }
-
     @Override
     public void createReservation(Reservation r) {
+
         String strSql="INSERT INTO RESERVATION (idReservation,date,price,idUser) VALUES (?,?,?,?)";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, r.getIdReservation());
             st.setDate(2, (Date) r.getDate());
             st.setDouble(3, r.getPrice());
             st.setInt(4,r.getIdUser());
             st.executeUpdate();
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
 
@@ -42,10 +41,12 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
     public void deleteReservation(Reservation r) {
         String strSql="DELETE FROM user WHERE idReservation= ?";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, r.getIdReservation());
             st.executeUpdate();
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
 
@@ -58,13 +59,15 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
         Reservation reservation=null;
         String strSql="select * FROM RESERVATION WHERE idReservation= ?";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, id);
             ResultSet re=st.executeQuery();
             while(re.next()){
                 reservation=creatingObject(re);
             }
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
         return reservation;
@@ -75,13 +78,15 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
         List<Reservation> reservationList=new ArrayList<>();
         String strSql="select * FROM RESERVATION";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             ResultSet re=st.executeQuery();
             while(re.next()){
                 Reservation reservation=creatingObject(re);
                 reservationList.add(reservation);
             }
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
         return reservationList;
@@ -94,7 +99,6 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
         Date date=re.getDate("date");
         double price=re.getDouble("price");
         int idUser=re.getInt("idUser");
-        Reservation reservation=new Reservation(idReservation,date,price,idUser);
-        return reservation;
+        return new Reservation(idReservation,date,price,idUser);
     }
 }
