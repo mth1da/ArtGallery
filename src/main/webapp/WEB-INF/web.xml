@@ -5,22 +5,29 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>Servlet</servlet-name>
-    <servlet-class>com.miage.app.SignupServlet</servlet-class>
+    <servlet-name>ServletPro</servlet-name>
+    <servlet-class>com.miage.app.SignupServletProprietaire</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.miage.app.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ServletVis</servlet-name>
+    <servlet-class>com.miage.app.SignupServletVisiteur</servlet-class>
+  </servlet>
 
   <servlet-mapping>
-    <servlet-name>Servlet</servlet-name>
-    <url-pattern>/servlet</url-pattern>
+    <servlet-name>ServletPro</servlet-name>
+    <url-pattern>/servletProprietaire</url-pattern>
   </servlet-mapping>
-
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletVis</servlet-name>
+    <url-pattern>/servletVisiteur</url-pattern>
   </servlet-mapping>
 
 </web-app>
