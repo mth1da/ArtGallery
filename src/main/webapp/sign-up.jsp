@@ -84,7 +84,6 @@
             event.preventDefault();
             event.stopPropagation();
           }
-          if()
           form.classList.add('was-validated');
         }, false);
       });

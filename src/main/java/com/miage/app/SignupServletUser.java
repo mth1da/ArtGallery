@@ -2,8 +2,10 @@ package com.miage.app;
 
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
+import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.services.Inscription;
 import com.miage.app.services.InscriptionProprietaire;
+import com.miage.app.services.InscriptionVisiteur;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -16,24 +18,22 @@ public class SignupServletUser extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String status = request.getParameter("status");
+        PrintWriter out = response.getWriter();
+        out.println(status);
         String [] str=new String[4];
         str[0]=request.getParameter("name");
         str[1]=request.getParameter("firstname");
         str[2]=request.getParameter("password");
         str[3]=request.getParameter("email");
-        String status=request.getParameter("status");
-        String rep="";
-        UserDAO ust=null;
-        Inscription v=null;
         if(status.equals("visiteur")){
-            ust=new ProprietaireBDD();
-            v=new InscriptionProprietaire(str,ust);
+            UserDAO ust=new VisiteurBDD();
+            Inscription v=new InscriptionVisiteur(str,ust);
+            v.creeCompte();
         }else if(status.equals("proprietaire")){
-            ust=new ProprietaireBDD();
-            v=new InscriptionProprietaire(str,ust);
+            UserDAO ust=new ProprietaireBDD();
+            Inscription v=new InscriptionProprietaire(str,ust);
+            v.creeCompte();
         }
-        rep=v.creeCompte();
-        PrintWriter out = response.getWriter();
-        out.println(rep);
     }
 }
