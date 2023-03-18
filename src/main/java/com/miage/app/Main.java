@@ -20,8 +20,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        /**
-        User user=new Proprietaire("aqse","MDSFDF","ivry","OKKK");
+/*
+        User user=new Proprietaire("nom","prenom","1234","OKKK");
         UserDAO dao=new ProprietaireBDD();
        dao.createUser(user);
 
@@ -34,6 +34,5 @@ public class Main {
             us.displayUser();
         }
 */
-
     }
 }

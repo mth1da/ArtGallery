@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class UserBDD extends DAOContext implements UserDAO{
-    Connection connexion=null;
+    Connection connexion;
     PreparedStatement st = null;
 
     public UserBDD(){

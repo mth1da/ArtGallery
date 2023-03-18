@@ -17,12 +17,7 @@
     </data-source>
     <data-source name="@localhost" uuid="8df3b802-0538-42e7-bfce-06aa9d50bd41">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
-      <user-name>root</user-name>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="schema" negative="1" />
-        </introspection-scope>
-      </schema-mapping>
+      <schema-mapping />
     </data-source>
     <data-source name="art@localhost" uuid="3315bc9d-843d-4093-9eb5-54ff37750a69">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
