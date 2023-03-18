@@ -7,6 +7,7 @@ public abstract class Oeuvre {
     private final int idArtiste;
     private double price;
 
+    //Constructeur
     protected Oeuvre(int id, String name, int idProprio, int idArtiste,double p) {
         this.id = id;
         this.name = name;

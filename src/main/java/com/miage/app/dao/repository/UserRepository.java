@@ -27,6 +27,8 @@ public class UserRepository implements UserDAO {
 
     @Override
     public User getUserById(int id) {
+
+        //Retourne l'utilisateur à partir de l'id
         User user=null;
         for(User currUser : us){
             if(currUser.getId()==id){

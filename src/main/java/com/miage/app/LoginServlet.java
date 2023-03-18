@@ -48,6 +48,7 @@ public class LoginServlet extends HttpServlet{
             //Création de la connexion
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/artGallery","root","");
 
+            //Préparer l'état de connexion
             PreparedStatement stm;
             String strSql="select * FROM USER WHERE email=? AND password=? ";
 
@@ -57,6 +58,7 @@ public class LoginServlet extends HttpServlet{
 
             ResultSet re=stm.executeQuery();
 
+            //Vérifie si l'email et le mot de passe correspondent
             Connexion.connexionValide(response, re);
 
             out.println("Mot de passe et email incorrects...");

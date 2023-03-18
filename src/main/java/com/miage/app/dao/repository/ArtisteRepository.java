@@ -25,6 +25,8 @@ public class ArtisteRepository implements ArtisteDAO {
 
     @Override
     public Artiste getArtisteById(int id) {
+
+        //Retourne l'artiste à partir de l'id
         Artiste artiste=null;
         for(Artiste currArtiste : artisteList){
             if(currArtiste.getId()==id){

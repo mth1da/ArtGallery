@@ -10,7 +10,7 @@ public class Reservation {
     private double price;
     private int idUser;
 
-
+    //Constructeur
     public Reservation(int idReservation,Date date,double p,int idUser) {
         this.idReservation = idReservation;
         this.date=date;

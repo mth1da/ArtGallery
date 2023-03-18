@@ -13,6 +13,7 @@ public class Artiste {
     private final int age;
     private List<Oeuvre> oeuvres;
 
+    //Constructeur
     public Artiste(int id, String status, String nom, String prenom, int age){
         this.id=id;
         this.status=status;

@@ -26,6 +26,8 @@ public class OeuvreRepository implements OeuvreDAO {
 
     @Override
     public Oeuvre getOeuvreById(int o) {
+
+        //Retourne l'oeuvre à partir de l'id
         Oeuvre oeuvre=null;
         for(Oeuvre currOeuvre : oeuvreList){
             if(currOeuvre.getId()==o){

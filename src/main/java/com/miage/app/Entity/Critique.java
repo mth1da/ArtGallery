@@ -7,6 +7,7 @@ public class Critique {
     private final int oeuvre;
     private final int user;
 
+    //Constructeur
     public Critique(int idCritique, String commentaire, int note, int oeuvre, int user) {
         this.idCritique = idCritique;
         this.commentaire = commentaire;

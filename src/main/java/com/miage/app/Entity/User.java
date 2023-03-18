@@ -8,6 +8,7 @@ private final String EMAIL;
 private int ID;
 private boolean estConnecter;
 
+//Constructeur
 protected User(String nom,String prenom,String mdp,String email){
         this.nom=nom;
         this.prenom=prenom;

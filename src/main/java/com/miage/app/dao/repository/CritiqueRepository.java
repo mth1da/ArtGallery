@@ -34,6 +34,8 @@ public class CritiqueRepository implements CritiqueDAO {
 
     @Override
     public Critique getCritiqueById(int id) {
+
+        //Retourne la critique à partir de l'id
         Critique critique=null;
         for(Critique currCritique : critiqueList){
             if(currCritique.getIdCritique()==id){

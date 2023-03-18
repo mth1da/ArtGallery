@@ -8,8 +8,11 @@ import java.sql.SQLException;
 
 public class Connexion {
 
+    //Vérifie si la connexion est valide
     public static void connexionValide(HttpServletResponse response, ResultSet re) throws SQLException, IOException {
+        //Parcourt les données de la table user
         if(re.next()) {
+            //Redirection vers la page home si authentification réussie
             response.sendRedirect("Home.jsp");
         }
     }

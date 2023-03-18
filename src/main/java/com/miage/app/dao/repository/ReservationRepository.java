@@ -27,6 +27,8 @@ public class ReservationRepository implements ReservationDAO {
 
     @Override
     public Reservation getReservationById(int id) {
+
+        //Retourne la réservation à partir de l'id
         Reservation reservation=null;
         for(Reservation currReservation : reservationList){
             if(currReservation.getIdReservation()==id){

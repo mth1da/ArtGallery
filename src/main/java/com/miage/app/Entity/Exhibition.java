@@ -11,6 +11,7 @@ public class Exhibition {
     private int maxVisitorNb;
     private String rooms;
 
+    //Constructeur
     public Exhibition(int id,String name,Date start,Date end,String pl,int nbrMax,String rooms){
 
     }
