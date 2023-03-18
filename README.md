@@ -19,18 +19,35 @@ Dans le projet on retrouve plusieurs répertoire :
       l'ajout de nouvelles oeuvres, la modification de profil ...
 
 
-modularité : \n
+modularité : 
+
+
 abstraction :
+
+
 polymorphisme :
+
+
 injection de dépendance :
+
+
 
 SOLID :
 
 principe de responsabilité unique :
+
+
 principe de ouvert fermé :
+
+
 principe de 
+
+
 principe de ségrégation des interfaces
+
+
 principe de inversion de dépendance
+
 
 
 
