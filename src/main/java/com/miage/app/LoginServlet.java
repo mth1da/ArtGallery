@@ -1,5 +1,6 @@
 package com.miage.app;
 
+import com.miage.app.dao.jdbc.DAOContext;
 import com.miage.app.services.Connexion;
 
 import java.io.IOException;
@@ -39,6 +40,8 @@ public class LoginServlet extends HttpServlet{
         String password = request.getParameter("password");
 
         try {
+
+            DAOContext.getConnect();
             //Charger le driver mysql
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -48,21 +51,17 @@ public class LoginServlet extends HttpServlet{
             PreparedStatement stm;
             String strSql="select * FROM USER WHERE email=? AND password=? ";
 
-                stm = con.prepareStatement(strSql);
-                stm.setString(1, email);
-                stm.setString(2, password);
+            stm = con.prepareStatement(strSql);
+            stm.setString(1, email);
+            stm.setString(2, password);
 
-                ResultSet re=stm.executeQuery();
+            ResultSet re=stm.executeQuery();
 
-
-            if(re.next()) {
-                //si l'email et le mdp sont bon alors on est dirigé vers la page Home.html
-
+            if(Connexion.connexionValide(re)) {
                 response.sendRedirect("Home.jsp");
-            } else {
-                //mdp et email incorrect
-                out.println("Mot de passe et email incorrects...");
             }
+
+            out.println("Mot de passe et email incorrects...");
 
             //ici on ferme la connection
             con.close();
