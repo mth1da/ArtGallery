@@ -52,4 +52,9 @@ public class UserRepository implements UserDAO {
     public Iterable<User> getAllUser() {
         return us;
     }
+
+    @Override
+    public boolean getUserConnection(String email, String password) {
+        return true;
+    }
 }

@@ -54,7 +54,11 @@
                    placeholder="Enter password" />
             <label class="form-label" for="form3Example4" >Password</label>
           </div>
-
+          <label for="status">Status</label>
+          <select name="status" id="status">
+            <option value="proprietaire">Propriétaire</option>
+            <option value="visiteur">Visiteur</option>
+          </select>
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
@@ -65,6 +69,7 @@
             </div>
             <a href="#!" class="text-body">Forgot password?</a>
           </div>
+
 
           <div class="text-center text-lg-start mt-4 pt-2">
 

@@ -17,4 +17,5 @@ public interface UserDAO {
 
     public abstract Iterable<User> getAllUser();
 
+    public abstract boolean getUserConnection(String email,String password);
 }

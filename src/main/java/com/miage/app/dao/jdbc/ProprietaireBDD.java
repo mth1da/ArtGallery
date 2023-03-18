@@ -98,4 +98,5 @@ public class ProprietaireBDD extends UserBDD{
         User user=new Proprietaire(name,firstname,mail,password);
         return user;
     }
+
 }

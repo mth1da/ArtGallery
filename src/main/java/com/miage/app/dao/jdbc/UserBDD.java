@@ -75,6 +75,24 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
         return userList;
     }
 
+    @Override
+    public boolean getUserConnection(String email, String password) {
+        String strSql="select * FROM USER WHERE email= ? AND password= ?";
+        try {
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(strSql);
+            st.setString(1, email);
+            st.setString(2, password);
+            ResultSet re=st.executeQuery();
+            if(re.next()) {
+                return true;
+            }
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        return true;
+    }
+
     protected abstract Iterable<User> getAllUserByStatus();
 
     protected abstract User creatingObject(ResultSet re) throws SQLException;

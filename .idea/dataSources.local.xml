@@ -2,8 +2,18 @@
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-223.8617.56">
     <data-source name="artgallery@localhost" uuid="3ed9795d-f641-401f-bbc4-2e229da19558">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
-      <schema-mapping />
+      <database-info product="MySQL" version="8.0.27" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MYSQL" exact-version="8.0.27" exact-driver-version="3.0">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" negative="1" />
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
     <data-source name="@localhost" uuid="8df3b802-0538-42e7-bfce-06aa9d50bd41">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
@@ -14,22 +24,12 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="artGallery@localhost" uuid="3315bc9d-843d-4093-9eb5-54ff37750a69">
-      <database-info product="MySQL" version="8.0.30" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.30" exact-driver-version="8.0">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
-      <user-name>root</user-name>
+    <data-source name="art@localhost" uuid="3315bc9d-843d-4093-9eb5-54ff37750a69">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <schema-mapping />
     </data-source>
     <data-source name="@localhost 3" uuid="6b24c025-f02f-4ba5-bec1-fd91843d012d">
-      <database-info product="MySQL" version="8.0.30" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.30" exact-driver-version="8.0">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
-      <user-name>root</user-name>
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <schema-mapping />
     </data-source>
   </component>

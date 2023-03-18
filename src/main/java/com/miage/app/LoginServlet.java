@@ -1,6 +1,9 @@
 package com.miage.app;
 
+import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.DAOContext;
+import com.miage.app.dao.jdbc.ProprietaireBDD;
+import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.services.Connexion;
 
 import java.io.IOException;
@@ -32,40 +35,24 @@ public class LoginServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-
+        String status=request.getParameter("status");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
-        try {
-
-            DAOContext.getConnect();
-            //Charger le driver mysql
-            Class.forName("com.mysql.jdbc.Driver");
-
-            //Création de la connexion
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/artGallery","root","");
-
-            PreparedStatement stm;
-            String strSql="select * FROM USER WHERE email=? AND password=? ";
-
-            stm = con.prepareStatement(strSql);
-            stm.setString(1, email);
-            stm.setString(2, password);
-
-            ResultSet re=stm.executeQuery();
-
-            Connexion.connexionValide(response, re);
-
-            out.println("Mot de passe et email incorrects...");
-
-            //ici on ferme la connection
-            con.close();
-
-        } catch(Exception e){
-            System.out.println(e.getMessage());
+        UserDAO userDAO=null;
+        if(status.equals("visiteur")){
+            userDAO=new VisiteurBDD();
+        }else if(status.equals("proprietaire")){
+            userDAO=new ProprietaireBDD();
+        }
+        Connexion con=new Connexion(userDAO);
+        String rep=con.connexionValide(email,password);
+        if(rep.equals("")){
+            out.println("Connexion réussi");
+            response.sendRedirect("Home.jsp");
+        }else{
+            out.println(rep);
         }
 
     }
