@@ -24,7 +24,7 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
             st.setString(4,r.getMdp());
             st.setString(5,r.getType());
             st.executeUpdate();
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -48,7 +48,7 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
             while(re.next()){
                 user=creatingObject(re);
             }
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -68,7 +68,7 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
                 User user=creatingObject(re);
                 userList.add(user);
             }
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }

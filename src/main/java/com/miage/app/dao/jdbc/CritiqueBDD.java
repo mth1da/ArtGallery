@@ -28,7 +28,7 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
             st.setInt(4, cr.getOeuvre());
             st.setInt(5, cr.getUser());
             st.executeUpdate();
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -54,7 +54,7 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
             st = connexion.prepareStatement(strSql);
             st.setInt(1, cr.getIdCritique());
             st.executeUpdate();
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -72,7 +72,7 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
             while(re.next()){
                 critique=creatingObject(re);
             }
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -91,7 +91,7 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
                 Critique critique=creatingObject(re);
                 critiqueList.add(critique);
             }
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }

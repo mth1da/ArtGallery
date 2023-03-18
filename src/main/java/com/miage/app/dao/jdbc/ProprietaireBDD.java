@@ -23,7 +23,7 @@ public class ProprietaireBDD extends UserBDD{
             st.setString(1, r.getEmail());
             st.setString(2, "proprietaire");
             st.executeUpdate();
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -42,7 +42,7 @@ public class ProprietaireBDD extends UserBDD{
             while(re.next()){
                 user= re.getInt("id");
             }
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -62,7 +62,7 @@ public class ProprietaireBDD extends UserBDD{
             while(re.next()){
                 user=creatingObject(re);
             }
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
@@ -82,7 +82,7 @@ public class ProprietaireBDD extends UserBDD{
                 User user=creatingObject(re);
                 userList.add(user);
             }
-            DAOContext.getDeconnect();
+            //DAOContext.getDeconnect();
         }catch (Exception ignored){
 
         }
