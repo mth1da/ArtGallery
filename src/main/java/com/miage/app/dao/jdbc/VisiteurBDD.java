@@ -18,7 +18,7 @@ public class VisiteurBDD extends UserBDD{
         String mail=re.getString("email");
         String status=re.getString("status");
         String password=re.getString("password");
-        User user=new Visiteur(name,firstname,mail,password);
+        User user=new Visiteur(name,firstname,mail,password,status);
         return user;
     }
 

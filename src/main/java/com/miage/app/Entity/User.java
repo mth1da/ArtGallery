@@ -6,14 +6,17 @@ public abstract class  User {
         private String prenom;
         private String mdp;
         private final String email;
+
+        private String status;
         private boolean estConnecte;
 
-        protected User(String nom,String prenom,String mdp,String email)
+        protected User(String nom,String prenom,String mdp,String email, String status)
         {
                 this.nom=nom;
                 this.prenom=prenom;
                 this.mdp=mdp;
                 this.email=email;
+                this.status=status;
         }
 
         public void setConnexion(boolean resp)
@@ -59,6 +62,16 @@ public abstract class  User {
         public String getEmail()
         {
                 return this.email;
+        }
+
+        public String getStatus()
+        {
+                return this.status;
+        }
+
+        public void setStatus(String status)
+        {
+                this.status=status;
         }
 
         public abstract String getType();

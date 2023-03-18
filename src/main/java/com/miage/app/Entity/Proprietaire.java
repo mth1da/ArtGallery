@@ -7,8 +7,8 @@ public class Proprietaire extends Visiteur{
     private List<Oeuvre> mesOeuvres=new ArrayList<Oeuvre>();
 
 
-    public Proprietaire(String nom, String prenom,String mdp,String email) {
-        super(nom, prenom, mdp,email);
+    public Proprietaire(String nom, String prenom,String mdp,String email, String status) {
+        super(nom, prenom, mdp,email, status);
 
     }
 

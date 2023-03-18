@@ -2,8 +2,8 @@ package com.miage.app.Entity;
 
 public class Visiteur extends User{
 
-    public Visiteur(String nom, String prenom, String mdp, String email) {
-        super(nom, prenom, mdp, email);
+    public Visiteur(String nom, String prenom, String mdp, String email, String status) {
+        super(nom, prenom, mdp, email, status);
     }
 
     @Override

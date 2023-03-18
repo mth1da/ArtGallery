@@ -1,10 +1,18 @@
-<%--
+<%@ page import="com.miage.app.Entity.User" %><%--
   Created by IntelliJ IDEA.
   User: mathi
   Date: 18/03/2023
-  Time: 11:45
+  Time: 9:45
   To change this template use File | Settings | File Templates.
 --%>
+
+<%
+    User user = (User) session.getAttribute("currentUser");
+    if (user == null) {
+        response.sendRedirect("login_page.jsp");
+    }
+%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,18 +20,20 @@
     <title>Modifier Mon Profil</title>
 </head>
 <body>
-    <form method="post" action="servlet" class="needs-validation" novalidate>
+    <form method="post" action="edit-servlet" class="needs-validation" novalidate>
         <div class="form-row">
+
             <div class="col-md-4 mb-3">
                 <label for="validationCustom01">First name</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" name="name" value="Mark" required>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" name="firstname" value="<%= user.getPreNom()%>" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
             </div>
+
             <div class="col-md-4 mb-3">
                 <label for="validationCustom02">Last name</label>
-                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" name="firstname" value="Otto" required>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" name="lastname" value="<%= user.getNom()%>" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -34,22 +44,25 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                     </div>
-                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="email" name="email" aria-describedby="inputGroupPrepend" required>
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="email" name="email" aria-describedby="inputGroupPrepend" value="<%= user.getEmail()%>" required>
                     <div class="invalid-feedback">
-                        Please choose a email.
+                        Please choose an email.
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-3 mb-3">
             <label for="validationCustom04">Password</label>
-            <input type="text" class="form-control" name="password" id="validationCustom04" placeholder="State" required>
+            <input type="text" class="form-control" name="password" id="validationCustom04" placeholder="Password"  value="<%= user.getMdp()%>" required>
             <div class="invalid-feedback">
                 Please provide a valid state.
             </div>
         </div>
-        </div>
-        </div>
+        <label for="status">Status</label>
+        <select name="status" id="status">
+            <option value="proprietaire">Propriétaire</option>
+            <option value="visiteur">Visiteur</option>
+        </select>
         <div class="form-group">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -61,13 +74,8 @@
                 </div>
             </div>
         </div>
-        <label for="status">Status</label>
-        <select name="status" id="status">
-            <option value="proprietaire">Propriétaire</option>
-            <option value="visiteur">Visiteur</option>
-        </select>
         <br>
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <button class="btn btn-primary" type="submit">Sauvegarder les modifications</button>
     </form>
 
     <script>

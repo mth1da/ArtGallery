@@ -18,13 +18,14 @@ public class InscriptionProprietaire implements Inscription{
     public User creeCompte() {
         //appel les methodes pour verifier compte existe deja ou non mdp valide ...
         // tring nom, String prenom, String city, String mdp, String email
-        User user=new Proprietaire(infoCompte[0],infoCompte[1],infoCompte[2],infoCompte[3]);
+        User user=new Proprietaire(infoCompte[0],infoCompte[1],infoCompte[2],infoCompte[3], infoCompte[4]);
         saveAccount(user);
         return null;
     }
 
     @Override
-    public void saveAccount(User user) {
+    public void saveAccount(User user)
+    {
         userDAO.createUser(user);
     }
 
