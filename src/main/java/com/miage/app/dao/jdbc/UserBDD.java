@@ -12,8 +12,6 @@ import java.util.List;
 
 public abstract class UserBDD extends DAOContext implements UserDAO{
 
-
-
     @Override
     public void createUser(User r) {
         String strSql="INSERT INTO USER (firstname,lastname,email,password,status) VALUES (?,?,?,?,?)";
@@ -26,7 +24,6 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
             st.setString(4,r.getMdp());
             st.setString(5,r.getType());
             st.executeUpdate();
-            r.setId(getUserIdBymail(r.getEmail()));
             DAOContext.getDeconnect();
         }catch (Exception ignored){
 
@@ -35,21 +32,6 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
 
     @Override
     public void updateUser(User r) {
-
-    }
-
-    @Override
-    public void deleteUser(User r) {
-        String strSql="DELETE FROM user WHERE email= ?";
-        try{
-            DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            st.setString(1, r.getEmail());
-            st.executeUpdate();
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
-        }
 
     }
 
@@ -72,42 +54,6 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
         return user;
     }
 
-    public int getUserIdBymail(String email){
-        int user=0;
-        String strSql="select idUser FROM USER WHERE email= ?";
-        try{
-            DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            st.setString(1, email);
-            ResultSet re=st.executeQuery();
-            while(re.next()){
-                user= re.getInt("id");
-            }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
-        }
-        return user;
-    }
-
-    @Override
-    public User getUserByMail(String email) {
-        User user=null;
-        String strSql="select * FROM USER WHERE email= ?";
-        try{
-            DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            st.setString(1, email);
-            ResultSet re=st.executeQuery();
-            while(re.next()){
-                user=creatingObject(re);
-            }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
-        }
-        return user;
-    }
 
     @Override
     public Iterable<User> getAllUser() {
@@ -127,6 +73,8 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
         }
         return userList;
     }
+
+    protected abstract Iterable<User> getAllUserByStatus();
 
     protected abstract User creatingObject(ResultSet re) throws SQLException;
 
