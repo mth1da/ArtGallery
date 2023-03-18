@@ -60,6 +60,7 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
         try{
             st = connexion.prepareStatement(strSql);
             st.setInt(1, idUser);
+
             ResultSet re=st.executeQuery();
             while(re.next()){
                 user=creatingObject(re);

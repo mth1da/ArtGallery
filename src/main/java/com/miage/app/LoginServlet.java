@@ -39,8 +39,11 @@ public class LoginServlet extends HttpServlet{
         String password = request.getParameter("password");
 
         try {
-            Class.forName("org.mariadb.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3308/artGallery","root","meryam");
+            //Charger le driver mysql
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //Création de la connexion
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/artGallery","root","");
 
             PreparedStatement stm;
             String strSql="select * FROM USER WHERE email=? AND password=? ";
