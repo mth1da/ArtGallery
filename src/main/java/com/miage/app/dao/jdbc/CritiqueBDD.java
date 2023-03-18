@@ -14,14 +14,13 @@ import java.util.List;
 
 public class CritiqueBDD extends DAOContext implements CritiqueDAO {
 
-    public CritiqueBDD(){
-        this.connexion=DAOContext.getConnect();
-    }
+
 
     @Override
     public void createCritique(Critique cr) {
         String strSql="INSERT INTO CRITIQUE (idCritique,commentaire,note,idOeuvre,idUser) VALUES (?,?,?,?,?)";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, cr.getIdCritique());
             st.setString(2, cr.getCommentaire());
@@ -29,7 +28,8 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
             st.setInt(4, cr.getOeuvre());
             st.setInt(5, cr.getUser());
             st.executeUpdate();
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
 
@@ -48,12 +48,14 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
 
     @Override
     public void deleteCritique(Critique cr) {
-        String strSql="DELETE FROM CRITIQUE WHERE ID= ?";
+        String strSql="DELETE FROM CRITIQUE WHERE idCritique= ?";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, cr.getIdCritique());
             st.executeUpdate();
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
     }
@@ -63,13 +65,15 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
         Critique critique=null;
         String strSql="select * FROM CRITIQUE WHERE idCritique= ?";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, id);
             ResultSet re=st.executeQuery();
             while(re.next()){
                 critique=creatingObject(re);
             }
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
         return critique;
@@ -80,13 +84,15 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
         List<Critique> critiqueList=new ArrayList<>();
         String strSql="select * FROM CRITIQUE";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             ResultSet re=st.executeQuery();
             while(re.next()){
                 Critique critique=creatingObject(re);
                 critiqueList.add(critique);
             }
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
         return critiqueList;
@@ -100,7 +106,6 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
         int note=re.getInt("note");
         int idOeuvre=re.getInt("idOeuvre");
         int idUser=re.getInt("idUser");
-        Critique critique=new Critique(idCritique,commentaire,note,idOeuvre,idUser);
-        return critique;
+        return new Critique(idCritique,commentaire,note,idOeuvre,idUser);
     }
 }

@@ -14,14 +14,13 @@ import java.util.List;
 
 public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
-    public ArtisteBDD(){
-        this.connexion=DAOContext.getConnect();
-    }
+
 
     @Override
     public void createArtiste(Artiste artiste){
-        String strSql="INSERT INTO VISITEUR (id,status,name,lastname,age) VALUES (?,?,?,?,?)";
+        String strSql="INSERT INTO ARTISTE (idArtiste,name,lastname,datenaissance,fonction) VALUES (?,?,?,?,?)";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, artiste.getId());
             st.setString(2, artiste.getName());
@@ -29,24 +28,29 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             st.setInt(4, artiste.getAge());
             st.setString(5, artiste.getStatus());
             st.executeUpdate();
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
+
     }
 
     @Override
     public void updateArtiste(Artiste artiste) {
 
+
     }
 
     @Override
     public void deleteArtiste(Artiste artiste) {
-        String strSql="DELETE FROM VISITEUR WHERE id= ?";
+        String strSql="DELETE FROM VISITEUR WHERE idArtiste= ?";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, artiste.getId());
             st.executeUpdate();
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
     }
@@ -54,18 +58,19 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
     @Override
     public Artiste getArtisteById(int id) {
         Artiste artiste=null;
-        String strSql="select * FROM ARTISTE WHERE id= ?";
+        String strSql="select * FROM ARTISTE WHERE idArtiste= ?";
         try{
+            DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, id);
             ResultSet re=st.executeQuery();
             while(re.next()){
                 artiste=creatingObject(re);
             }
-        }catch (Exception exception){
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
         }
-        System.out.println(artiste);
         return artiste;
     }
 
@@ -77,12 +82,11 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
     @Override
     protected Artiste creatingObject(ResultSet re) throws SQLException {
-        int id=re.getInt("id");
-        String status=re.getString("status");
-        String name=re.getString("name");
-        String lastname=re.getString("lastname");
-        int age=re.getInt("age");
-        Artiste artiste=new Artiste(id,status,name,lastname,age);
-        return artiste;
+        int id=re.getInt("idArtiste");
+        String status=re.getString("name");
+        String name=re.getString("lastname");
+        String lastname=re.getString("datenaissance");
+        int age=re.getInt("fonction");
+        return new Artiste(id,status,name,lastname,age);
     }
 }

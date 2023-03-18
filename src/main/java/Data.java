@@ -8,8 +8,9 @@ public class Data {
         ResultSet re=statement.executeQuery("Select * from user");
 
         while(re.next()){
-            System.out.println(re.getString("name"));
+            System.out.println(re.getString("email"));
         }
 
+        con.close();
     }
 }

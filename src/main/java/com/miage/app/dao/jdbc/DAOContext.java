@@ -13,22 +13,26 @@ public abstract class DAOContext {
 
     protected abstract Object creatingObject(ResultSet re) throws SQLException ;
 
-    protected Connection connexion=null;
+    protected static Connection connexion=null;
     protected PreparedStatement st = null;
 
     public static Connection getConnect() {
         Connection con = null;
         try {
             Class.forName(driver);
-            con = DriverManager.getConnection(dbURL, dbLogin, dbPassWord);
-            if (con != null) {
-                return con;
+            connexion = DriverManager.getConnection(dbURL, dbLogin, dbPassWord);
+            if (connexion != null) {
+                return connexion;
 
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void getDeconnect() throws SQLException {
+        connexion.close();
     }
 
 }
