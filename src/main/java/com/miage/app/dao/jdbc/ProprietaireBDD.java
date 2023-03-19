@@ -36,7 +36,7 @@ public class ProprietaireBDD extends UserBDD{
             st.setString(2, "proprietaire");
             ResultSet re=st.executeQuery();
             while(re.next()){
-                user= re.getInt("id");
+                user= re.getInt("idUser");
             }
             DAOContext.getDeconnect();
         }catch (Exception ignored){

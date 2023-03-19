@@ -18,13 +18,6 @@ import java.util.List;
 public class MyOeuvresServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.println("ijijdfij");
-        HttpSession s=request.getSession();
-        String userEmail = s.getAttribute("currentUser").toString();
-        UserDAO userDAO=new ProprietaireBDD();
-        User us=userDAO.getUserByMail(userEmail);
-        OeuvreDAO oe=new OeuvreBDD();
         response.sendRedirect("Oeuvres.jsp");
 
     }

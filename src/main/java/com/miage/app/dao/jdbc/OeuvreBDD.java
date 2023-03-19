@@ -48,15 +48,15 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
     @Override
     public Iterable<Oeuvre> getAllUserOeuvres(int id) {
         List<Oeuvre> oeuvreList=new ArrayList<>();
-        String strSql="select * FROM OEUVRE WHERE email= ?";
+        String strSql="select * FROM OEUVRE WHERE idUser= ?";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, id);
             ResultSet re=st.executeQuery();
             while(re.next()){
-                Oeuvre user=creatingObject(re);
-                oeuvreList.add(user);
+                Oeuvre oeuvre=creatingObject(re);
+                oeuvreList.add(oeuvre);
             }
             DAOContext.getDeconnect();
         }catch (Exception ignored){
@@ -64,20 +64,6 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
         }
         return oeuvreList;
     }
-
-    public static void main(String [] arg){
-
-        UserDAO userDAO=new ProprietaireBDD();
-        int us= ((ProprietaireBDD) userDAO).getUserIdBymail("af@gmai.com");
-        OeuvreDAO oe=new OeuvreBDD();
-        System.out.println(us);
-        List< Oeuvre> lesOeuvres = (List<Oeuvre>) oe.getAllUserOeuvres(us);
-        for(Oeuvre o : lesOeuvres) {
-
-            o.getPresentationOeuvre();
-        }
-    }
-
 
     @Override
     protected Oeuvre creatingObject(ResultSet re) throws SQLException {

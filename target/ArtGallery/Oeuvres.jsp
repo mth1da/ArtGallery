@@ -22,9 +22,9 @@ Voici mes oeuvres
 <%
     String s=session.getAttribute("currentUser").toString();
     UserDAO userDAO=new ProprietaireBDD();
-    User us=userDAO.getUserByMail(s);
+    int us= ((ProprietaireBDD) userDAO).getUserIdBymail(s);
     OeuvreDAO oe=new OeuvreBDD();
-    List< Oeuvre> lesOeuvres = (List<Oeuvre>) oe.getAllUserOeuvres(us.getId());
+    List< Oeuvre> lesOeuvres = (List<Oeuvre>) oe.getAllUserOeuvres(us);
     for(Oeuvre o : lesOeuvres){
         %>
 <h4><%= o.getPresentationOeuvre()%></h4>
