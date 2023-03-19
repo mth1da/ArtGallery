@@ -1,6 +1,6 @@
 package com.miage.app.dao;
 
-import com.miage.app.Entity.Reservation;
+
 import com.miage.app.Entity.User;
 
 public interface UserDAO {

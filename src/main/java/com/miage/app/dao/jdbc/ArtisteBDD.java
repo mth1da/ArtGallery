@@ -1,16 +1,10 @@
 package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Artiste;
-import com.miage.app.Entity.User;
-import com.miage.app.Entity.Visiteur;
 import com.miage.app.dao.ArtisteDAO;
 import java.sql.*;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.List;
+
 
 public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 

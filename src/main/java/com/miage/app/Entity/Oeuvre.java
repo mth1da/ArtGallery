@@ -39,8 +39,9 @@ public abstract class Oeuvre {
         this.price=price;
     }
 
-    protected abstract void getPresentationOeuvre();
+    public abstract String getPresentationOeuvre();
 
     protected abstract void getInfoSupp();
+
 
 }

@@ -1,10 +1,8 @@
 package com.miage.app.dao.repository;
 
-import com.miage.app.Entity.Oeuvre;
-import com.miage.app.Entity.Reservation;
+
 import com.miage.app.Entity.User;
 import com.miage.app.dao.UserDAO;
-
 import java.util.ArrayList;
 import java.util.List;
 

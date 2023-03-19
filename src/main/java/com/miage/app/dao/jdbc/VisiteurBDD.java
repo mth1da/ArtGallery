@@ -2,11 +2,6 @@ package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
-import com.miage.app.dao.UserDAO;
-import com.miage.app.services.Connexion;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

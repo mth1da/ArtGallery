@@ -3,13 +3,9 @@ package com.miage.app.servlets;
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
-import com.miage.app.services.Connexion;
 import com.miage.app.services.Inscription;
 import com.miage.app.services.InscriptionProprietaire;
 import com.miage.app.services.InscriptionVisiteur;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,8 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "srvt", value = "/srv")
 public class Servlet extends HttpServlet {
