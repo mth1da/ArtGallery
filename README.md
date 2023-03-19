@@ -1,6 +1,6 @@
 # ArtGallery
 
-fonctionnalités développée pour le moment == inscription (visiteur et propriétaire) , connexion, updateProfil et afficher les oeuvres appartenant au propriétaire.
+Fonctionnalitées développées pour le moment == inscription (visiteur et propriétaire) , connexion, updateProfil et afficher les oeuvres appartenant au propriétaire.
 
 Le projet a était conçu selon le modèle MVC. Ainsi nous avons une partie view (les .jsp), une partie controller (les servlets) et enfin une partie modèle (la base de données).
 Dans le projet, nous retrouvons plusieurs répertoires : 
