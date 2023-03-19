@@ -11,11 +11,14 @@ Afin de faire la connexion à la base de données, nous avons créé une interfa
 - Répertoire DAO/repository : Ces classes implémentent l'interface qui permet de manipuler leur bdd. Des listes sont utilisés ici afin de stocker les données dans les classes.
 
 - Répertoire Entity : Dans ce répertoire se trouve les objets de la base de données tel que les users (propriétaire, visiteur), les artistes, les reservations, les critiques , les exibition et enfin les oeuvres. 
-Il existe different types de user, ainsi user est une classe abstraite. Un visiteur est un user qui peut acheter des oeuvres tandis qu'un propriétaire est un visiteur qui peut également vendre des oeuvres en plus des les acheter. Un visiteur et un propriétaire se connectent de la meme manière mais leurs inscriptions sont différentes car dans la bdd, nous pouvons avoir une meme adresse email pour un visiteur et un propriétaire, ce qui correspond à deux comptes différents. En ce qui concerne la connexion, elle se fait de la même manière. Il faut seulement vérifier que l'adresse email n'a pas déjà été utilisé chez les visiteurs pour un visiteur et chez les propriétaires pour un propriétaire.
-Il existe également différents types d'oeuvres, c'est pour cela que c'est une classe abstraite.
+Il existe different types de user, ainsi user est une classe abstraite. Un visiteur est un user qui peut acheter des oeuvres tandis qu'un propriétaire est un user qui peut en vendre. Un visiteur et un propriétaire se connectent de la meme manière mais leurs inscriptions sont différentes car dans la bdd, nous pouvons avoir une meme adresse email pour un visiteur et un propriétaire, ce qui correspond à deux comptes différents. En ce qui concerne la connexion, elle se fait de la même manière. Il faut seulement vérifier que l'adresse email n'a pas déjà été utilisé chez les visiteurs pour un visiteur et chez les propriétaires pour un propriétaire.
+Il existe également différents types d'oeuvres, c'est pour cela que c'est une classe abstraite. 
 
 - Répertoire Services : Dans ce répertoire se trouve la partie business, c'est-à-dire toutes les actions qui vont être effectué tels que l'inscription, la connexion, l'ajout de nouvelles oeuvres, la modification du profil.
 L'inscription d'un user à l'autre se fait de manières différentes car ils n'ont pas tous forcément les mêmes attributs. Ainsi nous avons créé une interface Inscription implémentée par une classe InscriptionVisiteur et InscriptionPropriétaire.
+La connexion et la modification du profil se fait de la meme manière pour tous les utilisateurs donc afin de se connecter ou modifier le profil d'un user il faut passer par une classe connexion et une classe update profile qui fera appel ensuite a une methode d'une des classe qui implémente UserDAO.
+Plus tard on pourra mettre la classe connexion en interface si l'on se connecte de manière différente (ex: connexion avec google, facebook...) .
+
 
 
 Modularité : Le système est découpé en composant indépendant avec des classes différentes pour les inscriptions, la connexion ainsi que la modification du profil et l'accès à la base de données.
