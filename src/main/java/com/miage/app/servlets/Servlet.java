@@ -28,11 +28,18 @@ public class Servlet extends HttpServlet {
         String status = request.getParameter("status");
         PrintWriter out = response.getWriter();
         out.println(status);
+
+        //Création d'un tableau de string
         String [] str=new String[4];
+
+        //Récupération des données du formulaire pour les mettre dans le tableau
         str[0]=request.getParameter("name");
         str[1]=request.getParameter("firstname");
         str[2]=request.getParameter("password");
         str[3]=request.getParameter("email");
+
+        //création du compte selon si c'est un propriétaire ou visiteur
+
         if(status.equals("visiteur")){
             UserDAO ust=new VisiteurBDD();
             Inscription v=new InscriptionVisiteur(str,ust);

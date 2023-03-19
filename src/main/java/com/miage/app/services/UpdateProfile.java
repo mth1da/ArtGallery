@@ -5,7 +5,7 @@ import com.miage.app.dao.UserDAO;
 
 public class UpdateProfile {
 
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
     public UpdateProfile(UserDAO userDAO){
         this.userDAO=userDAO;
     }
@@ -16,7 +16,7 @@ public class UpdateProfile {
 
 
     public void updateUser(User user) {
-        userDAO.updateUser(user);
+        this.userDAO.updateUser(user);
     }
 
 }

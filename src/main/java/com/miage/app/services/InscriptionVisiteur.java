@@ -19,7 +19,10 @@ public class InscriptionVisiteur implements Inscription {
         //appel les methodes pour verifier compte existe deja ou non mdp valide ...
        // tring nom, String prenom, String city, String mdp, String email
         String reponse=Inscription.verificationCoordonneeCompte(infoCompte[3],infoCompte[2],this.userDAO);
+
+        //Si le compte n'existe pas et les données ont bien été saisis:
         if(reponse.equals("")){
+            //Création de nouveau visiteur
             User user=new Visiteur(infoCompte[0],infoCompte[1],infoCompte[2],infoCompte[3]);
             saveAccount(user);
             reponse="Votre compte a bien était enregister";
@@ -29,6 +32,7 @@ public class InscriptionVisiteur implements Inscription {
 
     @Override
     public void saveAccount(User user) {
+        //Sauvegarde du compte avec la création du User dans la base de données
         userDAO.createUser(user);
     }
 

@@ -2,6 +2,7 @@ package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
+import com.miage.app.dao.UserDAO;
 import com.miage.app.services.Connexion;
 
 import java.sql.Connection;
@@ -96,12 +97,18 @@ public class VisiteurBDD extends UserBDD{
         String firstname=re.getString("firstname");
         String mail=re.getString("email");
         String password=re.getString("password");
-        User user=new Visiteur(name,firstname,mail,password);
+        User user=new Visiteur(name,firstname,password,mail);
         return user;
     }
 
     @Override
     public void updateUser(User r) {
+        System.out.println(r.getPreNom());
+        System.out.println(r.getNom());
+        System.out.println(r.getEmail());
+
+
+
         String query="UPDATE user SET firstname=?, lastname=? WHERE email=? AND status=?";
         try {
             DAOContext.getConnect();
@@ -117,7 +124,5 @@ public class VisiteurBDD extends UserBDD{
         }
 
     }
-
-
 
 }

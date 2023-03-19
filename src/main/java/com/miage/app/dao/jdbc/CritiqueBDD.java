@@ -20,6 +20,9 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
     public void createCritique(Critique cr) {
         String strSql="INSERT INTO CRITIQUE (idCritique,commentaire,note,idOeuvre,idUser) VALUES (?,?,?,?,?)";
         try{
+
+
+            //Requête permettant de créer une nouvelle critique avec les données récupérées
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, cr.getIdCritique());
@@ -28,6 +31,8 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
             st.setInt(4, cr.getOeuvre());
             st.setInt(5, cr.getUser());
             st.executeUpdate();
+
+            //Ferme la connexion
             DAOContext.getDeconnect();
         }catch (Exception ignored){
 
@@ -48,12 +53,15 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
 
     @Override
     public void deleteCritique(Critique cr) {
+
+        //Requête permettant de supprimer une critique
         String strSql="DELETE FROM CRITIQUE WHERE idCritique= ?";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, cr.getIdCritique());
             st.executeUpdate();
+            //Ferme la connexion
             DAOContext.getDeconnect();
         }catch (Exception ignored){
 

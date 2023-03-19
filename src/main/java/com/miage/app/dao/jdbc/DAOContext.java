@@ -14,6 +14,8 @@ public abstract class DAOContext {
 
     protected abstract Object creatingObject(ResultSet re) throws SQLException ;
 
+
+    //attribut connection qui sera récupérer par les classes filles pour la connection avec la bdd
     protected static Connection connexion=null;
     protected PreparedStatement st = null;
 

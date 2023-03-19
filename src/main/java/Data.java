@@ -23,7 +23,7 @@ public class Data {
       //      System.out.println(re.getString("firstName"));
     //    }
 
-        User r=new Visiteur("Ghulam","Meryam","mrm@gmail.com","ijij");
+        User r=new Visiteur("Ghulam","Meryam","ijij","mrm@gmail.com");
 
         /**User user=new Visiteur("amel","naloufi","okkk","OKKK");**/
         /**dao.createUser(user);**/
@@ -35,6 +35,8 @@ public class Data {
         PreparedStatement st =null;
 
         System.out.println(r.getNom());
+        System.out.println(r.getPreNom());
+        System.out.println(r.getEmail());
         System.out.println(r.getPreNom());
                 String query="UPDATE user SET firstname=?, lastname=? WHERE email=? AND status=?";
         try {

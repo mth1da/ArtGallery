@@ -17,14 +17,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException {
 
-        User r=new Visiteur("Ghulam","Meryam","mrm@gmail.com","ijij");
+        User r=new Visiteur("Ghulam","Meryam","ijij","mrm@gmail.com");
 
         /**User user=new Visiteur("amel","naloufi","okkk","OKKK");**/
         UserDAO dao=new VisiteurBDD();
         /**dao.createUser(user);**/
 
-        r.setNom("sfkgnjfgn");
-        r.setPrenom("mez");
+        r.setNom("MERYRY");
+        r.setPrenom("mMAORE");
         dao.updateUser(r);
 
 
