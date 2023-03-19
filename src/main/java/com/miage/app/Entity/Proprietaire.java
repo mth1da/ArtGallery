@@ -6,13 +6,12 @@ import java.util.List;
 public class Proprietaire extends Visiteur{
     private List<Oeuvre> mesOeuvres=new ArrayList<Oeuvre>();
 
-    //Constructeur
-    public Proprietaire(String nom, String prenom,String mdp,String email) {
-        super(nom, prenom, mdp,email);
+
+    public Proprietaire(String nom, String prenom,String mdp,String email, String status) {
+        super(nom, prenom, mdp,email, status);
 
     }
 
-    //Affiche le propriétaire
     @Override
     public void displayUser() {
         // TODO Auto-generated method stub

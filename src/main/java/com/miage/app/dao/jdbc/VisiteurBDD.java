@@ -3,8 +3,6 @@ package com.miage.app.dao.jdbc;
 import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,9 +22,7 @@ public class VisiteurBDD extends UserBDD{
             st.executeUpdate();
             DAOContext.getDeconnect();
         }catch (Exception ignored){
-
         }
-
     }
 
     public int getUserIdBymail(String email){
@@ -95,7 +91,8 @@ public class VisiteurBDD extends UserBDD{
         String firstname=re.getString("firstname");
         String mail=re.getString("email");
         String password=re.getString("password");
-        User user=new Visiteur(name,firstname,mail,password);
+        String status=re.getString("status");
+        User user=new Visiteur(name,firstname,mail,password, status);
         return user;
     }
 

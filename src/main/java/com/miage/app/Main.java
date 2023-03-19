@@ -9,47 +9,30 @@ import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.CritiqueBDD;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.UserBDD;
+import com.miage.app.services.Connexion;
 
-import java.sql.*;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-
-        /**User user=new Visiteur("amel","naloufi","okkk","OKKK");**/
+/*
+        User user=new Proprietaire("nom","prenom","1234","OKKK");
         UserDAO dao=new ProprietaireBDD();
-        /**dao.createUser(user);**/
+       dao.createUser(user);
+
+
 
         dao.getUserById(1).displayUser();
-        //dao.deleteUser(user);
-
-        //Iterable contenant les utilisateurs
+      //  dao.deleteUser(user);
         Iterable<User> po=dao.getAllUser();
-
-        //Affichage des utilisateurs en parcourant la liste
         for(User us:po){
             us.displayUser();
         }
-
-        //Création de la connexion
-        Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/artGallery","root","");
-
-        //Création d'un état de connexion
-        Statement statement=con.createStatement();
-
-        //Exécution de la requête qui sélectionne tous les utilisateurs
-        ResultSet re=statement.executeQuery("Select * from user");
-
-        //Tant que l'on parcourt les données de la table
-        while(re.next()){
-            //On affiche les emails des utilisateurs
-            System.out.println(re.getString("email"));
-        }
-
-        //Fermeture de la connexion
-        con.close();
-
-
+*/
     }
 }

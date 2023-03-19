@@ -1,4 +1,4 @@
-package com.miage.app;
+package com.miage.app.servlets;
 
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
@@ -36,7 +36,7 @@ public class SignupServletVisiteur extends HttpServlet {
         //Création de visiteur
         UserDAO ust=new VisiteurBDD();
         Inscription v=new InscriptionVisiteur(str,ust);
-        rep=v.creeCompte();
+        rep= String.valueOf(v.creeCompte());
         PrintWriter out = response.getWriter();
         out.println(rep);
     }

@@ -32,7 +32,7 @@ public class SignupServletProprietaire extends HttpServlet {
         //Création de propriétaire
         UserDAO ust=new ProprietaireBDD();
         Inscription v=new InscriptionProprietaire(str,ust);
-        rep=v.creeCompte();
+        rep= String.valueOf(v.creeCompte());
         PrintWriter out = response.getWriter();
         out.println(rep);
     }
