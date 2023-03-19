@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le : sam. 18 mars 2023 à 13:49
+-- Généré le : dim. 19 mars 2023 à 18:08
 -- Version du serveur : 10.6.5-MariaDB
 -- Version de PHP : 8.1.0
 
@@ -35,7 +35,21 @@ CREATE TABLE IF NOT EXISTS `artiste` (
   `dateNaissance` date DEFAULT NULL,
   `fonction` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idArtiste`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `artiste`
+--
+
+INSERT INTO `artiste` (`idArtiste`, `name`, `lastName`, `dateNaissance`, `fonction`) VALUES
+(1, NULL, NULL, NULL, NULL),
+(2, NULL, NULL, NULL, NULL),
+(3, NULL, NULL, NULL, NULL),
+(4, NULL, NULL, NULL, NULL),
+(5, NULL, NULL, NULL, NULL),
+(6, NULL, NULL, NULL, NULL),
+(7, NULL, NULL, NULL, NULL),
+(8, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -89,7 +103,23 @@ CREATE TABLE IF NOT EXISTS `oeuvre` (
   PRIMARY KEY (`idOeuvre`),
   KEY `oeuvre_FK` (`idArtiste`),
   KEY `oeuvre_FK_1` (`idUser`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `oeuvre`
+--
+
+INSERT INTO `oeuvre` (`idOeuvre`, `title`, `idArtiste`, `idUser`, `price`) VALUES
+(1, 'utopi', 8, 41, 135),
+(2, 'erali', 7, 41, 8765),
+(3, 'venom', 6, 41, 2433),
+(4, 'veir', 5, 41, 753),
+(5, 'vilo', 6, 41, 6857),
+(6, 'pilom', 4, 41, 345),
+(7, 'paser', 5, 41, 75),
+(8, 'hyji', 5, 41, 56757),
+(9, 'teri', 2, 41, 786),
+(10, 'beli', 5, 41, 3456);
 
 -- --------------------------------------------------------
 
@@ -124,22 +154,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`idUser`, `firstName`, `lastName`, `email`, `password`, `status`) VALUES
-(19, 'ghulam', 'meryam', 'meryamghulam@gmail.com', 'Europe123456.', 'proprietaire'),
-(20, 'ghulam', 'meryam', 'meryamghulam@gmail.com', 'Europe-123456.', 'proprietaire'),
-(21, 'drfg', 'zedrf', 'mer@gmail.com', 'azer', 'proprietaire'),
-(22, 'Otto', 'Mark', 'aeed@ggj.cuk', 'Azerty-1zd', 'proprietaire'),
-(23, 'Otto', 'Mark', 'dd', 'azer', 'visiteur'),
-(24, 'Otto', 'Mark', 'dd', 'azer', 'proprietaire'),
-(25, 'Otto', 'Mark', '', '', 'proprietaire'),
-(26, 'Otto', 'Mark', 'sesx', 'j', 'proprietaire'),
-(27, 'Otto', 'Mark', 'lok', 'jk', 'proprietaire');
+(40, 'Otto', 'Mark', '', '', 'proprietaire'),
+(41, ',iij', 'Markijijij', 'af@gmai.com', 'ijij', 'proprietaire'),
+(42, ',iij', 'Markijijij', 'af@gmai.com', 'ijij', 'visiteur'),
+(44, 'mhbhb', 'hbjb', 'mrm@gmail.com', 'ijij', 'visiteur'),
+(45, 'GHULaM', 'Meryam', 'meryamghulam@gmail.com', 'azer', 'visiteur');
 
 --
 -- Contraintes pour les tables déchargées
