@@ -1,10 +1,8 @@
 package com.miage.app.dao.repository;
 
-import com.miage.app.Entity.Oeuvre;
-import com.miage.app.Entity.Reservation;
+
 import com.miage.app.Entity.User;
 import com.miage.app.dao.UserDAO;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,5 +51,10 @@ public class UserRepository implements UserDAO {
     @Override
     public Iterable<User> getAllUser() {
         return us;
+    }
+
+    @Override
+    public boolean getUserConnection(String email, String password) {
+        return true;
     }
 }

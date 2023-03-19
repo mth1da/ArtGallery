@@ -1,5 +1,6 @@
 package com.miage.app.services;
 
+import com.miage.app.dao.UserDAO;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
@@ -8,21 +9,29 @@ import java.sql.SQLException;
 
 public class Connexion {
 
-    //Vérifie si la connexion est valide
-    public static void connexionValide(HttpServletResponse response, ResultSet re) throws SQLException, IOException {
-        //Parcourt les données de la table user
-        if(re.next()) {
-            //Redirection vers la page home si authentification réussie
-            response.sendRedirect("Home.jsp");
-        }
+
+    private UserDAO userDAO;
+
+    public Connexion(UserDAO userDAO){
+        this.userDAO=userDAO;
     }
 
-    public static boolean emailValide(String email){return true;}
-    public static boolean mdpValide(String mdp){
-        return  true;
+    public  String connexionValide(String email,String mdp){
+        if(!verifCompteExiste(email)){
+            return "Votre compte n'existe pas, veuillez vous inscrire";
+        }
+        if(!mdpValide(email,mdp)){
+            return "Mot de passe invalide";
+        }
+        return "";
     }
-    public static boolean verifCompteExiste(String email){
-        return true;
+
+
+    public boolean mdpValide(String email,String mdp){
+        return userDAO.getUserConnection(email,mdp);
+    }
+    public boolean verifCompteExiste(String email){
+        return this.userDAO.getUserByMail(email)!=null;
     }
 
 }

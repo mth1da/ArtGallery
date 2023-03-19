@@ -8,56 +8,47 @@ import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.services.*;
 import jakarta.servlet.annotation.WebServlet;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "EditProfileServlet", urlPatterns = "/edit-servlet")
+@WebServlet(name = "editProfile", urlPatterns = "/editservlet")
 public class EditProfileServlet extends HttpServlet {
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>EditProfileServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-
+        PrintWriter out = response.getWriter();
             // fetch all data
             String userFistName = request.getParameter("firstname");
             String userLastName = request.getParameter("lastname");
-            String userPassword = request.getParameter("password");
-            String userStatus = request.getParameter("status");
+            HttpSession s=request.getSession();
+            String userStatus = s.getAttribute("status").toString();
+            String userEmail = s.getAttribute("currentUser").toString();
 
-            //get the user from the session...
-            HttpSession session = request.getSession();
-            User user = (User) session.getAttribute("currentUser");
-            user.setNom(userLastName);
-            user.setPrenom(userFistName);
-            user.setMdp(userPassword);
-            user.setStatus(userStatus);
+
+            UserDAO userDAO=null;
+            User user=null;
 
             //update database....
             if(userStatus.equals("visiteur")){
-                UserDAO userr=new VisiteurBDD();
-                UpdateProfile update=new UpdateProfileVisiteur(userr);
-                //update.updateUser();
+                userDAO=new VisiteurBDD();
             }else if(userStatus.equals("proprietaire")){
-                UserDAO userr=new ProprietaireBDD();
-                UpdateProfile update=new UpdateProfileProprietaire(userr);
-                //update.updateUser(userr);
+                userDAO=new ProprietaireBDD();
             }
 
+        user=userDAO.getUserByMail(userEmail);
+
+            user.setNom(userLastName);
+            user.setPrenom(userFistName);
 
 
-            out.println("</body>");
-            out.println("</html>");
+        UpdateProfile update=new UpdateProfile(userDAO);
+        update.updateUser(user);
+        out.println(user.getEmail());
+        response.sendRedirect("Home.jsp");
         }
     }
-}
+

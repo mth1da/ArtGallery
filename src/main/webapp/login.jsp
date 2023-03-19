@@ -21,7 +21,7 @@
              class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="login" method="post">
+        <form action="loginuser" method="post">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign in with</p>
             <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -54,7 +54,11 @@
                    placeholder="Enter password" />
             <label class="form-label" for="form3Example4" >Password</label>
           </div>
-
+          <label for="status">Status</label>
+          <select name="status" id="status">
+            <option value="proprietaire">Propriétaire</option>
+            <option value="visiteur">Visiteur</option>
+          </select>
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
@@ -65,6 +69,7 @@
             </div>
             <a href="#!" class="text-body">Forgot password?</a>
           </div>
+
 
           <div class="text-center text-lg-start mt-4 pt-2">
 

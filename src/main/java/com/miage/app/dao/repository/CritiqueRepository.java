@@ -1,8 +1,7 @@
 package com.miage.app.dao.repository;
 
-import com.miage.app.Entity.Artiste;
+
 import com.miage.app.Entity.Critique;
-import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.CritiqueDAO;
 
 import java.util.ArrayList;

@@ -1,4 +1,7 @@
-<%@ page import="com.miage.app.Entity.User" %><%--
+<%@ page import="com.miage.app.Entity.User" %>
+<%@ page import="com.miage.app.dao.UserDAO" %>
+<%@ page import="com.miage.app.dao.jdbc.VisiteurBDD" %>
+<%@ page import="com.miage.app.dao.jdbc.ProprietaireBDD" %><%--
   Created by IntelliJ IDEA.
   User: mathi
   Date: 18/03/2023
@@ -7,11 +10,14 @@
 --%>
 
 <%
-    User user = (User) session.getAttribute("currentUser");
-    if (user == null) {
-        response.sendRedirect("login_page.jsp");
+    UserDAO userDAO=null;
+    if (session.getAttribute("status").equals("visiteur")) {
+        userDAO = new VisiteurBDD();
+    }else if (session.getAttribute("status").equals("proprietaire")) {
+        userDAO=new ProprietaireBDD();
     }
-%>
+    User user=userDAO.getUserByMail(session.getAttribute("currentUser").toString());
+    %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -20,7 +26,7 @@
     <title>Modifier Mon Profil</title>
 </head>
 <body>
-    <form method="post" action="edit-servlet" class="needs-validation" novalidate>
+    <form method="post" action="editservlet" class="needs-validation" novalidate>
         <div class="form-row">
 
             <div class="col-md-4 mb-3">
@@ -38,31 +44,15 @@
                     Looks good!
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <label for="validationCustomUsername">email</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="email" name="email" aria-describedby="inputGroupPrepend" value="<%= user.getEmail()%>" required>
-                    <div class="invalid-feedback">
-                        Please choose an email.
-                    </div>
-                </div>
-            </div>
+            <p name="email" ><%= user.getEmail()%><p>
         </div>
         <div class="col-md-3 mb-3">
-            <label for="validationCustom04">Password</label>
-            <input type="text" class="form-control" name="password" id="validationCustom04" placeholder="Password"  value="<%= user.getMdp()%>" required>
+            <p name="password" ><%= user.getMdp()%><p>
             <div class="invalid-feedback">
                 Please provide a valid state.
             </div>
         </div>
-        <label for="status">Status</label>
-        <select name="status" id="status">
-            <option value="proprietaire">Propriétaire</option>
-            <option value="visiteur">Visiteur</option>
-        </select>
+        <p name="status"><%= session.getAttribute("status")%></p>
         <div class="form-group">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>

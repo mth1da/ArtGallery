@@ -1,11 +1,7 @@
 package com.miage.app.dao.jdbc;
 
-import com.miage.app.Entity.Proprietaire;
 import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,7 +36,7 @@ public class ProprietaireBDD extends UserBDD{
             st.setString(2, "proprietaire");
             ResultSet re=st.executeQuery();
             while(re.next()){
-                user= re.getInt("id");
+                user= re.getInt("idUser");
             }
             DAOContext.getDeconnect();
         }catch (Exception ignored){
@@ -95,8 +91,26 @@ public class ProprietaireBDD extends UserBDD{
         String firstname=re.getString("firstname");
         String mail=re.getString("email");
         String password=re.getString("password");
-        String status=re.getString("status");
-        User user=new Proprietaire(name,firstname,mail,password, status);
+        User user=new Visiteur(name,firstname,password,mail);
         return user;
     }
+
+    @Override
+    public void updateUser(User r) {
+        String query="UPDATE user SET firstname=?, lastname=? WHERE email=? AND status=?";
+        try {
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(query);
+            st.setString(1, r.getPreNom());
+            st.setString(2, r.getNom());
+            st.setString(3, r.getEmail());
+            st.setString(4, "proprietaire");
+            st.executeQuery();
+            DAOContext.getDeconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

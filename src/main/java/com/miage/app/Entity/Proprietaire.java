@@ -3,12 +3,12 @@ package com.miage.app.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Proprietaire extends Visiteur{
+public class Proprietaire extends User{
     private List<Oeuvre> mesOeuvres=new ArrayList<Oeuvre>();
 
 
-    public Proprietaire(String nom, String prenom,String mdp,String email, String status) {
-        super(nom, prenom, mdp,email, status);
+    public Proprietaire(String nom, String prenom,String mdp,String email) {
+        super(nom, prenom, mdp,email);
 
     }
 

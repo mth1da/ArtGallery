@@ -1,9 +1,14 @@
 package com.miage.app.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Visiteur extends User{
 
-    public Visiteur(String nom, String prenom, String mdp, String email, String status) {
-        super(nom, prenom, mdp, email, status);
+    private List<Oeuvre> myBoughtOeuvres=new ArrayList<>();
+
+    public Visiteur(String nom, String prenom, String mdp, String email) {
+        super(nom, prenom, mdp, email);
     }
 
     @Override
@@ -18,4 +23,13 @@ public class Visiteur extends User{
     public String getType() {
         return "visiteur";
     }
+
+    public void buyOeuvre(Oeuvre o){
+        myBoughtOeuvres.add(o);
+    }
+
+    public List<Oeuvre> getBoughtOeuvres(){
+        return myBoughtOeuvres;
+    }
+
 }

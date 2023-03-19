@@ -14,7 +14,7 @@
 <h1>Welcome to the ArtGallery</h1>
 <a href="sign-up.jsp">s'inscrire</a>
 <a href="login.jsp">se connecter</a>
-<a href="modifyProfile.jsp">modifier son profil</a>
+
 
 </body>
 </html>

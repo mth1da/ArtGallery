@@ -2,7 +2,6 @@ package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,7 +21,9 @@ public class VisiteurBDD extends UserBDD{
             st.executeUpdate();
             DAOContext.getDeconnect();
         }catch (Exception ignored){
+
         }
+
     }
 
     public int getUserIdBymail(String email){
@@ -91,11 +92,32 @@ public class VisiteurBDD extends UserBDD{
         String firstname=re.getString("firstname");
         String mail=re.getString("email");
         String password=re.getString("password");
-        String status=re.getString("status");
-        User user=new Visiteur(name,firstname,mail,password, status);
+        User user=new Visiteur(name,firstname,password,mail);
         return user;
     }
 
+    @Override
+    public void updateUser(User r) {
+        System.out.println(r.getPreNom());
+        System.out.println(r.getNom());
+        System.out.println(r.getEmail());
 
+
+
+        String query="UPDATE user SET firstname=?, lastname=? WHERE email=? AND status=?";
+        try {
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(query);
+            st.setString(1, r.getPreNom());
+            st.setString(2, r.getNom());
+            st.setString(3, r.getEmail());
+            st.setString(4, "visiteur");
+            st.executeQuery();
+            DAOContext.getDeconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

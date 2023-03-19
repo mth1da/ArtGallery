@@ -1,6 +1,6 @@
 package com.miage.app.dao;
 
-import com.miage.app.Entity.Reservation;
+
 import com.miage.app.Entity.User;
 
 public interface UserDAO {
@@ -17,4 +17,5 @@ public interface UserDAO {
 
     public abstract Iterable<User> getAllUser();
 
+    public abstract boolean getUserConnection(String email,String password);
 }
