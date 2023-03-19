@@ -1,5 +1,6 @@
 package com.miage.app.dao.jdbc;
 
+import com.miage.app.Entity.Proprietaire;
 import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
 import java.sql.ResultSet;
@@ -44,6 +45,7 @@ public class ProprietaireBDD extends UserBDD{
         }
         return user;
     }
+
 
     @Override
     public User getUserByMail(String email) {
@@ -97,6 +99,7 @@ public class ProprietaireBDD extends UserBDD{
 
     @Override
     public void updateUser(User r) {
+
         String query="UPDATE user SET firstname=?, lastname=? WHERE email=? AND status=?";
         try {
             DAOContext.getConnect();
@@ -105,12 +108,21 @@ public class ProprietaireBDD extends UserBDD{
             st.setString(2, r.getNom());
             st.setString(3, r.getEmail());
             st.setString(4, "proprietaire");
-            st.executeQuery();
+            st.executeUpdate();
             DAOContext.getDeconnect();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
+    public static void main(String[] arg){
+        User u=new Proprietaire("merr","mere","azerty","naloufi.amel@gmail.com");
+        UserBDD bdd=new ProprietaireBDD();
+
+        bdd.updateUser(u);
+
+    }
+
 
 }

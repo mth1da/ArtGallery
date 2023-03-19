@@ -28,7 +28,7 @@ public class VisiteurBDD extends UserBDD{
 
     public int getUserIdBymail(String email){
         int user=0;
-        String strSql="select idUser FROM USER WHERE email= ? AND status= ?";
+        String strSql="select idUser FROM user WHERE email= ? AND status= ?";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
@@ -36,7 +36,7 @@ public class VisiteurBDD extends UserBDD{
             st.setString(2, "visiteur");
             ResultSet re=st.executeQuery();
             while(re.next()){
-                user= re.getInt("id");
+                user= re.getInt("idUser");
             }
             DAOContext.getDeconnect();
         }catch (Exception ignored){
@@ -44,6 +44,7 @@ public class VisiteurBDD extends UserBDD{
         }
         return user;
     }
+
 
     @Override
     public User getUserByMail(String email) {
@@ -104,7 +105,7 @@ public class VisiteurBDD extends UserBDD{
 
 
 
-        String query="UPDATE user SET firstname=?, lastname=? WHERE email=? AND status=?";
+        String query="UPDATE user SET firstName=?, lastName=? WHERE email=? AND status=?";
         try {
             DAOContext.getConnect();
             st = connexion.prepareStatement(query);
@@ -112,12 +113,13 @@ public class VisiteurBDD extends UserBDD{
             st.setString(2, r.getNom());
             st.setString(3, r.getEmail());
             st.setString(4, "visiteur");
-            st.executeQuery();
+            st.executeUpdate();
             DAOContext.getDeconnect();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
 
 }

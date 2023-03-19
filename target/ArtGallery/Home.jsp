@@ -18,7 +18,7 @@
     <%
     if (session.getAttribute("status").equals("proprietaire")) {
      %>
-    <a href="oeuvres">Mes oeuvres</a>
+    <a href="Oeuvres.jsp">Mes oeuvres</a>
                 <%   }
     %>
 
