@@ -32,6 +32,20 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
 
     @Override
     public void updateUser(User r) {
+        String query="UPDATE user SET firstname=?, lastname=?, email=?, password=? WHERE id=?";
+        try {
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(query);
+            st.setString(1, r.getPreNom());
+            st.setString(2, r.getNom());
+            st.setString(3, r.getEmail());
+            st.setString(4, r.getMdp());
+            st.setInt(5, r.getId());
+            st.executeUpdate();
+            DAOContext.getDeconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

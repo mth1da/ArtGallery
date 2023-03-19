@@ -14,5 +14,7 @@
     <center> Home page </center>
 <br>
 <p> Connection réussi ! </p>
+    <a href="modifyProfile.jsp">modifier son profil</a>
+
 </body>
 </html>

@@ -3,12 +3,10 @@ package com.miage.app.services;
 import com.miage.app.Entity.User;
 import com.miage.app.dao.UserDAO;
 
-public interface UpdateProfil {
+public interface UpdateProfile {
 
     public void deleteAccount(User user, UserDAO userDAO);
 
-    public void changeUser();
-
-    //class updateProfilVisiteur //classe UpdateProfilProp..
+    public void updateUser(User user);
 
 }
