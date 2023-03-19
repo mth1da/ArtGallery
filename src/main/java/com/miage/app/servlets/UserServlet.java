@@ -1,3 +1,5 @@
+package com.miage.app.servlets;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(name="s",urlPatterns = {"/register"})
-public class Servlet extends HttpServlet {
+public class UserServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
@@ -31,5 +33,4 @@ public class Servlet extends HttpServlet {
         out.println(name);
         out.println(email);
     }
-
 }

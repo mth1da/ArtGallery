@@ -9,30 +9,24 @@ import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.CritiqueBDD;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.UserBDD;
-import com.miage.app.services.Connexion;
+import com.miage.app.dao.jdbc.VisiteurBDD;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
+import java.sql.*;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws SQLException {
 
-/*
-        User user=new Proprietaire("nom","prenom","1234","OKKK");
-        UserDAO dao=new ProprietaireBDD();
-       dao.createUser(user);
+        User r=new Visiteur("Ghulam","Meryam","mrm@gmail.com","ijij");
+
+        /**User user=new Visiteur("amel","naloufi","okkk","OKKK");**/
+        UserDAO dao=new VisiteurBDD();
+        /**dao.createUser(user);**/
+
+        r.setNom("sfkgnjfgn");
+        r.setPrenom("mez");
+        dao.updateUser(r);
 
 
-
-        dao.getUserById(1).displayUser();
-      //  dao.deleteUser(user);
-        Iterable<User> po=dao.getAllUser();
-        for(User us:po){
-            us.displayUser();
-        }
-*/
     }
 }

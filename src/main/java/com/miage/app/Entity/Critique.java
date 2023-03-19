@@ -4,10 +4,10 @@ public class Critique {
     private final int idCritique;
     private String commentaire;
     private int note;
-    private final Oeuvre oeuvre;
-    private final User user;
+    private final int oeuvre;
+    private final int user;
 
-    public Critique(int idCritique, String commentaire, int note, Oeuvre oeuvre, User user) {
+    public Critique(int idCritique, String commentaire, int note, int oeuvre, int user) {
         this.idCritique = idCritique;
         this.commentaire = commentaire;
         this.note = note;
@@ -27,11 +27,11 @@ public class Critique {
         return this.note;
     }
 
-    public Oeuvre getOeuvre(){
+    public int getOeuvre(){
         return this.oeuvre;
     }
 
-    public User getUser(){
+    public int getUser(){
         return this.user;
     }
 
