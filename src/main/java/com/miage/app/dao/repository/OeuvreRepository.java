@@ -1,6 +1,6 @@
 package com.miage.app.dao.repository;
 
-import com.miage.app.Entity.Artiste;
+
 import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.OeuvreDAO;
 
@@ -26,12 +26,23 @@ public class OeuvreRepository implements OeuvreDAO {
 
     @Override
     public Oeuvre getOeuvreById(int o) {
-        return null;
+        Oeuvre oeuvre=null;
+        for(Oeuvre currOeuvre : oeuvreList){
+            if(currOeuvre.getId()==o){
+                oeuvre=currOeuvre;
+            }
+        }
+        return oeuvre;
     }
 
     @Override
     public Iterable<Oeuvre> getAllOeuvres() {
         return oeuvreList;
+    }
+
+    @Override
+    public Iterable<Oeuvre> getAllUserOeuvres(int id) {
+        return null;
     }
 
 

@@ -2,7 +2,7 @@ package com.miage.app.dao;
 
 import com.miage.app.Entity.Critique;
 
-import java.util.List;
+
 
 public interface CritiqueDAO {
 

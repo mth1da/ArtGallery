@@ -3,7 +3,7 @@ package com.miage.app.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Proprietaire extends Visiteur{
+public class Proprietaire extends User{
     private List<Oeuvre> mesOeuvres=new ArrayList<Oeuvre>();
 
 

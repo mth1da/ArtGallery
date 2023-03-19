@@ -5,6 +5,7 @@ private String nom;
 private String prenom;
 private String mdp;
 private final String EMAIL;
+private int ID;
 private boolean estConnecter;
 
 protected User(String nom,String prenom,String mdp,String email){
@@ -53,4 +54,14 @@ public void setMdp(String mdp){
 }
 
 public abstract String getType();
+
+public void setId(int newId){
+        this.ID=newId;
+}
+
+public int getId(){
+        return this.ID;
+}
+
+
 }

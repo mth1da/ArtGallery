@@ -5,11 +5,37 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  <servlet-name>Servlet</servlet-name>
-  <servlet-class>com.miage.app.Servlet</servlet-class>
-</servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.miage.app.servlets.LoginUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>srvt</servlet-name>
+    <servlet-class>com.miage.app.servlets.Servlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>editProfile</servlet-name>
+    <servlet-class>com.miage.app.servlets.EditProfileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>oeuvresServlet</servlet-name>
+    <servlet-class>com.miage.app.servlets.MyOeuvresServlet</servlet-class>
+  </servlet>
+
+
   <servlet-mapping>
-    <servlet-name>Servlet</servlet-name>
-    <url-pattern>/servlet</url-pattern>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/loginuser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>srvt</servlet-name>
+    <url-pattern>/srv</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>editProfile</servlet-name>
+    <url-pattern>/editservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>oeuvresServlet</servlet-name>
+    <url-pattern>/oeuvres</url-pattern>
   </servlet-mapping>
 </web-app>
