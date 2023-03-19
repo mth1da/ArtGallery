@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ArtGallery:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ArtGallery</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ArtGallery.war">
+      <element id="artifact" artifact-name="ArtGallery:war exploded" />
+    </root>
+  </artifact>
+</component>
