@@ -43,12 +43,12 @@ public class EditProfileServlet extends HttpServlet {
 
             user.setNom(userLastName);
             user.setPrenom(userFistName);
-        UpdateProfile update=new UpdateProfile(userDAO);
-        out.println(userFistName);
-        out.println(userLastName);
-        out.println(userEmail);
-        update.updateUser(user);
 
+
+        UpdateProfile update=new UpdateProfile(userDAO);
+        update.updateUser(user);
+        out.println(user.getEmail());
+        response.sendRedirect("Home.jsp");
         }
     }
 

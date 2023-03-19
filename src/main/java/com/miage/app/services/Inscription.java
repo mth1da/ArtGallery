@@ -7,11 +7,13 @@ public interface Inscription {
 
     public String creeCompte();
 
+    //Retourne true si l'email existe
     public static boolean verifCompteExiste(String email,UserDAO userDAO){
         return userDAO.getUserByMail(email) != null;
     }
 
     public static boolean mdpValide(String mdp){
+        //Format du mot de passe afin qu'il soit valide
         String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
       // return mdp.matches(pattern);
        return true;
@@ -20,7 +22,9 @@ public interface Inscription {
     public abstract void saveAccount(User user);
 
     public static String verificationCoordonneeCompte(String email,String password,UserDAO userDAO){
+        //Vérifie lors de l'inscription que le compte n'existe pas et que la forme du mot de passe est correct
         String reponse="";
+        //Si le compte n'existe pas et les données ont bien été saisis:
         if(Inscription.verifCompteExiste(email, userDAO)){
             reponse="Votre compte existe déjà veuillez vous connecter";
         }else{

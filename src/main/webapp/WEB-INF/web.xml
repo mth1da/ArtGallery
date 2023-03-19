@@ -16,6 +16,10 @@
     <servlet-name>editProfile</servlet-name>
     <servlet-class>com.miage.app.servlets.EditProfileServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>oeuvresServlet</servlet-name>
+    <servlet-class>com.miage.app.servlets.MyOeuvresServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -29,5 +33,9 @@
   <servlet-mapping>
     <servlet-name>editProfile</servlet-name>
     <url-pattern>/editservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>oeuvresServlet</servlet-name>
+    <url-pattern>/oeuvres</url-pattern>
   </servlet-mapping>
 </web-app>

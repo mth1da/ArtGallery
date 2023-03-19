@@ -2,8 +2,6 @@ package com.miage.app.dao;
 
 import com.miage.app.Entity.Reservation;
 
-import java.util.List;
-
 public interface ReservationDAO {
 
     public abstract void createReservation(Reservation r);

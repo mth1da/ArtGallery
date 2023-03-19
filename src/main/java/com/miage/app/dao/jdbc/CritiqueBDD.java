@@ -1,12 +1,7 @@
 package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Critique;
-import com.miage.app.Entity.User;
-import com.miage.app.Entity.Visiteur;
 import com.miage.app.dao.CritiqueDAO;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,6 +15,9 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
     public void createCritique(Critique cr) {
         String strSql="INSERT INTO CRITIQUE (idCritique,commentaire,note,idOeuvre,idUser) VALUES (?,?,?,?,?)";
         try{
+
+
+            //Requête permettant de créer une nouvelle critique avec les données récupérées
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, cr.getIdCritique());
@@ -28,6 +26,8 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
             st.setInt(4, cr.getOeuvre());
             st.setInt(5, cr.getUser());
             st.executeUpdate();
+
+            //Ferme la connexion
             DAOContext.getDeconnect();
         }catch (Exception ignored){
 
@@ -48,12 +48,15 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
 
     @Override
     public void deleteCritique(Critique cr) {
+
+        //Requête permettant de supprimer une critique
         String strSql="DELETE FROM CRITIQUE WHERE idCritique= ?";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, cr.getIdCritique());
             st.executeUpdate();
+            //Ferme la connexion
             DAOContext.getDeconnect();
         }catch (Exception ignored){
 

@@ -1,9 +1,8 @@
 package com.miage.app.dao;
 
 import com.miage.app.Entity.Artiste;
-
 import java.sql.SQLException;
-import java.util.List;
+
 
 public interface ArtisteDAO {
     public abstract void createArtiste(Artiste artiste) throws SQLException;

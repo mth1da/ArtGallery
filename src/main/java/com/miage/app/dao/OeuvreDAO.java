@@ -2,7 +2,6 @@ package com.miage.app.dao;
 
 import com.miage.app.Entity.Oeuvre;
 
-import java.util.List;
 
 public interface OeuvreDAO {
 
@@ -15,4 +14,7 @@ public interface OeuvreDAO {
     public abstract Oeuvre getOeuvreById(int o);
 
     public abstract Iterable<Oeuvre> getAllOeuvres();
+
+    public abstract Iterable<Oeuvre> getAllUserOeuvres(int id);
+
 }

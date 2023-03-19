@@ -1,8 +1,6 @@
 package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Reservation;
-import com.miage.app.Entity.User;
-import com.miage.app.Entity.Visiteur;
 import com.miage.app.dao.ReservationDAO;
 
 import java.sql.Date;
