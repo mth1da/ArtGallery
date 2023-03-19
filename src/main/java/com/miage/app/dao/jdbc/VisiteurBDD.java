@@ -100,6 +100,24 @@ public class VisiteurBDD extends UserBDD{
         return user;
     }
 
+    @Override
+    public void updateUser(User r) {
+        String query="UPDATE user SET firstname=?, lastname=? WHERE email=? AND status=?";
+        try {
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(query);
+            st.setString(1, r.getPreNom());
+            st.setString(2, r.getNom());
+            st.setString(3, r.getEmail());
+            st.setString(4, "visiteur");
+            st.executeUpdate();
+            DAOContext.getDeconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 }

@@ -18,46 +18,37 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "editProfile", urlPatterns = "/editservlet")
 public class EditProfileServlet extends HttpServlet {
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>EditProfileServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-
+        PrintWriter out = response.getWriter();
             // fetch all data
             String userFistName = request.getParameter("firstname");
             String userLastName = request.getParameter("lastname");
-            String userPassword = request.getParameter("password");
-            String userStatus = request.getParameter("status");
+            HttpSession s=request.getSession();
+            String userStatus = s.getAttribute("status").toString();
+            String userEmail = s.getAttribute("currentUser").toString();
 
-            //get the user from the session...
-            HttpSession session = request.getSession();
-            User user = (User) session.getAttribute("currentUser");
-            user.setNom(userLastName);
-            user.setPrenom(userFistName);
-            user.setMdp(userPassword);
 
+            UserDAO userDAO=null;
+            User user=null;
 
             //update database....
             if(userStatus.equals("visiteur")){
-                UserDAO userr=new VisiteurBDD();
-                UpdateProfile update=new UpdateProfileVisiteur(userr);
-                //update.updateUser();
+                userDAO=new VisiteurBDD();
             }else if(userStatus.equals("proprietaire")){
-                UserDAO userr=new ProprietaireBDD();
-                UpdateProfile update=new UpdateProfileProprietaire(userr);
-                //update.updateUser(userr);
+                userDAO=new ProprietaireBDD();
             }
 
+        user=userDAO.getUserByMail(userEmail);
 
+            user.setNom(userLastName);
+            user.setPrenom(userFistName);
+        UpdateProfile update=new UpdateProfile(userDAO);
+        out.println(userFistName);
+        out.println(userLastName);
+        out.println(userEmail);
+        update.updateUser(user);
 
-            out.println("</body>");
-            out.println("</html>");
         }
     }
-}
+

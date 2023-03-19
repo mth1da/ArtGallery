@@ -44,22 +44,10 @@
                     Looks good!
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <label for="validationCustomUsername">email</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="email" name="email" aria-describedby="inputGroupPrepend" value="<%= user.getEmail()%>" required>
-                    <div class="invalid-feedback">
-                        Please choose an email.
-                    </div>
-                </div>
-            </div>
+            <p name="email" ><%= user.getEmail()%><p>
         </div>
         <div class="col-md-3 mb-3">
-            <label for="validationCustom04">Password</label>
-            <input type="text" class="form-control" name="password" id="validationCustom04" placeholder="Password"  value="<%= user.getMdp()%>" required>
+            <p name="password" ><%= user.getMdp()%><p>
             <div class="invalid-feedback">
                 Please provide a valid state.
             </div>

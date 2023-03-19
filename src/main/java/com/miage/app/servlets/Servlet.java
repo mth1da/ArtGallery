@@ -44,44 +44,5 @@ public class Servlet extends HttpServlet {
         }
     }
 
-    @WebServlet(name="LoginServlet",urlPatterns = {"/login"})
-    public static class LoginServlet extends HttpServlet{
-        @Override
-        protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            PrintWriter out = resp.getWriter();
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>");
-            out.println("</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("Hello I am your Servlet ");
-            out.println("</body>");
-            out.println("</html>");
-        }
 
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            response.setContentType("text/html");
-            PrintWriter out = response.getWriter();
-            String status=request.getParameter("status");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            UserDAO userDAO=null;
-            if(status.equals("visiteur")){
-                userDAO=new VisiteurBDD();
-            }else if(status.equals("proprietaire")){
-                userDAO=new ProprietaireBDD();
-            }
-            Connexion con=new Connexion(userDAO);
-            String rep=con.connexionValide(email,password);
-            if(rep.equals("")){
-                out.println("Connexion réussi");
-                response.sendRedirect("Home.jsp");
-            }else{
-                out.println(rep);
-            }
-
-        }
-    }
 }
