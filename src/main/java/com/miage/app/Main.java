@@ -9,6 +9,7 @@ import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.CritiqueBDD;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.UserBDD;
+import com.miage.app.dao.jdbc.VisiteurBDD;
 
 import java.sql.*;
 import java.util.List;
@@ -16,29 +17,15 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException {
 
+        User r=new Visiteur("Ghulam","Meryam","mrm@gmail.com","ijij");
 
         /**User user=new Visiteur("amel","naloufi","okkk","OKKK");**/
-        UserDAO dao=new ProprietaireBDD();
+        UserDAO dao=new VisiteurBDD();
         /**dao.createUser(user);**/
 
-
-
-        dao.getUserById(1).displayUser();
-      //  dao.deleteUser(user);
-        Iterable<User> po=dao.getAllUser();
-        for(User us:po){
-            us.displayUser();
-        }
-
-        Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/artGallery","root","");
-        Statement statement=con.createStatement();
-        ResultSet re=statement.executeQuery("Select * from user");
-
-        while(re.next()){
-            System.out.println(re.getString("email"));
-        }
-
-        con.close();
+        r.setNom("sfkgnjfgn");
+        r.setPrenom("mez");
+        dao.updateUser(r);
 
 
     }

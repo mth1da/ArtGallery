@@ -109,7 +109,7 @@ public class ProprietaireBDD extends UserBDD{
             st.setString(2, r.getNom());
             st.setString(3, r.getEmail());
             st.setString(4, "proprietaire");
-            st.executeUpdate();
+            st.executeQuery();
             DAOContext.getDeconnect();
         } catch (Exception e) {
             e.printStackTrace();
