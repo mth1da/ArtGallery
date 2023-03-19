@@ -48,7 +48,7 @@ public class EditProfileServlet extends HttpServlet {
         UpdateProfile update=new UpdateProfile(userDAO);
         update.updateUser(user);
         out.println(user.getEmail());
-
+        response.sendRedirect("Home.jsp");
         }
     }
 
