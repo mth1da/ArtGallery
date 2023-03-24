@@ -16,6 +16,14 @@
     <servlet-name>srvt</servlet-name>
     <servlet-class>com.miage.app.servlets.Servlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>buyExhibition</servlet-name>
+    <servlet-class>com.miage.app.servlets.BuyExhibitionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteReservatio</servlet-name>
+    <servlet-class>com.miage.app.servlets.DeleteReservationServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>editProfile</servlet-name>
@@ -28,6 +36,14 @@
   <servlet-mapping>
     <servlet-name>srvt</servlet-name>
     <url-pattern>/srv</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buyExhibition</servlet-name>
+    <url-pattern>/buyExb</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteReservatio</servlet-name>
+    <url-pattern>/deleteReser</url-pattern>
   </servlet-mapping>
 
 </web-app>

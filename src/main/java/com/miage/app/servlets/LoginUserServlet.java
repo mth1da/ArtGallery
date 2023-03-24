@@ -47,6 +47,7 @@ public class LoginUserServlet extends HttpServlet {
             HttpSession s=request.getSession();
             s.setAttribute("currentUser",email);
             s.setAttribute("status",status);
+            s.setAttribute("userId",userDAO.getUserIdByMail(email));
            // out.println(s.getAttribute("currentUser"));
             response.sendRedirect("Home.jsp");
         }else{

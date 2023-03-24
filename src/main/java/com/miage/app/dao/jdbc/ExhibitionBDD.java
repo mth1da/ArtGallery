@@ -85,7 +85,7 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
     @Override
     public Iterable<Exhibition> getAllExhibition() {
         List<Exhibition> exhibitionList=new ArrayList<>();
-        String strSql="select * FROM USER";
+        String strSql="select * FROM exhibition";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);

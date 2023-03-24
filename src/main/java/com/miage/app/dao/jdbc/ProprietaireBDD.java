@@ -25,4 +25,8 @@ public class ProprietaireBDD extends UserBDD{
         return "proprietaire";
     }
 
+    @Override
+    public int getUserIdByMail(String email) {
+        return super.getUserIdBymail(email);
+    }
 }

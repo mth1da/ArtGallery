@@ -1,10 +1,13 @@
 package com.miage.app.dao.jdbc;
 
 
+import com.miage.app.Entity.Reservation;
 import com.miage.app.Entity.User;
+import com.miage.app.dao.ReservationDAO;
 import com.miage.app.dao.UserDAO;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public abstract class UserBDD extends DAOContext implements UserDAO{
@@ -176,6 +179,13 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
 
         }
         return user;
+    }
+
+    public static void main(String[] a){
+
+        ReservationDAO re=new ReservationBDD();
+        re.deleteReservation(1);
+
     }
 
 }

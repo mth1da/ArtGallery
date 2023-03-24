@@ -20,8 +20,8 @@ public class ReservationRepository implements ReservationDAO {
     }
 
     @Override
-    public void deleteReservation(Reservation r) {
-        reservationList.remove(r);
+    public void deleteReservation(int r) {
+
     }
 
     @Override
@@ -40,6 +40,11 @@ public class ReservationRepository implements ReservationDAO {
     @Override
     public Iterable<Reservation> getAllReservations() {
         return reservationList;
+    }
+
+    @Override
+    public Iterable<Reservation> getReservationByUser(int id) {
+        return null;
     }
 
 

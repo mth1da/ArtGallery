@@ -22,5 +22,8 @@
                 <%   }
     %>
 
+    <a href="Exhibition.jsp">les exhibition</a>
+    <a href="Reservation.jsp">Mes reservations</a>
+
 </body>
 </html>

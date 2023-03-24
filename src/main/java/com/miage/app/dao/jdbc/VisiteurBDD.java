@@ -9,6 +9,10 @@ import java.util.List;
 
 public class VisiteurBDD extends UserBDD{
 
+    public VisiteurBDD(){
+        super();
+    }
+
     @Override
     protected User creatingObject(ResultSet re) throws SQLException {
         String name=re.getString("lastname");
@@ -22,5 +26,10 @@ public class VisiteurBDD extends UserBDD{
     @Override
     protected String getStatus() {
         return "visiteur";
+    }
+
+    @Override
+    public int getUserIdByMail(String email) {
+        return super.getUserIdBymail(email);
     }
 }
