@@ -8,7 +8,7 @@ import java.sql.*;
 public abstract class DAOContext {
 
     protected static String dbURL="jdbc:mariadb://localhost:3308/artGallery";
-    protected static String dbPassWord="";
+    protected static String dbPassWord="meryam";
     protected static String dbLogin="root";
     protected static String driver="org.mariadb.jdbc.Driver";
 
