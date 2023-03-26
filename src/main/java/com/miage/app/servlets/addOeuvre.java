@@ -38,7 +38,13 @@ public class addOeuvre extends HttpServlet {
             ps.setString(1, title);
             ps.setDouble(2, price);
 
+            PreparedStatement pss = con.prepareStatement("INSERT INTO artiste (name, lastName) VALUES (?,?)");
+
+            pss.setString(1, name);
+            pss.setString(2,lastName);
+
             ps.executeUpdate();
+            pss.executeUpdate();
 
             DAOContext.getDeconnect();
 
