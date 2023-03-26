@@ -11,7 +11,6 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -34,15 +33,14 @@ public class addOeuvre extends HttpServlet {
             String lastName = request.getParameter("lastName");
             Double price = Double.valueOf(request.getParameter("price"));
 
-            PreparedStatement ps = con.prepareStatement("insert into oeuvre values (seq_j.nextval,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO oeuvre (title, price) VALUES (?,?)");
 
-            ps.setString(2, title);
-            ps.setDouble(5, price);
+            ps.setString(1, title);
+            ps.setDouble(2, price);
 
             ps.executeUpdate();
 
-            PrintWriter out = response.getWriter();
-            out.print("L'oeuvre a été ajouté avec succès !");
+            DAOContext.getDeconnect();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -11,9 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Connexion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/addOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/addOeuvre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/AjoutOeuvre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/AjoutOeuvre.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/AjoutOeuvre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/AjoutOeuvre.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +228,7 @@
       <workItem from="1679821256610" duration="609000" />
       <workItem from="1679840113658" duration="1195000" />
       <workItem from="1679844057393" duration="3890000" />
-      <workItem from="1679859580179" duration="4996000" />
+      <workItem from="1679859580179" duration="7195000" />
     </task>
     <servers />
   </component>
