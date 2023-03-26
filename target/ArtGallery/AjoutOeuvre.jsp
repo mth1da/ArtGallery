@@ -12,18 +12,18 @@
     <title>Title</title>
 </head>
 <body>
-<form class="needs-validation" novalidate>
+<form class="needs-validation" novalidate action="/addOeuvre" method="post">
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="validationCustom01"> Titre de l'oeuvre </label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Titre" required>
+            <input type="text" class="form-control" name="title" id="validationCustom01" placeholder="First name" value="Titre" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationCustom02"> Prénom de l'artiste </label>
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Prénom" required>
+            <input type="text" class="form-control" name="name" id="validationCustom02" placeholder="Last name" value="Prénom" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -34,7 +34,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend"></span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                <input type="text" name="lastName" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
                     Please choose a username.
                 </div>
@@ -44,7 +44,7 @@
     <div class="form-row">
         <div class="col-md-6 mb-3">
             <label for="validationCustom03">Prix de l'oeuvre</label>
-            <input type="text" class="form-control" id="validationCustom03" placeholder="Prix" required>
+            <input type="text" name="price" class="form-control" id="validationCustom03" placeholder="Prix" required>
             <div class="invalid-feedback">
                 Please provide a valid city.
             </div>

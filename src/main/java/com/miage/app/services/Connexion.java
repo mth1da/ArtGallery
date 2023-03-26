@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class Connexion {
 
-
     private UserDAO userDAO;
 
     public Connexion(UserDAO userDAO){
