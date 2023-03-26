@@ -10,14 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/addOeuvre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/AjoutOeuvre.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ArtGallery.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ArtGallery_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ArtGallery_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_servlet_jakarta_servlet_api_6_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_20081211.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ProprietaireBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ProprietaireBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/VisiteurBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/VisiteurBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/UpdateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/UpdateProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/EditProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/EditProfileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/modifyProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/modifyProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/Home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/modifyProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/modifyProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Oeuvres.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Oeuvres.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,13 +35,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Meryam" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,6 +64,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -221,6 +233,12 @@
       <workItem from="1679217311024" duration="59000" />
       <workItem from="1679254522296" duration="322000" />
       <workItem from="1679256782721" duration="210000" />
+      <workItem from="1679261303053" duration="3221000" />
+      <workItem from="1679264562764" duration="1041000" />
+      <workItem from="1679666301456" duration="4420000" />
+      <workItem from="1679821256610" duration="609000" />
+      <workItem from="1679840113658" duration="1195000" />
+      <workItem from="1679844057393" duration="3160000" />
     </task>
     <servers />
   </component>

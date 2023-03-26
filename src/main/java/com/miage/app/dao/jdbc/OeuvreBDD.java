@@ -20,19 +20,50 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
     @Override
     public void createOeuvre(Oeuvre o) {
+        String strSql="INSERT INTO oeuvre (id, name, idProprio, idArtiste, p) VALUES (?,?,?,?,?)";
+        try{
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(strSql);
+            st.setInt(1, o.getId());
+            st.setString(2, o.getName());
+            st.setInt(3, o.getIdProprio());
+            st.setInt(4,o.getIdArtiste());
+            st.setDouble(5,o.getPrice());
+            st.executeUpdate();
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
-
-
+        }
     }
 
     @Override
     public void updateOeuvre(Oeuvre o) {
-
+        String query="UPDATE oeuvre SET title=?, price=? WHERE idOeuvre=?";
+        try {
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(query);
+            st.setString(1, o.getName());
+            st.setDouble(2, o.getPrice());
+            st.setInt(3, o.getId());
+            st.executeUpdate();
+            DAOContext.getDeconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteOeuvre(Oeuvre o) {
+        String strSql="DELETE FROM oeuvre WHERE idOeuvre= ?";
+        try{
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(strSql);
+            st.setInt(1, o.getId());
+            st.executeUpdate();
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
 
+        }
     }
 
     @Override

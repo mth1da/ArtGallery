@@ -30,5 +30,7 @@ Voici mes oeuvres
 <h4><%= o.getPresentationOeuvre()%></h4>
  <%   }
 %>
+
+<a href="AjoutOeuvre.jsp">Ajouter une oeuvre</a>
 </body>
 </html>
