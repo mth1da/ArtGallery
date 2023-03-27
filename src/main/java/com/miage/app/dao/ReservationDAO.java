@@ -8,9 +8,11 @@ public interface ReservationDAO {
 
     public abstract void updateReservation(Reservation r);
 
-    public abstract void deleteReservation(Reservation r);
+    public abstract void deleteReservation(int r);
 
     public abstract Reservation getReservationById(int id);
 
     public abstract Iterable<Reservation> getAllReservations();
+
+    public abstract Iterable<Reservation> getReservationByUser(int id);
 }

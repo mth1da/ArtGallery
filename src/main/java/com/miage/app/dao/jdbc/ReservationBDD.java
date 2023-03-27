@@ -14,15 +14,13 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
     @Override
     public void createReservation(Reservation r) {
 
-        String strSql="INSERT INTO RESERVATION (idReservation,date,price,idUser) VALUES (?,?,?,?)";
+        String strSql="INSERT INTO RESERVATION (idUser,idExhibition) VALUES (?,?)";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
-            st.setInt(1, r.getIdReservation());
-            st.setDate(2, (Date) r.getDate());
-            st.setDouble(3, r.getPrice());
-            st.setInt(4,r.getIdUser());
-            st.executeUpdate();
+            st.setInt(1,r.getIdUser());
+            st.setInt(2,r.getIdExhibition());
+            st.executeQuery();
             DAOContext.getDeconnect();
         }catch (Exception ignored){
 
@@ -36,12 +34,12 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
     }
 
     @Override
-    public void deleteReservation(Reservation r) {
-        String strSql="DELETE FROM user WHERE idReservation= ?";
+    public void deleteReservation(int r) {
+        String strSql="DELETE FROM reservation WHERE idReservation=? ";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
-            st.setInt(1, r.getIdReservation());
+            st.setInt(1, r);
             st.executeUpdate();
             DAOContext.getDeconnect();
         }catch (Exception ignored){
@@ -90,13 +88,35 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
         return reservationList;
     }
 
+    @Override
+    public Iterable<Reservation> getReservationByUser(int id) {
+        List<Reservation> reservationList=new ArrayList<>();
+        String strSql="select * FROM RESERVATION where idUser=? ";
+        try{
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(strSql);
+            st.setInt(1, id);
+            ResultSet re=st.executeQuery();
+            while(re.next()){
+                Reservation reservation=creatingObject(re);
+                reservationList.add(reservation);
+            }
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
+
+        }
+        return reservationList;
+    }
+
 
     @Override
     protected Reservation creatingObject(ResultSet re) throws SQLException {
         int idReservation=re.getInt("idReservation");
         Date date=re.getDate("date");
-        double price=re.getDouble("price");
         int idUser=re.getInt("idUser");
-        return new Reservation(idReservation,date,price,idUser);
+        int idEx=re.getInt("idExhibition");
+        Reservation reservation=new Reservation(idUser,idEx);
+        reservation.setIdReservation(idReservation);
+        return reservation;
     }
 }

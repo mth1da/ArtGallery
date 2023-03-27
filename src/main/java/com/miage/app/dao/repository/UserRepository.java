@@ -57,4 +57,9 @@ public class UserRepository implements UserDAO {
     public boolean getUserConnection(String email, String password) {
         return true;
     }
+
+    @Override
+    public int getUserIdByMail(String email) {
+        return 0;
+    }
 }
