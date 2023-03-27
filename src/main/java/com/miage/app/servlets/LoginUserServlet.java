@@ -1,5 +1,6 @@
 package com.miage.app.servlets;
 
+import com.miage.app.Entity.User;
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
@@ -53,6 +54,14 @@ public class LoginUserServlet extends HttpServlet {
         }else{
             out.println(rep);
         }
+
+        /*HttpSession s=request.getSession();
+
+        String userEmail = s.getAttribute("currentUser").toString();
+
+        User user =userDAO.getUserByMail(userEmail);
+
+        user.getId();*/
 
     }
 }

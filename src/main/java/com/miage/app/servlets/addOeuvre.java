@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import static java.lang.System.out;
+
 @WebServlet(name = "addOeuvre", value = "/addOeuvre")
 public class addOeuvre extends HttpServlet {
     @Override
@@ -24,19 +26,24 @@ public class addOeuvre extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         try {
             Connection con = DAOContext.getConnect();
+
+            HttpSession s=request.getSession();
+
+            int userID=Integer.parseInt(s.getAttribute("userId").toString());
 
             String title = request.getParameter("title");
             String name = request.getParameter("name");
             String lastName = request.getParameter("lastName");
             Double price = Double.valueOf(request.getParameter("price"));
 
-            PreparedStatement ps = con.prepareStatement("INSERT INTO oeuvre (title, price) VALUES (?,?)");
+
+            PreparedStatement ps = con.prepareStatement("INSERT INTO oeuvre (title, idUser, price) VALUES (?,?,?)");
 
             ps.setString(1, title);
-            ps.setDouble(2, price);
+            ps.setInt(2, userID);
+            ps.setDouble(3, price);
 
             PreparedStatement pss = con.prepareStatement("INSERT INTO artiste (name, lastName) VALUES (?,?)");
 
@@ -45,6 +52,8 @@ public class addOeuvre extends HttpServlet {
 
             ps.executeUpdate();
             pss.executeUpdate();
+
+            response.sendRedirect("Oeuvres.jsp");
 
             DAOContext.getDeconnect();
 

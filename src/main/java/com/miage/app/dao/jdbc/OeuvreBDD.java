@@ -1,9 +1,6 @@
 package com.miage.app.dao.jdbc;
 
-import com.miage.app.Entity.Oeuvre;
-import com.miage.app.Entity.TableauOeuvre;
-import com.miage.app.Entity.User;
-import com.miage.app.Entity.Visiteur;
+import com.miage.app.Entity.*;
 import com.miage.app.dao.OeuvreDAO;
 import com.miage.app.dao.UserDAO;
 
@@ -20,7 +17,7 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
     @Override
     public void createOeuvre(Oeuvre o) {
-        String strSql="INSERT INTO oeuvre (id, name, idProprio, idArtiste, p) VALUES (?,?,?,?,?)";
+        String strSql="INSERT INTO oeuvre (idOeuvre, title, idArtiste, idUser, price) VALUES (?,?,?,?,?)";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
@@ -29,7 +26,7 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
             st.setInt(3, o.getIdProprio());
             st.setInt(4,o.getIdArtiste());
             st.setDouble(5,o.getPrice());
-            st.executeUpdate();
+            st.executeQuery();
             DAOContext.getDeconnect();
         }catch (Exception ignored){
 

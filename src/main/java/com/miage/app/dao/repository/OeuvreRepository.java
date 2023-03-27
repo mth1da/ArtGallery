@@ -2,6 +2,7 @@ package com.miage.app.dao.repository;
 
 
 import com.miage.app.Entity.Oeuvre;
+import com.miage.app.Entity.Reservation;
 import com.miage.app.dao.OeuvreDAO;
 
 import java.util.ArrayList;

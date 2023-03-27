@@ -1,3 +1,7 @@
+<%@ page import="com.miage.app.Entity.User" %>
+<%@ page import="com.miage.app.dao.UserDAO" %>
+<%@ page import="com.miage.app.dao.jdbc.VisiteurBDD" %>
+<%@ page import="com.miage.app.dao.jdbc.ProprietaireBDD" %>
 <%--
   Created by IntelliJ IDEA.
   User: Salon
@@ -5,6 +9,13 @@
   Time: 16:01
   To change this template use File | Settings | File Templates.
 --%>
+
+<%--
+    UserDAO userDAO=null;
+    userDAO=new ProprietaireBDD();
+    User user=userDAO.getUserByMail(session.getAttribute("currentUser").toString());
+--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,6 +23,9 @@
     <title>Title</title>
 </head>
 <body>
+<%--
+    int userID=Integer.parseInt(session.getAttribute("userId").toString());
+--%>
 <form class="needs-validation" novalidate action="addOeuvre" method="post">
     <div class="form-row">
         <div class="col-md-4 mb-3">
@@ -46,8 +60,11 @@
             <label for="validationCustom03">Prix de l'oeuvre</label>
             <input type="text" name="price" class="form-control" id="validationCustom03" placeholder="Prix" required>
             <div class="invalid-feedback">
-                Please provide a valid city.
+                Please provide a valid price.
             </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom03">Votre email: </label>
         </div>
     </div>
     <div class="form-group">
