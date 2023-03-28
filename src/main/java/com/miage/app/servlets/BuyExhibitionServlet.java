@@ -27,6 +27,7 @@ public class BuyExhibitionServlet extends HttpServlet {
         HttpSession s=request.getSession();
         String userStatus = s.getAttribute("status").toString();
         String userEmail = s.getAttribute("currentUser").toString();
+        int userID=Integer.parseInt(s.getAttribute("userId").toString());
         UserDAO us=null;
         if(userStatus.equals("visiteur")){
             us=new VisiteurBDD();
