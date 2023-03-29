@@ -162,4 +162,14 @@ public class VisiteurBDD extends UserBDD{
         return null;
     }
 
+    @Override
+    protected String getStatus() {
+        return "visiteur";
+    }
+
+    @Override
+    public int getUserIdByMail(String email) {
+        return super.getUserIdBymail(email);
+    }
+
 }

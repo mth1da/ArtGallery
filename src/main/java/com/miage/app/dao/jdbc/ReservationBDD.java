@@ -13,6 +13,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
 
     @Override
     public void createReservation(Reservation r) {
+
         try{
             //connexion
             DAOContext.getConnect();
@@ -45,15 +46,14 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
     }
 
     @Override
-    public void deleteReservation(Reservation r) {
+    public void deleteReservation(int r) {
         try{
             //connexion
             DAOContext.getConnect();
 
-            String query="DELETE FROM user WHERE idReservation= ?";
-            st = connexion.prepareStatement(query);
-
-            st.setInt(1, r.getIdReservation());
+            String strSql="DELETE FROM reservation WHERE idReservation=? ";
+            st = connexion.prepareStatement(strSql);
+            st.setInt(1, r);
             st.executeUpdate();
 
         }catch (SQLException e){
@@ -123,6 +123,26 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             } catch (SQLException e) {
                 System.out.println("Caught SQLException: " + e.getMessage());
             }
+        }
+        return reservationList;
+    }
+
+    @Override
+    public Iterable<Reservation> getReservationByUser(int id) {
+        List<Reservation> reservationList=new ArrayList<>();
+        String strSql="select * FROM RESERVATION where idUser=? ";
+        try{
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(strSql);
+            st.setInt(1, id);
+            ResultSet re=st.executeQuery();
+            while(re.next()){
+                Reservation reservation=creatingObject(re);
+                reservationList.add(reservation);
+            }
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
+
         }
         return reservationList;
     }

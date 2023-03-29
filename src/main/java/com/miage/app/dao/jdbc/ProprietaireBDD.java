@@ -160,13 +160,8 @@ public class ProprietaireBDD extends UserBDD{
         return null;
     }
 
-    public static void main(String[] arg){
-        User u=new Proprietaire("merr","mere","azerty","naloufi.amel@gmail.com");
-        UserBDD bdd=new ProprietaireBDD();
-
-        bdd.updateUser(u);
-
+    @Override
+    public int getUserIdByMail(String email) {
+        return super.getUserIdBymail(email);
     }
-
-
 }
