@@ -13,24 +13,29 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
 
     @Override
     public void createCritique(Critique cr) {
-        String strSql="INSERT INTO CRITIQUE (idCritique,commentaire,note,idOeuvre,idUser) VALUES (?,?,?,?,?)";
         try{
-
-
             //Requête permettant de créer une nouvelle critique avec les données récupérées
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            String query="INSERT INTO CRITIQUE (idCritique,commentaire,note,idOeuvre,idUser) VALUES (?,?,?,?,?)";
+            st = connexion.prepareStatement(query);
+
             st.setInt(1, cr.getIdCritique());
             st.setString(2, cr.getCommentaire());
             st.setInt(3, cr.getNote());
             st.setInt(4, cr.getOeuvre());
             st.setInt(5, cr.getUser());
+
             st.executeUpdate();
-
-            //Ferme la connexion
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e ){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch(SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
 
     }
@@ -48,36 +53,56 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
 
     @Override
     public void deleteCritique(Critique cr) {
-
-        //Requête permettant de supprimer une critique
-        String strSql="DELETE FROM CRITIQUE WHERE idCritique= ?";
         try{
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            st.setInt(1, cr.getIdCritique());
-            st.executeUpdate();
-            //Ferme la connexion
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
 
+            //Requête permettant de supprimer une critique
+            String query="DELETE FROM CRITIQUE WHERE idCritique= ?";
+
+            st = connexion.prepareStatement(query);
+            st.setInt(1, cr.getIdCritique());
+
+            st.executeUpdate();
+
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
     }
 
     @Override
     public Critique getCritiqueById(int id) {
         Critique critique=null;
-        String strSql="select * FROM CRITIQUE WHERE idCritique= ?";
+
         try{
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            String query="select * FROM CRITIQUE WHERE idCritique= ?";
+            st = connexion.prepareStatement(query);
+
             st.setInt(1, id);
             ResultSet re=st.executeQuery();
+
             while(re.next()){
                 critique=creatingObject(re);
             }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return critique;
     }
@@ -85,30 +110,45 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
     @Override
     public Iterable<Critique> getAllCritiques() {
         List<Critique> critiqueList=new ArrayList<>();
-        String strSql="select * FROM CRITIQUE";
         try{
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            String query="select * FROM CRITIQUE";
+            st = connexion.prepareStatement(query);
+
             ResultSet re=st.executeQuery();
             while(re.next()){
                 Critique critique=creatingObject(re);
                 critiqueList.add(critique);
             }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e ){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return critiqueList;
     }
 
 
     @Override
-    protected Critique creatingObject(ResultSet re) throws SQLException  {
-        int idCritique=re.getInt("idCritique");
-        String commentaire=re.getString("commentaire");
-        int note=re.getInt("note");
-        int idOeuvre=re.getInt("idOeuvre");
-        int idUser=re.getInt("idUser");
-        return new Critique(idCritique,commentaire,note,idOeuvre,idUser);
+    protected Critique creatingObject(ResultSet re)  {
+
+        try{
+            int idCritique=re.getInt("idCritique");
+            String commentaire=re.getString("commentaire");
+            int note=re.getInt("note");
+            int idOeuvre=re.getInt("idOeuvre");
+            int idUser=re.getInt("idUser");
+            return new Critique(idCritique,commentaire,note,idOeuvre,idUser);
+        } catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        }
+       return null;
     }
 }
