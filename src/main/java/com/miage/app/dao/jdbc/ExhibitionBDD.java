@@ -12,9 +12,11 @@ import java.util.List;
 public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
     @Override
     public void createExhibition(Exhibition exhibition) {
-        String strSql="INSERT INTO exhibition (name,startdate,enddate,place,maxVisitorNb,rooms) VALUES (?,?,?,?,?,?)";
         try{
+            //connexion
             DAOContext.getConnect();
+
+            String strSql="INSERT INTO exhibition (name,startdate,enddate,place,maxVisitorNb,rooms) VALUES (?,?,?,?,?,?)";
             st = connexion.prepareStatement(strSql);
             st.setString(1, exhibition.getName());
             st.setDate(2, (Date) exhibition.getStartDate());
@@ -23,17 +25,26 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             st.setInt(5, exhibition.getMaxVisitorNb());
             st.setString(6, exhibition.getRooms());
             st.executeQuery();
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
     }
 
     @Override
     public void updateExhibition(Exhibition exhibition) {
-        String query="UPDATE exhibition SET name=?, startdate=?, endDate=?, place=?, maxVisitornbr,rooms  WHERE idExhibition=?";
         try {
+            //connexion
             DAOContext.getConnect();
+
+            String query="UPDATE exhibition SET name=?, startdate=?, endDate=?, place=?, maxVisitornbr,rooms  WHERE idExhibition=?";
+
             st = connexion.prepareStatement(query);
             st.setString(1, exhibition.getName());
             st.setDate(2, (Date) exhibition.getStartDate());
@@ -42,32 +53,47 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             st.setInt(5, exhibition.getMaxVisitorNb());
             st.setString(6, exhibition.getRooms());
             st.executeUpdate();
-            DAOContext.getDeconnect();
-        } catch (Exception e) {
-            e.printStackTrace();
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
     }
 
     @Override
     public void deleteExhibition(Exhibition exhibition) {
-        String strSql="DELETE FROM exhibition WHERE id=? ";
         try{
+            //connexion
             DAOContext.getConnect();
+            String strSql="DELETE FROM exhibition WHERE id=? ";
             st = connexion.prepareStatement(strSql);
             st.setInt(1, exhibition.getIdExhibition());
             st.executeUpdate();
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
     }
 
     @Override
     public Exhibition getExhibitionById(int id) {
         Exhibition exhibition=null;
-        String strSql="select * FROM exhibition WHERE idExhibition= ?";
         try{
+            //connexion
             DAOContext.getConnect();
+
+            String strSql="select * FROM exhibition WHERE idExhibition= ?";
             st = connexion.prepareStatement(strSql);
             st.setInt(1, id);
 
@@ -75,9 +101,15 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             while(re.next()){
                 exhibition=creatingObject(re);
             }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return exhibition;
     }
@@ -85,32 +117,45 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
     @Override
     public Iterable<Exhibition> getAllExhibition() {
         List<Exhibition> exhibitionList=new ArrayList<>();
-        String strSql="select * FROM exhibition";
         try{
+            //connexion
             DAOContext.getConnect();
+
+            String strSql="select * FROM exhibition";
             st = connexion.prepareStatement(strSql);
             ResultSet re=st.executeQuery();
             while(re.next()){
                 Exhibition exhibition=creatingObject(re);
                 exhibitionList.add(exhibition);
             }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return exhibitionList;
     }
 
     @Override
-    protected Exhibition creatingObject(ResultSet re) throws SQLException {
-        int idExhibition=re.getInt("idExhibition");
-        String name=re.getString("name");
-        Date startDate=re.getDate("startDate");
-        Date endDate=re.getDate("endDate");
-        String place=re.getString("place");
-        int max=re.getInt("maxVisitorNb");
-        String room=re.getString("rooms");
-        Exhibition exhibition=new Exhibition(idExhibition,name,startDate,endDate,place,max,room);
-        return exhibition;
+    protected Exhibition creatingObject(ResultSet re) {
+
+        try{
+            int idExhibition=re.getInt("idExhibition");
+            String name=re.getString("name");
+            Date startDate=re.getDate("startDate");
+            Date endDate=re.getDate("endDate");
+            String place=re.getString("place");
+            int max=re.getInt("maxVisitorNb");
+            String room=re.getString("rooms");
+            Exhibition exhibition=new Exhibition(idExhibition,name,startDate,endDate,place,max,room);
+            return exhibition;
+        } catch(SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        }
     }
 }
