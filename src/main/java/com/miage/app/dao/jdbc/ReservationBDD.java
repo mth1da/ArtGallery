@@ -130,9 +130,11 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
     @Override
     public Iterable<Reservation> getReservationByUser(int id) {
         List<Reservation> reservationList=new ArrayList<>();
-        String strSql="select * FROM RESERVATION where idUser=? ";
         try{
+            //connexion
             DAOContext.getConnect();
+
+            String strSql="select * FROM RESERVATION where idUser=? ";
             st = connexion.prepareStatement(strSql);
             st.setInt(1, id);
             ResultSet re=st.executeQuery();
@@ -141,8 +143,14 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
                 reservationList.add(reservation);
             }
             DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        } catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally {
+            try{
+                DAOContext.getDeconnect();
+            } catch (SQLException e) {
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return reservationList;
     }
