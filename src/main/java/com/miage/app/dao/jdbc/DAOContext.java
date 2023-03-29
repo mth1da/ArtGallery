@@ -12,10 +12,10 @@ public abstract class DAOContext {
     protected static String dbLogin="root";
     protected static String driver="com.mysql.jdbc.Driver";
 
-    protected abstract Object creatingObject(ResultSet re) throws SQLException ;
-
     protected static Connection connexion=null;
     protected PreparedStatement st = null;
+
+    protected abstract Object creatingObject(ResultSet re) ;
 
     public static Connection getConnect() {
         Connection con = null;
@@ -24,7 +24,6 @@ public abstract class DAOContext {
             connexion = DriverManager.getConnection(dbURL, dbLogin, dbPassWord);
             if (connexion != null) {
                 return connexion;
-
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

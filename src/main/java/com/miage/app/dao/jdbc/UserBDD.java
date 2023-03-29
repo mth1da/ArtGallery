@@ -11,38 +11,54 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
 
     @Override
     public void createUser(User r) {
-        String strSql="INSERT INTO USER (firstname,lastname,email,password,status) VALUES (?,?,?,?,?)";
         try{
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            String query="INSERT INTO USER (firstname,lastname,email,password,status) VALUES (?,?,?,?,?)";
+            st = connexion.prepareStatement(query);
             st.setString(1, r.getPreNom());
             st.setString(2, r.getNom());
             st.setString(3, r.getEmail());
             st.setString(4,r.getMdp());
             st.setString(5,r.getType());
             st.executeUpdate();
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e) {
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
     }
 
     @Override
     public User getUserById(int idUser) {
         User user=null;
-        String strSql="select * FROM USER WHERE idUser= ?";
         try{
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            String query="select * FROM USER WHERE idUser= ?";
+            st = connexion.prepareStatement(query);
             st.setInt(1, idUser);
 
             ResultSet re=st.executeQuery();
             while(re.next()){
                 user=creatingObject(re);
             }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e) {
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return user;
     }
@@ -51,43 +67,60 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
     @Override
     public Iterable<User> getAllUser() {
         List<User> userList=new ArrayList<>();
-        String strSql="select * FROM USER";
         try{
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            String query="select * FROM USER";
+            st = connexion.prepareStatement(query);
             ResultSet re=st.executeQuery();
             while(re.next()){
                 User user=creatingObject(re);
                 userList.add(user);
             }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e) {
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return userList;
     }
 
     @Override
     public boolean getUserConnection(String email, String password) {
-        String strSql="select * FROM USER WHERE email= ? AND password= ?";
         try {
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            String query="select * FROM USER WHERE email= ? AND password= ?";
+            st = connexion.prepareStatement(query);
             st.setString(1, email);
             st.setString(2, password);
             ResultSet re=st.executeQuery();
             if(re.next()) {
                 return true;
             }
-        } catch(Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e) {
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return true;
     }
 
     protected abstract Iterable<User> getAllUserByStatus();
 
-    protected abstract User creatingObject(ResultSet re) throws SQLException;
+    protected abstract User creatingObject(ResultSet re);
 
 
 }
