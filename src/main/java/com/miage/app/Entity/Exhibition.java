@@ -71,4 +71,9 @@ public class Exhibition {
         return this.rooms;
     }
 
+    public String getPresentationExhibition(){
+        return "L'éxhibition "+name+" aura lieu le "+startDate+" à "+place+" ayant pour nombre de place"+
+                maxVisitorNb+" dans la salle "+rooms;
+    }
+
 }
