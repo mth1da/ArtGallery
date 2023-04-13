@@ -20,7 +20,7 @@ public class Connexion {
         if(!verifCompteExiste(email)){
             return "Votre compte n'existe pas, veuillez vous inscrire";
         }
-        if(!mdpValide(email,mdp)){
+        else if(!mdpValide(email,mdp)){
             return "Mot de passe invalide";
         }
         return "";
@@ -30,6 +30,7 @@ public class Connexion {
     public boolean mdpValide(String email,String mdp){
         return userDAO.getUserConnection(email,mdp);
     }
+
     public boolean verifCompteExiste(String email){
         return this.userDAO.getUserByMail(email)!=null;
     }
