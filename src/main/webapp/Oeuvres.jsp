@@ -32,5 +32,6 @@ Voici mes oeuvres
 %>
 
 <a href="AjoutOeuvre.jsp">Ajouter une oeuvre</a>
+<a href="SuppOeuvre.jsp">Supprimer une oeuvre</a>
 </body>
 </html>

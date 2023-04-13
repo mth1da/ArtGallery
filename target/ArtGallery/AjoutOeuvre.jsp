@@ -63,9 +63,6 @@
                 Please provide a valid price.
             </div>
         </div>
-        <div class="col-md-6 mb-3">
-            <label for="validationCustom03">Votre email: </label>
-        </div>
     </div>
     <div class="form-group">
         <div class="form-check">
