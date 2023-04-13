@@ -15,40 +15,55 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.InvalidParameterException;
+import java.sql.SQLException;
 
 @WebServlet(name = "editProfile", urlPatterns = "/editservlet")
 public class EditProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        // fetch all data
-        String userFistName = request.getParameter("firstname");
-        String userLastName = request.getParameter("lastname");
-        HttpSession s=request.getSession();
-        String userStatus = s.getAttribute("status").toString();
-        String userEmail = s.getAttribute("currentUser").toString();
+        try{
+            // fetch all data
+            String userFistName = request.getParameter("firstname");
+            String userLastName = request.getParameter("lastname");
+            HttpSession s=request.getSession();
+            String userStatus = s.getAttribute("status").toString();
+            String userEmail = s.getAttribute("currentUser").toString();
 
 
-        UserDAO userDAO=null;
-        User user=null;
+            UserDAO userDAO=null;
+            User user=null;
 
-        //update database....
-        if(userStatus.equals("visiteur")){
-            userDAO=new VisiteurBDD();
-        }else if(userStatus.equals("proprietaire")){
-            userDAO=new ProprietaireBDD();
+            //update database....
+            try{
+                if(userStatus.equals("visiteur")){
+                    userDAO=new VisiteurBDD();
+                }else if(userStatus.equals("proprietaire")){
+                    userDAO=new ProprietaireBDD();
+                }
+            } catch(IllegalArgumentException e){
+                System.out.println("Caught Exception: " + e.getMessage());
+            }
+
+            try{
+                user=userDAO.getUserByMail(userEmail);
+
+                user.setNom(userLastName);
+                user.setPrenom(userFistName);
+
+                UpdateProfile update=new UpdateProfile(userDAO);
+                update.updateUser(user);
+                out.println(user.getEmail());
+                /*response.sendRedirect("Home.jsp");*/
+            } catch (NullPointerException e){
+                System.out.println("Caught Exception: " + e.getMessage());
+            }
+            
+        } catch (InvalidParameterException e){
+            System.out.println("Caught Exception: " + e.getMessage());
         }
 
-        user=userDAO.getUserByMail(userEmail);
-
-        user.setNom(userLastName);
-        user.setPrenom(userFistName);
-
-
-        UpdateProfile update=new UpdateProfile(userDAO);
-        update.updateUser(user);
-        out.println(user.getEmail());
-        /*response.sendRedirect("Home.jsp");*/
     }
 }
 

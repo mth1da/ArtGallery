@@ -15,8 +15,8 @@ public interface Inscription {
     public static boolean mdpValide(String mdp){
         //Format du mot de passe afin qu'il soit valide
         String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
-      // return mdp.matches(pattern);
-       return true;
+        return mdp.matches(pattern);
+       //return true;
     }
 
     public abstract void saveAccount(User user);

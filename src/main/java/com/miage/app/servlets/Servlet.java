@@ -26,23 +26,32 @@ public class Servlet extends HttpServlet {
         //Création d'un tableau de string
         String [] str=new String[4];
 
-        //Récupération des données du formulaire pour les mettre dans le tableau
-        str[0]=request.getParameter("name");
-        str[1]=request.getParameter("firstname");
-        str[2]=request.getParameter("password");
-        str[3]=request.getParameter("email");
+        try{
+            //Récupération des données du formulaire pour les mettre dans le tableau
+            str[0]=request.getParameter("name");
+            str[1]=request.getParameter("firstname");
+            str[2]=request.getParameter("password");
+            str[3]=request.getParameter("email");
+        } catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        }
+
 
         //création du compte selon si c'est un propriétaire ou visiteur
-
-        if(status.equals("visiteur")){
-            UserDAO ust=new VisiteurBDD();
-            Inscription v=new InscriptionVisiteur(str,ust);
-            v.creeCompte();
-        }else if(status.equals("proprietaire")){
-            UserDAO ust=new ProprietaireBDD();
-            Inscription v=new InscriptionProprietaire(str,ust);
-            v.creeCompte();
+        try{
+            if(status.equals("visiteur")){
+                UserDAO ust=new VisiteurBDD();
+                Inscription v=new InscriptionVisiteur(str,ust);
+                v.creeCompte();
+            }else if(status.equals("proprietaire")){
+                UserDAO ust=new ProprietaireBDD();
+                Inscription v=new InscriptionProprietaire(str,ust);
+                v.creeCompte();
+            }
+        } catch(IllegalArgumentException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
         }
+
     }
 
 
