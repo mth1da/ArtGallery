@@ -16,6 +16,4 @@ public interface ArtisteDAO {
     public abstract Artiste getArtisteById(int id);
 
     public abstract Iterable<Artiste> getAllArtistes();
-
-    public abstract Iterable<Artiste> getAllUserArtiste(int id);
 }

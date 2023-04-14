@@ -10,14 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/modifyOeuvre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/modify.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/modifyOeuvre.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/ArtisteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/ArtisteDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/ArtisteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/ArtisteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Oeuvres.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Oeuvres.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/modifyOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/modifyOeuvre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/modify.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/modifyOeuvre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/modifyOeuvre.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/modify.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/modifyOeuvre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/modifyOeuvre.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,6 +243,8 @@
       <workItem from="1679916184496" duration="8742000" />
       <workItem from="1681389218369" duration="11112000" />
       <workItem from="1681446578340" duration="2976000" />
+      <workItem from="1681451614751" duration="32000" />
+      <workItem from="1681460011016" duration="5063000" />
     </task>
     <servers />
   </component>

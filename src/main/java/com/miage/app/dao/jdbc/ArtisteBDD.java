@@ -117,24 +117,4 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
         return new Artiste(id,status,name,lastname,age);
     }
-
-    @Override
-    public Iterable<Artiste> getAllUserArtiste(int id) {
-        List<Artiste> artisteList=new ArrayList<>();
-        String strSql="select * FROM ARTISTE WHERE idUser= ?";
-        try{
-            DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            st.setInt(1, id);
-            ResultSet re=st.executeQuery();
-            while(re.next()){
-                Artiste artiste=creatingObject(re);
-                artisteList.add(artiste);
-            }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
-        }
-        return artisteList;
-    }
 }

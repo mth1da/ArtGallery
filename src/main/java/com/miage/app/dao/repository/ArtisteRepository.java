@@ -39,10 +39,4 @@ public class ArtisteRepository implements ArtisteDAO {
     public List<Artiste> getAllArtistes() {
         return artisteList;
     }
-
-    @Override
-    public Iterable<Artiste> getAllUserArtiste(int id) {
-        return null;
-    }
-
 }
