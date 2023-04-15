@@ -4,29 +4,28 @@ import com.miage.app.Entity.Reservation;
 import com.miage.app.dao.ExhibitionDAO;
 import com.miage.app.dao.ReservationDAO;
 import com.miage.app.dao.UserDAO;
+import com.miage.app.dao.jdbc.ReservationBDD;
 
 import java.util.Date;
 
 public class GestionReservation {
-    private int exhibitionId;
+
     private ReservationDAO reservationDAO;
 
-    private int user;
 
-    public GestionReservation(int e, ReservationDAO r, int user){
-        this.exhibitionId=e;
+
+    public GestionReservation(ReservationDAO r){
         this.reservationDAO=r;
-        this.user=user;
     }
 
-    public void buyExhibition(Date date){
+    public void buyExhibition(int exhibitionId,int user,Date date){
         Reservation r=new Reservation(user,exhibitionId,date);
         reservationDAO.createReservation(r);
     }
 
 
-    public void deleteReservation(){
-
+    public void deleteReservation(int idR){
+        reservationDAO.deleteReservation(idR);
     }
 
 }
