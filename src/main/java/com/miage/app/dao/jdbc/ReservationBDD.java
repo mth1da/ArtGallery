@@ -42,7 +42,6 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
 
     @Override
     public void updateReservation(Reservation r) {
-
     }
 
     @Override
@@ -163,7 +162,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             Date date = re.getDate("date");
             double price = re.getDouble("price");
             int idUser = re.getInt("idUser");
-            return new Reservation(idReservation, date, price, idUser);
+            return new Reservation(idUser, idReservation);
         } catch (SQLException e) {
             System.out.println("Caught SQLException: " + e.getMessage());
         }

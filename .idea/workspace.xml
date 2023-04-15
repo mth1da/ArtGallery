@@ -11,6 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="66c5bedc-0b99-45ab-a276-3f1c389bb186" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/DAOContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/DAOContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ReservationBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ReservationBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Connexion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Inscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Inscription.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionProprietaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionProprietaire.java" afterDir="false" />

@@ -6,20 +6,18 @@ public class Artiste {
 
     private final int id;
 
-    private final String status;
     private final String name;
-    private final String prenom;
+    private final String lastName;
+    private final String fonction;
 
-    private final int age;
     private List<Oeuvre> oeuvres;
 
     //Constructeur
-    public Artiste(int id, String status, String nom, String prenom, int age){
-        this.id=id;
-        this.status=status;
-        this.name=nom;
-        this.prenom=prenom;
-        this.age = age;
+    public Artiste(int id, String name, String lastName, String fonction){
+        this.id = id;
+        this.name=name;
+        this.lastName=lastName;
+        this.fonction=fonction;
     }
 
     public String getName(){
@@ -27,7 +25,7 @@ public class Artiste {
     }
 
     public String getLastName(){
-        return this.prenom;
+        return this.lastName;
     }
 
     public List<Oeuvre> getOeuvres(){
@@ -38,16 +36,12 @@ public class Artiste {
         return this.id;
     }
 
-    public String getStatus(){
-        return this.status;
+    public String getFonction(){
+        return this.fonction;
     }
 
     public void addOeuvre(Oeuvre o){
         this.oeuvres.add(o);
-    }
-
-    public int getAge(){
-        return this.age;
     }
 
 }

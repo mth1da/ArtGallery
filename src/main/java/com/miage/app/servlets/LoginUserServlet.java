@@ -1,5 +1,6 @@
 package com.miage.app.servlets;
 
+import com.miage.app.Entity.User;
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
@@ -17,55 +18,46 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.InvalidParameterException;
 
 @WebServlet(name = "UserServlet", value = "/loginuser")
 public class LoginUserServlet extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String status=request.getParameter("status");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        UserDAO userDAO=null;
+
+        if(status.equals("visiteur")) {
+            userDAO = new VisiteurBDD();
+        }else if(status.equals("proprietaire")){
+            userDAO = new ProprietaireBDD();
+        }
+
+        Connexion con = new Connexion(userDAO);
+        String rep = con.connexionValide(email,password);
         PrintWriter out = response.getWriter();
 
-        try{
-            String status=request.getParameter("status");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
+        if(rep.equals("")){
+            out.println("Connexion réussi");
 
-            UserDAO userDAO=null;
-            try{
-                if(status.equals("visiteur")){
-                    userDAO=new VisiteurBDD();
-                }else if(status.equals("proprietaire")){
-                    userDAO=new ProprietaireBDD();
-                }
-            } catch(IllegalArgumentException e){
-                System.out.println("Caught Exception: " + e.getMessage());
-            }
+            HttpSession s = request.getSession();
 
-            Connexion con=new Connexion(userDAO);
-            String rep=con.connexionValide(email,password);
-            if(rep.equals("")){
-                try{
-                    out.println("Connexion réussie");
-                    HttpSession s=request.getSession();
-                    s.setAttribute("currentUser",email);
-                    s.setAttribute("status",status);
-                    s.setAttribute("userId",userDAO.getUserIdByMail(email));
-                    response.sendRedirect("Home.jsp");
-                } catch (NullPointerException e){
-                    System.out.println("Caught Exception: " + e.getMessage());
-                }
+            s.setAttribute("currentUser",email);
+            s.setAttribute("status",status);
+            s.setAttribute("userId",userDAO.getUserIdByMail(email));
 
-            }else{
-                out.println(rep);
-            }
-        } catch (InvalidParameterException e){
-            System.out.println("Caught Exception: " + e.getMessage());
+            response.sendRedirect("Home.jsp");
+        }else{
+            out.println(rep);
         }
     }
 }

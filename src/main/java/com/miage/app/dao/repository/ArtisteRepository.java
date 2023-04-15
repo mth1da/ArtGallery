@@ -1,6 +1,7 @@
 package com.miage.app.dao.repository;
 
 import com.miage.app.Entity.Artiste;
+import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.ArtisteDAO;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +9,7 @@ import java.util.List;
 public class ArtisteRepository implements ArtisteDAO {
     private static List<Artiste> artisteList=new ArrayList<>();
     @Override
-    public void createArtiste(Artiste artiste) {
-        artisteList.add(artiste);
+    public void createArtiste(String name, String lastName) {
     }
 
     @Override
@@ -39,4 +39,6 @@ public class ArtisteRepository implements ArtisteDAO {
         return artisteList;
     }
 
+    @Override
+    public Artiste getIdByNameAndLastName(String name, String lastName) {return null;}
 }
