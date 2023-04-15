@@ -1,6 +1,5 @@
 package com.miage.app.dao.jdbc;
 
-import jakarta.servlet.ServletContext;
 
 import java.sql.*;
 

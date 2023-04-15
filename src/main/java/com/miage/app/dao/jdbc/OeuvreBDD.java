@@ -43,6 +43,10 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
         }
     }
 
+    public static void main(String [] args){
+
+    }
+
     @Override
     public void updateOeuvre(String title, Double price, int id) {
         String query="UPDATE oeuvre SET title=?, price=? WHERE idOeuvre=?";
