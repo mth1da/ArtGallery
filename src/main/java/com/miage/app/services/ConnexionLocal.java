@@ -8,12 +8,8 @@ public class ConnexionLocal implements Connexion{
 
     private UserDAO userDAO;
 
-    public ConnexionLocal(String status){
-        if(status.equals("visiteur")){
-            userDAO=new VisiteurBDD();
-        }else if(status.equals("proprietaire")){
-            userDAO=new ProprietaireBDD();
-        }
+    public ConnexionLocal(UserDAO userDAO){
+        this.userDAO=userDAO;
     }
 
     @Override

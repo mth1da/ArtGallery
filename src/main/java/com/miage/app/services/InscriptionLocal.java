@@ -11,14 +11,9 @@ public class InscriptionLocal implements Inscription{
     private UserDAO userDAO;
     private User user;
 
-    public InscriptionLocal(String status, String[] infoCompte){
-        if(status.equals("visiteur")){
-            userDAO=new VisiteurBDD();
-            this.user=new Visiteur(infoCompte[0],infoCompte[1],infoCompte[2],infoCompte[3]);
-        }else if(status.equals("proprietaire")){
-            userDAO=new ProprietaireBDD();
-            this.user=new Proprietaire(infoCompte[0],infoCompte[1],infoCompte[2],infoCompte[3]);
-        }
+    public InscriptionLocal(UserDAO userDAO, User us){
+        this.userDAO=userDAO;
+        this.user=us;
     }
 
     @Override

@@ -34,10 +34,15 @@ public class LoginUserServlet extends HttpServlet {
         String status=request.getParameter("status");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
-        Connexion con=new ConnexionLocal(status);
+        UserDAO userDAO=null;
+        if(status.equals("visiteur")){
+            userDAO=new VisiteurBDD();
+        }else if(status.equals("proprietaire")){
+            userDAO=new ProprietaireBDD();
+        }
+        Connexion con=new ConnexionLocal(userDAO);
         String rep=con.connexionValide(email,password);
-        if(rep.startsWith("!Erreur")){
+        if(!rep.startsWith("!Erreur")){
             out.println("Connexion réussi");
             HttpSession s=request.getSession();
             s.setAttribute("currentUser",email);

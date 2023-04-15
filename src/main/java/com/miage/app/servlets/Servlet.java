@@ -1,5 +1,8 @@
 package com.miage.app.servlets;
 
+import com.miage.app.Entity.Proprietaire;
+import com.miage.app.Entity.User;
+import com.miage.app.Entity.Visiteur;
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
@@ -20,7 +23,7 @@ public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String status = request.getParameter("status");
         PrintWriter out = response.getWriter();
-        out.println(status);
+
 
         //Création d'un tableau de string
         String [] str=new String[4];
@@ -32,9 +35,18 @@ public class Servlet extends HttpServlet {
         str[3]=request.getParameter("email");
 
         //création du compte selon si c'est un propriétaire ou visiteur
-
-        Inscription v=new InscriptionLocal(status,str);
+        UserDAO userDAO=null;
+        User user=null;
+        if(status.equals("visiteur")){
+            userDAO=new VisiteurBDD();
+            user=new Visiteur(str[0],str[1],str[2],str[3]);
+        }else if(status.equals("proprietaire")){
+            userDAO=new ProprietaireBDD();
+            user=new Proprietaire(str[0],str[1],str[2],str[3]);
+        }
+        Inscription v=new InscriptionLocal(userDAO,user);
         v.creeCompte();
+        out.println("Inscription réussi veuiller vous connecter");
 
     }
 
