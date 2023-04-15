@@ -30,7 +30,7 @@ public class LoginUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        PrintWriter out = response.getWriter();
         try{
             String status=request.getParameter("status");
             String email = request.getParameter("email");

@@ -141,7 +141,7 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
 
     @Override
     protected Exhibition creatingObject(ResultSet re) {
-
+        Exhibition exhibition=null;
         try{
             int idExhibition=re.getInt("idExhibition");
             String name=re.getString("name");
@@ -150,10 +150,10 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             String place=re.getString("place");
             int max=re.getInt("maxVisitorNb");
             String room=re.getString("rooms");
-            Exhibition exhibition=new Exhibition(idExhibition,name,startDate,endDate,place,max,room);
-            return exhibition;
+            exhibition=new Exhibition(idExhibition,name,startDate,endDate,place,max,room);
         } catch(SQLException e){
             System.out.println("Caught SQLException: " + e.getMessage());
         }
+        return exhibition;
     }
 }

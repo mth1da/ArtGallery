@@ -60,13 +60,13 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
     }
 
     @Override
-    public void deleteOeuvre(Oeuvre o) {
+    public void deleteOeuvre(int idOeuvre) {
         try{
             //connexion
             DAOContext.getConnect();
 
             //Requête permettant de supprimer une oeuvre
-        String query="DELETE FROM oeuvre WHERE idOeuvre=?";
+            String query="DELETE FROM oeuvre WHERE idOeuvre=?";
 
             st = connexion.prepareStatement(query);
 
@@ -84,6 +84,8 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
             }
         }
     }
+
+
 
     @Override
     public Oeuvre getOeuvreById(int o) {
