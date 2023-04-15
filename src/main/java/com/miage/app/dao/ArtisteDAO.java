@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 public interface ArtisteDAO {
-    public abstract void createArtiste(Artiste artiste) throws SQLException;
+    public abstract void createArtiste(String name, String lastName);
 
     public abstract void updateArtiste(Artiste artiste);
 
@@ -16,4 +16,6 @@ public interface ArtisteDAO {
     public abstract Artiste getArtisteById(int id);
 
     public abstract Iterable<Artiste> getAllArtistes();
+
+    public Artiste getIdByNameAndLastName(String name, String lastName);
 }

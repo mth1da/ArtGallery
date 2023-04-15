@@ -14,34 +14,22 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
 
     @Override
-    public void createArtiste(Artiste artiste){
+    public void createArtiste(String name, String lastName){
         //Requête permettant de créer un nouvel artiste avec les données récupérées
-
-        String strSql="INSERT INTO ARTISTE (idArtiste,name,lastname,datenaissance,fonction) VALUES (?,?,?,?,?)";
+        String strSql= "INSERT INTO artiste (name, lastName) VALUES (?,?)";
         try{
-
             //Création de la connection avec BDD
-
             DAOContext.getConnect();
-
             //Préparer l'état de connexion
-
             st = connexion.prepareStatement(strSql);
-            st.setInt(1, artiste.getId());
-            st.setString(2, artiste.getName());
-            st.setString(3, artiste.getLastName());
-            st.setInt(4, artiste.getAge());
-            st.setString(5, artiste.getStatus());
-
+            st.setString(1, name);
+            st.setString(2,lastName);
             //Execution
-
             st.executeUpdate();
-
             //Ferme la connexion
-
             DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -69,6 +57,34 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
         }catch (Exception ignored){
 
         }
+    }
+
+    @Override
+    public Artiste getIdByNameAndLastName(String name, String lastName) {
+        Artiste artiste = null;
+        String strSql= "SELECT * FROM artiste WHERE name=? AND lastName=?";
+        try{
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(strSql);
+            st.setString(1, name);
+            st.setString(2,lastName);
+            ResultSet re = st.executeQuery();
+            while(re.next()){
+                System.out.println(re.getInt("idArtiste"));
+                artiste=creatingObject(re);
+            }
+
+
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
+
+        }
+        return artiste;
+    }
+
+    public static void main(String[] args) {
+        ArtisteBDD artiste = new ArtisteBDD();
+        System.out.println(artiste.getIdByNameAndLastName("Amel","Naloufi"));
     }
 
     @Override
@@ -108,13 +124,12 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
         //Récupération des données de l'artiste
 
         int id=re.getInt("idArtiste");
-        String status=re.getString("name");
-        String name=re.getString("lastname");
-        String lastname=re.getString("datenaissance");
-        int age=re.getInt("fonction");
+        String name=re.getString("name");
+        String lastName=re.getString("lastName");
+        String fonction =re.getString("fonction");
 
         //Retourne instanciation de Artiste avec les données récupérés
 
-        return new Artiste(id,status,name,lastname,age);
+        return new Artiste(id,name, lastName, fonction);
     }
 }

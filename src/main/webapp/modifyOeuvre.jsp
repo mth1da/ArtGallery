@@ -41,8 +41,6 @@
       <input type="text" class="form-control" name="price" id="validationCustom02" value="<%=o.getPrice()%>" required>
     </div>
     <input type="submit" value="Modifier"><input type="Hidden" value="<%=o.getId()%>" name="id" id="modifyOeuvre">
-    <%=o.getName()%>
-    <%=o.getPrice()%>
   </div>
   </form>
       <%

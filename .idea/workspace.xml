@@ -11,14 +11,18 @@
   <component name="ChangeListManager">
     <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Artiste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Artiste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/ArtisteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/ArtisteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/OeuvreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/OeuvreDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/ArtisteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/ArtisteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/OeuvreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/OeuvreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/addOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/addOeuvre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/deleteOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/deleteOeuvre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/modifyOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/modifyOeuvre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/modify.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/SuppOeuvre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SuppOeuvre.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/modifyOeuvre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/modifyOeuvre.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/modify.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/modifyOeuvre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/modifyOeuvre.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +87,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.7">
+    <configuration name="ArtisteBDD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.miage.app.dao.jdbc.ArtisteBDD" />
+      <module name="ArtGallery" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.miage.app.dao.jdbc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Data" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Data" />
       <module name="ArtGallery" />
@@ -204,6 +221,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ArtisteBDD" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.ProprietaireBDD" />
       <item itemvalue="Application.Data" />
@@ -211,6 +229,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ArtisteBDD" />
         <item itemvalue="Application.ProprietaireBDD" />
         <item itemvalue="Application.Data" />
         <item itemvalue="Application.Main" />
@@ -244,7 +263,10 @@
       <workItem from="1681389218369" duration="11112000" />
       <workItem from="1681446578340" duration="2976000" />
       <workItem from="1681451614751" duration="32000" />
-      <workItem from="1681460011016" duration="5063000" />
+      <workItem from="1681460011016" duration="5106000" />
+      <workItem from="1681474094584" duration="685000" />
+      <workItem from="1681484230290" duration="4532000" />
+      <workItem from="1681548426089" duration="5224000" />
     </task>
     <servers />
   </component>

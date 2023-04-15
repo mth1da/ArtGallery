@@ -9,8 +9,7 @@ import java.util.List;
 public class ArtisteRepository implements ArtisteDAO {
     private static List<Artiste> artisteList=new ArrayList<>();
     @Override
-    public void createArtiste(Artiste artiste) {
-        artisteList.add(artiste);
+    public void createArtiste(String name, String lastName) {
     }
 
     @Override
@@ -39,4 +38,7 @@ public class ArtisteRepository implements ArtisteDAO {
     public List<Artiste> getAllArtistes() {
         return artisteList;
     }
+
+    @Override
+    public Artiste getIdByNameAndLastName(String name, String lastName) {return null;}
 }

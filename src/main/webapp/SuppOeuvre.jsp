@@ -30,10 +30,6 @@
     <title>Title</title>
 </head>
 <body>
-<%--
-    int userID=Integer.parseInt(session.getAttribute("userId").toString());
---%>
-<form class="needs-validation" novalidate action="deleteOeuvre" method="post">
     <%
         String s=session.getAttribute("currentUser").toString();
         UserDAO userDAO=new ProprietaireBDD();
@@ -42,9 +38,10 @@
         List< Oeuvre> lesOeuvres = (List<Oeuvre>) oe.getAllUserOeuvres(us);
         for(Oeuvre o : lesOeuvres){
     %>
-    <input type="submit" value="Supprimer"><input type="Hidden" value="<%=o.getId()%>" name="id" id="suppOeuvre"></input><h6><%= o.getPresentationOeuvre()%></h6>
+    <form class="needs-validation" novalidate action="deleteOeuvre" method="post">
+    <input type="submit" value="Supprimer"><input type="Hidden" value="<%=o.getId()%>" name="id" id="suppOeuvre"><h6><%= o.getPresentationOeuvre()%></h6>
+    </form>
     <%   }
     %>
-</form>
 </body>
 </html>

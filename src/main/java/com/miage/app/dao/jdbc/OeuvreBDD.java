@@ -4,6 +4,7 @@ import com.miage.app.Entity.*;
 import com.miage.app.dao.OeuvreDAO;
 import com.miage.app.dao.UserDAO;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,50 +17,49 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
     }
 
     @Override
-    public void createOeuvre(Oeuvre o) {
-        String strSql="INSERT INTO oeuvre (idOeuvre, title, idArtiste, idUser, price) VALUES (?,?,?,?,?)";
+    public void createOeuvre(String title, int userID, Artiste art, Double price) {
+        String strSql="INSERT INTO oeuvre (title, idUser, idArtiste, price) VALUES (?,?,?,?)";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
-            st.setInt(1, o.getId());
-            st.setString(2, o.getName());
-            st.setInt(3, o.getIdProprio());
-            st.setInt(4,o.getIdArtiste());
-            st.setDouble(5,o.getPrice());
-            st.executeQuery();
+            st.setString(1, title);
+            st.setInt(2, userID);
+            st.setInt(3,art.getId());
+            st.setDouble(4, price);
+            st.executeUpdate();
             DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Override
-    public void updateOeuvre(Oeuvre o) {
+    public void updateOeuvre(String title, Double price, int id) {
         String query="UPDATE oeuvre SET title=?, price=? WHERE idOeuvre=?";
         try {
             DAOContext.getConnect();
             st = connexion.prepareStatement(query);
-            st.setString(1, o.getName());
-            st.setDouble(2, o.getPrice());
-            st.setInt(3, o.getId());
+            st.setString(1, title);
+            st.setDouble(2, price);
+            st.setInt(3, id);
             st.executeUpdate();
             DAOContext.getDeconnect();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Override
-    public void deleteOeuvre(Oeuvre o) {
-        String strSql="DELETE FROM oeuvre WHERE idOeuvre= ?";
+    public void deleteOeuvre(int idOeuvre) {
+        String strSql="DELETE FROM oeuvre WHERE idOeuvre=?";
         try{
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
-            st.setInt(1, o.getId());
+            st.setInt(1, idOeuvre);
             st.executeUpdate();
             DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
