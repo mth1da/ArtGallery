@@ -9,22 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66c5bedc-0b99-45ab-a276-3f1c389bb186" name="Changes" comment="">
+    <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ArtGallery_war_exploded/Exhibition.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ArtGallery_war_exploded/Home.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ArtGallery_war_exploded/Oeuvres.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ArtGallery_war_exploded/Reservation.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ArtGallery_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ArtGallery_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ArtGallery_war_exploded/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/DAOContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/DAOContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/LoginUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/LoginUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,10 +212,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ArtisteBDD" />
-        <item itemvalue="Application.ProprietaireBDD" />
         <item itemvalue="Application.Data" />
+        <item itemvalue="Application.ProprietaireBDD" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ArtisteBDD" />
+        <item itemvalue="Application.ArtisteBDD" />
       </list>
     </recent_temporary>
   </component>

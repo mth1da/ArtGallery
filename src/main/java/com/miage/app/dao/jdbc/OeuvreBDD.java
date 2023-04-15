@@ -22,9 +22,9 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
             DAOContext.getConnect();
 
             //Requête permettant de créer une nouvelle oeuvre avec les données récupérées
-        String query="INSERT INTO oeuvre (title, idUser, idArtiste, price) VALUES (?,?,?,?)";
+            String query="INSERT INTO oeuvre (title, idUser, idArtiste, price) VALUES (?,?,?,?)";
             st = connexion.prepareStatement(query);
-            
+
             st.setString(1, title);
             st.setInt(2, userID);
             st.setInt(3,art.getId());
@@ -84,8 +84,6 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
             }
         }
     }
-
-
 
     @Override
     public Oeuvre getOeuvreById(int o) {
