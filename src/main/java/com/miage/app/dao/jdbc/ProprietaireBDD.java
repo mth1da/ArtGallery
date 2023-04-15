@@ -162,7 +162,7 @@ public class ProprietaireBDD extends UserBDD{
 
     @Override
     protected String getStatus() {
-        return "prorpiétaire";
+        return "propriétaire";
     }
 
     @Override
