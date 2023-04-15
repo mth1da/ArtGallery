@@ -24,6 +24,10 @@
     <servlet-name>DeleteReservatio</servlet-name>
     <servlet-class>com.miage.app.servlets.DeleteReservationServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>modifyExib</servlet-name>
+    <servlet-class>com.miage.app.servlets.ModifyExibhitionServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>editProfile</servlet-name>
@@ -44,6 +48,10 @@
   <servlet-mapping>
     <servlet-name>DeleteReservatio</servlet-name>
     <url-pattern>/deleteReser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>modifyExib</servlet-name>
+    <url-pattern>/modifyExibServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
