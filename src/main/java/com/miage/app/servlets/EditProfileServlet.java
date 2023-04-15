@@ -59,7 +59,7 @@ public class EditProfileServlet extends HttpServlet {
             } catch (NullPointerException e){
                 System.out.println("Caught Exception: " + e.getMessage());
             }
-            
+
         } catch (InvalidParameterException e){
             System.out.println("Caught Exception: " + e.getMessage());
         }
