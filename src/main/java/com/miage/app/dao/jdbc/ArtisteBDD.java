@@ -1,9 +1,12 @@
 package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Artiste;
+import com.miage.app.Entity.Oeuvre;
 import com.miage.app.dao.ArtisteDAO;
 import java.sql.*;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ArtisteBDD extends DAOContext implements ArtisteDAO {
@@ -11,22 +14,19 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
 
     @Override
-    public void createArtiste(Artiste artiste) {
+    public void createArtiste(String name, String lastName) {
 
         try{
             //Création de la connection avec BDD
             DAOContext.getConnect();
 
             //Requête permettant de créer un nouvel artiste avec les données récupérées
-            String query="INSERT INTO ARTISTE (idArtiste,firstname,lastname,datenaissance,fonction) VALUES (?,?,?,?,?)";
+        String query= "INSERT INTO artiste (name, lastName) VALUES (?,?)";
 
             //Préparation de l'état de connexion
             st = connexion.prepareStatement(query);
-            st.setInt(1, artiste.getId());
-            st.setString(2, artiste.getName());
-            st.setString(3, artiste.getLastName());
-            st.setInt(4, artiste.getAge());
-            st.setString(5, artiste.getStatus());
+            st.setString(1, name);
+            st.setString(2, lastName);
 
             //Execution
             st.executeUpdate();
@@ -93,6 +93,34 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
                 System.out.println("Caught SQLException: " + e.getMessage());
             }
         }
+    }
+
+    @Override
+    public Artiste getIdByNameAndLastName(String name, String lastName) {
+        Artiste artiste = null;
+        String strSql= "SELECT * FROM artiste WHERE name=? AND lastName=?";
+        try{
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(strSql);
+            st.setString(1, name);
+            st.setString(2,lastName);
+            ResultSet re = st.executeQuery();
+            while(re.next()){
+                System.out.println(re.getInt("idArtiste"));
+                artiste=creatingObject(re);
+            }
+
+
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
+
+        }
+        return artiste;
+    }
+
+    public static void main(String[] args) {
+        ArtisteBDD artiste = new ArtisteBDD();
+        System.out.println(artiste.getIdByNameAndLastName("Amel","Naloufi"));
     }
 
     @Override

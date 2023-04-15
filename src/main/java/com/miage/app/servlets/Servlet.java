@@ -18,10 +18,11 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "srvt", value = "/srv")
 public class Servlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         String status = request.getParameter("status");
         PrintWriter out = response.getWriter();
-        out.println(status);
+        out.println("Bienvenue sur votre compte !");
 
         //Création d'un tableau de string
         String [] str=new String[4];

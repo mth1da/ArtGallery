@@ -20,14 +20,15 @@ import java.sql.SQLException;
 
 @WebServlet(name = "editProfile", urlPatterns = "/editservlet")
 public class EditProfileServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         PrintWriter out = response.getWriter();
         try{
             // fetch all data
+            HttpSession s = request.getSession();
             String userFistName = request.getParameter("firstname");
             String userLastName = request.getParameter("lastname");
-            HttpSession s=request.getSession();
             String userStatus = s.getAttribute("status").toString();
             String userEmail = s.getAttribute("currentUser").toString();
 
@@ -54,8 +55,8 @@ public class EditProfileServlet extends HttpServlet {
 
                 UpdateProfile update=new UpdateProfile(userDAO);
                 update.updateUser(user);
-                out.println(user.getEmail());
-                /*response.sendRedirect("Home.jsp");*/
+                //out.println(user.getEmail());
+                response.sendRedirect("Home.jsp");
             } catch (NullPointerException e){
                 System.out.println("Caught Exception: " + e.getMessage());
             }
@@ -63,7 +64,6 @@ public class EditProfileServlet extends HttpServlet {
         } catch (InvalidParameterException e){
             System.out.println("Caught Exception: " + e.getMessage());
         }
-
     }
 }
 
