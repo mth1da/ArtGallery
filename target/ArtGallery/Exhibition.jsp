@@ -15,8 +15,7 @@
 </head>
 <body>
 <%
-
-    ExhibitionDAO oe=new ExhibitionBDD();
+    ExhibitionDAO oe = new ExhibitionBDD();
     List<Exhibition> lesExhibition = (List<Exhibition>) oe.getAllExhibition();
     for(Exhibition o : lesExhibition){
 %>
@@ -26,5 +25,8 @@
 </form>
 <%   }
 %>
+<a href="Reservation.jsp">Ajouter une exposition</a>
+<a href="modifyExhibition.jsp">Modifer une exposition</a>
+<a href="suppExhibition.jsp">Annuler une exposition</a>
 </body>
 </html>

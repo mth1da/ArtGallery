@@ -1,18 +1,12 @@
 package com.miage.app.servlets;
 
 import com.miage.app.dao.OeuvreDAO;
-import com.miage.app.dao.jdbc.DAOContext;
 import com.miage.app.dao.jdbc.OeuvreBDD;
 import com.miage.app.services.GestionOeuvres;
-import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 @WebServlet(name = "modifyOeuvre", value = "/modifyOeuvre")
 public class modifyOeuvre extends HttpServlet {

@@ -10,11 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/GestionOeuvres.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/modifyExhibition.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/suppExhibition.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/addOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/addOeuvre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/deleteOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/deleteOeuvre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ReservationBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ReservationBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/ModifyExibhitionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/ModifyExibhitionServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/modifyOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/modifyOeuvre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Exhibition.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Exhibition.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Reservation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Reservation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/Exhibition.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/Exhibition.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/Home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/Reservation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/Reservation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/miage/app/dao/jdbc/artgallery.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -259,6 +268,7 @@
       <workItem from="1681474094584" duration="685000" />
       <workItem from="1681484230290" duration="4532000" />
       <workItem from="1681548426089" duration="10533000" />
+      <workItem from="1681563410457" duration="1644000" />
     </task>
     <servers />
   </component>

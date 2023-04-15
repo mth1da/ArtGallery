@@ -23,7 +23,7 @@
                 <%   }
     %>
 
-    <a href="Exhibition.jsp">les exhibitions</a>
+    <a href="Exhibition.jsp">Les exhibitions</a>
     <a href="Reservation.jsp">Mes reservations</a>
 
 </body>

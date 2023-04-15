@@ -19,10 +19,11 @@
     if (session.getAttribute("status").equals("proprietaire")) {
      %>
     <a href="Oeuvres.jsp">Mes oeuvres</a>
+    <a href="modifyExibServlet">Gérez les expositions</a>
                 <%   }
     %>
 
-    <a href="Exhibition.jsp">les exhibition</a>
+    <a href="Exhibition.jsp">Les exhibitions</a>
     <a href="Reservation.jsp">Mes reservations</a>
 
 </body>

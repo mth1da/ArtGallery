@@ -17,10 +17,10 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Toutes mes reservaions</h1>
+<h1>Toutes mes reservations</h1>
 <%
     int userID=Integer.parseInt(session.getAttribute("userId").toString());
-    ReservationDAO re=new ReservationBDD();
+    ReservationDAO re = new ReservationBDD();
     List<Reservation> reservation = (List<Reservation>) re.getReservationByUser(userID);
     for(Reservation o : reservation){
 %>

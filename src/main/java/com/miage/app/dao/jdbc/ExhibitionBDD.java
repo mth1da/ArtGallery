@@ -31,7 +31,7 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
 
     @Override
     public void updateExhibition(Exhibition exhibition) {
-        String query="UPDATE exhibition SET name=?, startdate=?, endDate=?, place=?, maxVisitornbr,rooms  WHERE idExhibition=?";
+        String query="UPDATE exhibition SET name=?, startdate=?, endDate=?, place=?  WHERE idExhibition=?";
         try {
             DAOContext.getConnect();
             st = connexion.prepareStatement(query);
@@ -39,8 +39,6 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             st.setDate(2, (Date) exhibition.getStartDate());
             st.setDate(3, (Date) exhibition.getEndDate());
             st.setString(4, exhibition.getPlace());
-            st.setInt(5, exhibition.getMaxVisitorNb());
-            st.setString(6, exhibition.getRooms());
             st.executeUpdate();
             DAOContext.getDeconnect();
         } catch (Exception e) {

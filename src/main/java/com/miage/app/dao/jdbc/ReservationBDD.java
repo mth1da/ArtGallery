@@ -30,7 +30,6 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
 
     @Override
     public void updateReservation(Reservation r) {
-
     }
 
     @Override
