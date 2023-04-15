@@ -13,6 +13,12 @@ public class Reservation {
     private int idExhibition;
 
     //Constructeur
+    public Reservation(int idUser,int idExhibition, Date date) {
+        this.idUser=idUser;
+        this.idExhibition=idExhibition;
+        this.date=date;
+    }
+
     public Reservation(int idUser,int idExhibition) {
         this.idUser=idUser;
         this.idExhibition=idExhibition;

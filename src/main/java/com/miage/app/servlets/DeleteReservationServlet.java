@@ -16,6 +16,7 @@ public class DeleteReservationServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idR=Integer.parseInt(request.getParameter("idRe"));
         ReservationDAO re=new ReservationBDD();
+
         re.deleteReservation(idR);
         response.sendRedirect("Reservation.jsp");
     }

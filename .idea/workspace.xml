@@ -11,17 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/ConnexionLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/ConnexionLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionProprietaire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionVisiteur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/LoginUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/LoginUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/sucess.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/sucess.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/GestionExposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/GestionReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/BuyExhibitionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/BuyExhibitionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/DeleteReservationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/DeleteReservationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +271,7 @@
       <workItem from="1681444334877" duration="561000" />
       <workItem from="1681456367316" duration="10786000" />
       <workItem from="1681469153958" duration="9169000" />
-      <workItem from="1681544650940" duration="15965000" />
+      <workItem from="1681544650940" duration="18951000" />
     </task>
     <servers />
   </component>
