@@ -21,7 +21,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             DAOContext.getConnect();
 
             //Requête permettant de créer un nouvel artiste avec les données récupérées
-        String query= "INSERT INTO artiste (name, lastName) VALUES (?,?)";
+            String query= "INSERT INTO artiste (name, lastName) VALUES (?,?)";
 
             //Préparation de l'état de connexion
             st = connexion.prepareStatement(query);
