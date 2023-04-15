@@ -4,8 +4,7 @@ import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.services.Inscription;
-import com.miage.app.services.InscriptionProprietaire;
-import com.miage.app.services.InscriptionVisiteur;
+import com.miage.app.services.InscriptionLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -34,15 +33,9 @@ public class Servlet extends HttpServlet {
 
         //création du compte selon si c'est un propriétaire ou visiteur
 
-        if(status.equals("visiteur")){
-            UserDAO ust=new VisiteurBDD();
-            Inscription v=new InscriptionVisiteur(str,ust);
-            v.creeCompte();
-        }else if(status.equals("proprietaire")){
-            UserDAO ust=new ProprietaireBDD();
-            Inscription v=new InscriptionProprietaire(str,ust);
-            v.creeCompte();
-        }
+        Inscription v=new InscriptionLocal(status,str);
+        v.creeCompte();
+
     }
 
 

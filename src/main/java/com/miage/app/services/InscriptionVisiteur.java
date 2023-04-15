@@ -5,6 +5,8 @@ import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
 import com.miage.app.dao.UserDAO;
 
+/*
+
 public class InscriptionVisiteur implements Inscription {
     private String[] infoCompte;
     private UserDAO userDAO;
@@ -38,3 +40,6 @@ public class InscriptionVisiteur implements Inscription {
 
 
 }
+
+
+*/

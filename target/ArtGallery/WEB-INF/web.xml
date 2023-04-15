@@ -28,6 +28,7 @@
     <servlet-name>modifyExib</servlet-name>
     <servlet-class>com.miage.app.servlets.ModifyExibhitionServlet</servlet-class>
   </servlet>
+ 
 
   <servlet-mapping>
     <servlet-name>editProfile</servlet-name>
@@ -53,5 +54,6 @@
     <servlet-name>modifyExib</servlet-name>
     <url-pattern>/modifyExibServlet</url-pattern>
   </servlet-mapping>
+
 
 </web-app>

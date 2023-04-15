@@ -4,6 +4,7 @@ import com.miage.app.Entity.Proprietaire;
 import com.miage.app.Entity.User;
 import com.miage.app.dao.UserDAO;
 
+/*
 public class InscriptionProprietaire implements Inscription{
     private String[] infoCompte;
     private UserDAO userDAO;
@@ -16,8 +17,7 @@ public class InscriptionProprietaire implements Inscription{
     @Override
     public String creeCompte() {
         //appel les methodes pour verifier compte existe deja ou non mdp valide ...
-        // tring nom, String prenom, String city, String mdp, String email
-        String reponse=Inscription.verificationCoordonneeCompte(infoCompte[3],infoCompte[2],this.userDAO);
+        String reponse=Inscription.verificationCoordonneeCompte(infoCompte[3],infoCompte[2]);
         //Si le compte n'existe pas et les données ont bien été saisis:
         if(reponse.equals("")){
             //Création de nouveau propriétaire
@@ -35,3 +35,6 @@ public class InscriptionProprietaire implements Inscription{
     }
 
 }
+
+
+*/

@@ -14,10 +14,7 @@ import java.io.PrintWriter;
 public class DeleteReservationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.println("arriver");
         int idR=Integer.parseInt(request.getParameter("idRe"));
-        out.println(idR);
         ReservationDAO re=new ReservationBDD();
         re.deleteReservation(idR);
         response.sendRedirect("Reservation.jsp");
