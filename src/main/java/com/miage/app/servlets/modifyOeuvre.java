@@ -1,7 +1,9 @@
 package com.miage.app.servlets;
 
+import com.miage.app.dao.OeuvreDAO;
 import com.miage.app.dao.jdbc.DAOContext;
 import com.miage.app.dao.jdbc.OeuvreBDD;
+import com.miage.app.services.GestionOeuvres;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -28,8 +30,10 @@ public class modifyOeuvre extends HttpServlet {
             String title = request.getParameter("title");
             Double price = Double.valueOf(request.getParameter("price"));
 
-            OeuvreBDD o = new OeuvreBDD();
-            o.updateOeuvre(title, price, id);
+            OeuvreDAO o = new OeuvreBDD();
+            GestionOeuvres ges = new GestionOeuvres(o,null);
+
+            ges.modifOeuvre(title, price, id);
 
             response.sendRedirect("Oeuvres.jsp");
 

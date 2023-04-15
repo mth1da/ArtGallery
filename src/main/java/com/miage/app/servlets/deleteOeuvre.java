@@ -1,6 +1,8 @@
 package com.miage.app.servlets;
 
+import com.miage.app.dao.OeuvreDAO;
 import com.miage.app.dao.jdbc.OeuvreBDD;
+import com.miage.app.services.GestionOeuvres;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.IOException;
@@ -17,9 +19,10 @@ public class deleteOeuvre extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
             int id =Integer.parseInt(request.getParameter("id"));
+            OeuvreDAO o = new OeuvreBDD();
+            GestionOeuvres ges = new GestionOeuvres(o, null);
 
-            OeuvreBDD o = new OeuvreBDD();
-            o.deleteOeuvre(id);
+            ges.suppOeuvre(id);
 
             response.sendRedirect("Oeuvres.jsp");
     }

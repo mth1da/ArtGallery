@@ -1,7 +1,9 @@
 package com.miage.app.servlets;
 
 import com.miage.app.Entity.Artiste;
+import com.miage.app.dao.ArtisteDAO;
 import com.miage.app.dao.jdbc.*;
+import com.miage.app.services.GestionOeuvres;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -17,10 +19,11 @@ public class addOeuvre extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-            HttpSession s=request.getSession();
+            HttpSession s = request.getSession();
             int userID=Integer.parseInt(s.getAttribute("userId").toString());
-            ArtisteBDD artiste = new ArtisteBDD();
+            ArtisteDAO artiste = new ArtisteBDD();
             OeuvreBDD o = new OeuvreBDD();
+            GestionOeuvres ges = new GestionOeuvres(o, artiste);
 
             String title = request.getParameter("title");
             String name = request.getParameter("name");
@@ -28,13 +31,10 @@ public class addOeuvre extends HttpServlet {
             Double price = Double.valueOf(request.getParameter("price"));
 
             Artiste art = artiste.getIdByNameAndLastName(name, lastName);
-
-            if(art == null) {
-                artiste.createArtiste(name, lastName);
-            }
+            ges.addArtiste(art, name, lastName);
 
             art = artiste.getIdByNameAndLastName(name, lastName);
-            o.createOeuvre(title, userID, art, price);
+            ges.creerOeuvre(title, userID, art, price);
 
             response.sendRedirect("Oeuvres.jsp");
     }
