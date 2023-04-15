@@ -18,18 +18,28 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
     @Override
     public void createOeuvre(String title, int userID, Artiste art, Double price) {
-        String strSql="INSERT INTO oeuvre (title, idUser, idArtiste, price) VALUES (?,?,?,?)";
         try{
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            //Requête permettant de créer une nouvelle oeuvre avec les données récupérées
+        String query="INSERT INTO oeuvre (title, idUser, idArtiste, price) VALUES (?,?,?,?)";
+            st = connexion.prepareStatement(query);
+            
             st.setString(1, title);
             st.setInt(2, userID);
             st.setInt(3,art.getId());
             st.setDouble(4, price);
+
             st.executeUpdate();
-            DAOContext.getDeconnect();
-        }catch (SQLException e) {
-            throw new RuntimeException(e);
+        }catch (SQLException e ){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch(SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
     }
 
@@ -50,16 +60,28 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
     }
 
     @Override
-    public void deleteOeuvre(int idOeuvre) {
-        String strSql="DELETE FROM oeuvre WHERE idOeuvre=?";
+    public void deleteOeuvre(Oeuvre o) {
         try{
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            //Requête permettant de supprimer une oeuvre
+        String query="DELETE FROM oeuvre WHERE idOeuvre=?";
+
+            st = connexion.prepareStatement(query);
+
             st.setInt(1, idOeuvre);
             st.executeUpdate();
-            DAOContext.getDeconnect();
-        }catch (SQLException e) {
-            throw new RuntimeException(e);
+
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
     }
 
@@ -76,31 +98,46 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
     @Override
     public Iterable<Oeuvre> getAllUserOeuvres(int id) {
         List<Oeuvre> oeuvreList=new ArrayList<>();
-        String strSql="select * FROM OEUVRE WHERE idUser= ?";
         try{
+            //connexion
             DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
+
+            String query="select * FROM OEUVRE WHERE idUser= ?";
+            st = connexion.prepareStatement(query);
             st.setInt(1, id);
+
             ResultSet re=st.executeQuery();
             while(re.next()){
                 Oeuvre oeuvre=creatingObject(re);
                 oeuvreList.add(oeuvre);
             }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
         return oeuvreList;
     }
 
     @Override
-    protected Oeuvre creatingObject(ResultSet re) throws SQLException {
-        int id=re.getInt("idOeuvre");
-        String title=re.getString("title");
-        int idArtist=re.getInt("idArtiste");
-        int idUser=re.getInt("idUser");
-        double price=re.getDouble("price");
-        Oeuvre user=new TableauOeuvre(id,title,idArtist,idUser,price);
-        return user;
+    protected Oeuvre creatingObject(ResultSet re) {
+
+        try{
+            int id=re.getInt("idOeuvre");
+            String title=re.getString("title");
+            int idArtist=re.getInt("idArtiste");
+            int idUser=re.getInt("idUser");
+            double price=re.getDouble("price");
+            Oeuvre user=new TableauOeuvre(id,title,idArtist,idUser,price);
+            return user;
+        } catch (SQLException e) {
+            System.out.println("Caught SQLException: " + e.getMessage());
+        }
+        return null;
     }
 }

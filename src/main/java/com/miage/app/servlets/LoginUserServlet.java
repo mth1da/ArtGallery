@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.InvalidParameterException;
 
 @WebServlet(name = "UserServlet", value = "/loginuser")
 public class LoginUserServlet extends HttpServlet {
@@ -30,34 +31,41 @@ public class LoginUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String status=request.getParameter("status");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        try{
+            String status=request.getParameter("status");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
 
-        UserDAO userDAO=null;
+            UserDAO userDAO=null;
+            try{
+                if(status.equals("visiteur")){
+                    userDAO=new VisiteurBDD();
+                }else if(status.equals("proprietaire")){
+                    userDAO=new ProprietaireBDD();
+                }
+            } catch(IllegalArgumentException e){
+                System.out.println("Caught Exception: " + e.getMessage());
+            }
 
-        if(status.equals("visiteur")) {
-            userDAO = new VisiteurBDD();
-        }else if(status.equals("proprietaire")){
-            userDAO = new ProprietaireBDD();
-        }
+            Connexion con=new Connexion(userDAO);
+            String rep=con.connexionValide(email,password);
+            if(rep.equals("")){
+                try{
+                    out.println("Connexion réussie");
+                    HttpSession s=request.getSession();
+                    s.setAttribute("currentUser",email);
+                    s.setAttribute("status",status);
+                    s.setAttribute("userId",userDAO.getUserIdByMail(email));
+                    response.sendRedirect("Home.jsp");
+                } catch (NullPointerException e){
+                    System.out.println("Caught Exception: " + e.getMessage());
+                }
 
-        Connexion con = new Connexion(userDAO);
-        String rep = con.connexionValide(email,password);
-        PrintWriter out = response.getWriter();
-
-        if(rep.equals("")){
-            out.println("Connexion réussi");
-
-            HttpSession s = request.getSession();
-
-            s.setAttribute("currentUser",email);
-            s.setAttribute("status",status);
-            s.setAttribute("userId",userDAO.getUserIdByMail(email));
-
-            response.sendRedirect("Home.jsp");
-        }else{
-            out.println(rep);
+            }else{
+                out.println(rep);
+            }
+        } catch (InvalidParameterException e){
+            System.out.println("Caught Exception: " + e.getMessage());
         }
     }
 }
