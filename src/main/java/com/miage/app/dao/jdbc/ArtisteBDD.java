@@ -163,20 +163,19 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
     @Override
     protected Artiste creatingObject(ResultSet re) {
-
+        Artiste a=null;
         try{
             //Récupération des données de l'artiste
             int id=re.getInt("idArtiste");
-            String status=re.getString("name");
-            String name=re.getString("lastname");
-            String lastname=re.getString("datenaissance");
-            int age=re.getInt("fonction");
-
+            String name=re.getString("name");
+            String lastname=re.getString("lastname");
+            String fonction=re.getString("fonction");
+            a=new Artiste(id,name,lastname,fonction);
             //Retourne instanciation de Artiste avec les données récupérés
-            return new Artiste(id,status,name,lastname,age);
+
         } catch (SQLException e){
             System.out.println("Caught SQLException: " + e.getMessage());
         }
-        return null;
+        return a;
     }
 }

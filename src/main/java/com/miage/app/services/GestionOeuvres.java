@@ -14,10 +14,7 @@ public class GestionOeuvres {
     }
 
     public boolean ifArtisteExists(Artiste a) {
-        if(a == null) {
-            return false;
-        }
-        return true;
+        return a != null;
     }
 
     public void addArtiste(Artiste a, String name, String lastName) {
