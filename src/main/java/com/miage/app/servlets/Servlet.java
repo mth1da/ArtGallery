@@ -18,10 +18,11 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "srvt", value = "/srv")
 public class Servlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         String status = request.getParameter("status");
         PrintWriter out = response.getWriter();
-        out.println(status);
+        out.println("Bienvenue sur votre compte !");
 
         //Création d'un tableau de string
         String [] str=new String[4];
@@ -35,12 +36,12 @@ public class Servlet extends HttpServlet {
         //création du compte selon si c'est un propriétaire ou visiteur
 
         if(status.equals("visiteur")){
-            UserDAO ust=new VisiteurBDD();
-            Inscription v=new InscriptionVisiteur(str,ust);
+            UserDAO ust = new VisiteurBDD();
+            Inscription v = new InscriptionVisiteur(str,ust);
             v.creeCompte();
         }else if(status.equals("proprietaire")){
-            UserDAO ust=new ProprietaireBDD();
-            Inscription v=new InscriptionProprietaire(str,ust);
+            UserDAO ust = new ProprietaireBDD();
+            Inscription v = new InscriptionProprietaire(str,ust);
             v.creeCompte();
         }
     }

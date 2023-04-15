@@ -21,48 +21,44 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "UserServlet", value = "/loginuser")
 public class LoginUserServlet extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String status=request.getParameter("status");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
         UserDAO userDAO=null;
-        if(status.equals("visiteur")){
-            userDAO=new VisiteurBDD();
+
+        if(status.equals("visiteur")) {
+            userDAO = new VisiteurBDD();
         }else if(status.equals("proprietaire")){
-            userDAO=new ProprietaireBDD();
+            userDAO = new ProprietaireBDD();
         }
-        Connexion con=new Connexion(userDAO);
-        String rep=con.connexionValide(email,password);
+
+        Connexion con = new Connexion(userDAO);
+        String rep = con.connexionValide(email,password);
+        PrintWriter out = response.getWriter();
+
         if(rep.equals("")){
             out.println("Connexion réussi");
-            HttpSession s=request.getSession();
+
+            HttpSession s = request.getSession();
+
             s.setAttribute("currentUser",email);
             s.setAttribute("status",status);
             s.setAttribute("userId",userDAO.getUserIdByMail(email));
-           // out.println(s.getAttribute("currentUser"));
+
             response.sendRedirect("Home.jsp");
         }else{
             out.println(rep);
         }
-
-        /*HttpSession s=request.getSession();
-
-        String userEmail = s.getAttribute("currentUser").toString();
-
-        User user =userDAO.getUserByMail(userEmail);
-
-        user.getId();*/
-
     }
 }
 
