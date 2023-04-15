@@ -2,6 +2,8 @@ package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Critique;
 import com.miage.app.dao.CritiqueDAO;
+import com.miage.app.logging.ConsoleLogger;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.List;
 
 public class CritiqueBDD extends DAOContext implements CritiqueDAO {
 
-
+    ConsoleLogger consoleLogger = new ConsoleLogger();
 
     @Override
     public void createCritique(Critique cr) {
@@ -28,13 +30,13 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
 
             st.executeUpdate();
         }catch (SQLException e ){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch(SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
 
@@ -66,13 +68,13 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
             st.executeUpdate();
 
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -101,7 +103,7 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return critique;
@@ -123,13 +125,13 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
                 critiqueList.add(critique);
             }
         }catch (SQLException e ){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return critiqueList;
@@ -147,7 +149,7 @@ public class CritiqueBDD extends DAOContext implements CritiqueDAO {
             int idUser=re.getInt("idUser");
             return new Critique(idCritique,commentaire,note,idOeuvre,idUser);
         } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
        return null;
     }

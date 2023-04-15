@@ -6,6 +6,7 @@ import com.miage.app.Entity.User;
 import com.miage.app.Entity.Visiteur;
 import com.miage.app.dao.OeuvreDAO;
 import com.miage.app.dao.UserDAO;
+import com.miage.app.logging.ConsoleLogger;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OeuvreBDD extends DAOContext implements OeuvreDAO {
+
+    ConsoleLogger consoleLogger = new ConsoleLogger();
 
     public OeuvreBDD(){
         this.connexion=DAOContext.getConnect();
@@ -29,13 +32,13 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
             st.executeUpdate();
         }catch (SQLException e ){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch(SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }

@@ -2,6 +2,7 @@ package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Exhibition;
 import com.miage.app.dao.ExhibitionDAO;
+import com.miage.app.logging.ConsoleLogger;
 
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
+
+    ConsoleLogger consoleLogger = new ConsoleLogger();
     @Override
     public void createExhibition(Exhibition exhibition) {
         try{
@@ -26,13 +29,13 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             st.setString(6, exhibition.getRooms());
             st.executeQuery();
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -54,13 +57,13 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             st.setString(6, exhibition.getRooms());
             st.executeUpdate();
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -75,13 +78,13 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             st.setInt(1, exhibition.getIdExhibition());
             st.executeUpdate();
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -102,13 +105,13 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
                 exhibition=creatingObject(re);
             }
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return exhibition;
@@ -129,13 +132,13 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
                 exhibitionList.add(exhibition);
             }
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return exhibitionList;
@@ -155,7 +158,8 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             Exhibition exhibition=new Exhibition(idExhibition,name,startDate,endDate,place,max,room);
             return exhibition;
         } catch(SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
+        return null;
     }
 }

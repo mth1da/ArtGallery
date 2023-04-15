@@ -2,12 +2,14 @@ package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Artiste;
 import com.miage.app.dao.ArtisteDAO;
+import com.miage.app.logging.ConsoleLogger;
+
 import java.sql.*;
 import java.sql.ResultSet;
 
 
 public class ArtisteBDD extends DAOContext implements ArtisteDAO {
-
+    ConsoleLogger consoleLogger = new ConsoleLogger();
 
 
     @Override
@@ -32,13 +34,13 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             st.executeUpdate();
 
         } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally {
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
 
@@ -54,13 +56,13 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
             st.executeUpdate();
         } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e) {
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
 
@@ -84,13 +86,13 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             st.executeUpdate();
 
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally {
             try {
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -116,12 +118,12 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             }
 
         } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally {
             try{
                 DAOContext.getDeconnect();
             } catch (SQLException e) {
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return artiste;
@@ -147,7 +149,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             //Retourne instanciation de Artiste avec les données récupérés
             return new Artiste(id,status,name,lastname,age);
         } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
         return null;
     }
