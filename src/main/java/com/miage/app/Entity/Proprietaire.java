@@ -12,6 +12,7 @@ public class Proprietaire extends User{
 
     }
 
+
     @Override
     public void displayUser() {
         // TODO Auto-generated method stub

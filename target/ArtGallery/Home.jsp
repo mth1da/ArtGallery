@@ -13,13 +13,13 @@
 <body>
     <center> Home page </center>
 <br>
-<p> Connection réussi ! </p>
+<p> Connection réussie ! </p>
     <a href="modifyProfile.jsp">modifier son profil</a>
     <%
     if (session.getAttribute("status").equals("proprietaire")) {
      %>
     <a href="Oeuvres.jsp">Mes oeuvres</a>
-    <a href="modifyExibServlet">Gérez les expositions</a>
+    <a href="types.jsp">Types d'oeuvres</a>
                 <%   }
     %>
 

@@ -15,31 +15,8 @@ public class ReservationRepository implements ReservationDAO {
     }
 
     @Override
-    public void updateReservation(Reservation r) {
-
-    }
-
-    @Override
     public void deleteReservation(int r) {
 
-    }
-
-    @Override
-    public Reservation getReservationById(int id) {
-
-        //Retourne la réservation à partir de l'id
-        Reservation reservation=null;
-        for(Reservation currReservation : reservationList){
-            if(currReservation.getIdReservation()==id){
-                reservation=currReservation;
-            }
-        }
-        return reservation;
-    }
-
-    @Override
-    public Iterable<Reservation> getAllReservations() {
-        return reservationList;
     }
 
     @Override
