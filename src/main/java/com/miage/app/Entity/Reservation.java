@@ -62,7 +62,7 @@ public class Reservation {
     }
 
     public String getInfoReservation(){
-        return "Vous avez réserver l'éxibition "+getIdExhibition();
+        return "Vous avez réservé l'exposition "+getIdExhibition();
     }
 
 }
