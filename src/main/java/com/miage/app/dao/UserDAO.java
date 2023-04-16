@@ -11,11 +11,7 @@ public interface UserDAO {
 
     public abstract void deleteUser(User r);
 
-    public abstract User getUserById(int id);
-
     public abstract User getUserByMail(String mail);
-
-    public abstract Iterable<User> getAllUser();
 
     public abstract boolean getUserConnection(String email,String password);
 

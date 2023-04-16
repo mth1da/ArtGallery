@@ -20,7 +20,7 @@
     List<Exhibition> lesExhibition = (List<Exhibition>) oe.getAllExhibition();
     for(Exhibition o : lesExhibition){
 %>
-<form method="get" action="buyExb">
+<form action="buyExb" method="get">
     <input type="hidden" class="form-control" name="idExibi" id="validationCustom04" value="<%= o.getIdExhibition()%>" required>
 <h4><%= o.getPresentationExhibition()%></h4><button type="submit">Reserver</button><br><br>
 </form>

@@ -3,6 +3,7 @@ package com.miage.app.servlets;
 import com.miage.app.Entity.Reservation;
 import com.miage.app.dao.ReservationDAO;
 import com.miage.app.dao.jdbc.ReservationBDD;
+import com.miage.app.services.GestionReservation;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -14,12 +15,10 @@ import java.io.PrintWriter;
 public class DeleteReservationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.println("arriver");
         int idR=Integer.parseInt(request.getParameter("idRe"));
-        out.println(idR);
-        ReservationDAO re=new ReservationBDD();
-        re.deleteReservation(idR);
+        ReservationDAO r=new ReservationBDD();
+        GestionReservation ges=new GestionReservation(r);
+        ges.deleteReservation(idR);
         response.sendRedirect("Reservation.jsp");
     }
 
