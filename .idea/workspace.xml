@@ -10,24 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/GestionOeuvres.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/AddOeuvreServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/DeleteOeuvreServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/ModifyOeuvreServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/AjoutOeuvre.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/SuppOeuvre.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/modifyOeuvre.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/ArtisteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/ArtisteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/OeuvreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/OeuvreDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/ArtisteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/ArtisteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/OeuvreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/OeuvreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Oeuvres.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Oeuvres.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +270,7 @@
       <workItem from="1681456367316" duration="10786000" />
       <workItem from="1681469153958" duration="9169000" />
       <workItem from="1681544650940" duration="18951000" />
-      <workItem from="1681622559172" duration="3230000" />
+      <workItem from="1681622559172" duration="3741000" />
     </task>
     <servers />
   </component>

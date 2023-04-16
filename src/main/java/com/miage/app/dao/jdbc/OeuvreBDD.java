@@ -10,9 +10,6 @@ import java.util.List;
 
 public class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
-    public OeuvreBDD(){
-        this.connexion=DAOContext.getConnect();
-    }
 
     @Override
     public void createOeuvre(String title, int userID, Artiste art, Double price) {
@@ -41,20 +38,6 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
         }
     }
 
-    @Override
-    public void createOeuvre(Oeuvre o) {
-
-    }
-
-    @Override
-    public void updateOeuvre(Oeuvre o) {
-
-    }
-
-    @Override
-    public void deleteOeuvre(Oeuvre o) {
-
-    }
 
     @Override
     public void updateOeuvre(String title, Double price, int id) {
@@ -98,15 +81,6 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
         }
     }
 
-    @Override
-    public Oeuvre getOeuvreById(int o) {
-        return null;
-    }
-
-    @Override
-    public Iterable<Oeuvre> getAllOeuvres() {
-        return null;
-    }
 
     @Override
     public Iterable<Oeuvre> getAllUserOeuvres(int id) {

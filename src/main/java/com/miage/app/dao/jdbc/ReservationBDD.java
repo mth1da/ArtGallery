@@ -29,11 +29,6 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
     }
 
     @Override
-    public void updateReservation(Reservation r) {
-
-    }
-
-    @Override
     public void deleteReservation(int r) {
         String strSql="DELETE FROM reservation WHERE idReservation=? ";
         try{
@@ -46,46 +41,6 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
 
         }
 
-    }
-
-
-
-    @Override
-    public Reservation getReservationById(int id) {
-        Reservation reservation=null;
-        String strSql="select * FROM RESERVATION WHERE idReservation= ?";
-        try{
-            DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            st.setInt(1, id);
-            ResultSet re=st.executeQuery();
-            while(re.next()){
-                reservation=creatingObject(re);
-            }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
-        }
-        return reservation;
-    }
-
-    @Override
-    public Iterable<Reservation> getAllReservations() {
-        List<Reservation> reservationList=new ArrayList<>();
-        String strSql="select * FROM RESERVATION";
-        try{
-            DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            ResultSet re=st.executeQuery();
-            while(re.next()){
-                Reservation reservation=creatingObject(re);
-                reservationList.add(reservation);
-            }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
-        }
-        return reservationList;
     }
 
     @Override

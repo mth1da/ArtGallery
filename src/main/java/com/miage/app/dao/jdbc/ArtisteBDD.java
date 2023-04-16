@@ -9,11 +9,6 @@ import java.sql.ResultSet;
 public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
     @Override
-    public void createArtiste(Artiste artiste) throws SQLException {
-
-    }
-
-    @Override
     public void createArtiste(String name, String lastName) {
 
         try{
@@ -42,26 +37,6 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             }
         }
 
-    }
-
-    @Override
-    public void updateArtiste(Artiste artiste) {
-
-    }
-
-    @Override
-    public void deleteArtiste(Artiste artiste) {
-
-    }
-
-    @Override
-    public Artiste getArtisteById(int id) {
-        return null;
-    }
-
-    @Override
-    public Iterable<Artiste> getAllArtistes() {
-        return null;
     }
 
 
