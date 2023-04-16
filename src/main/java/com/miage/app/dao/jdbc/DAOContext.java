@@ -8,10 +8,10 @@ import java.sql.*;
 
 public abstract class DAOContext {
 
-    protected static String dbURL="jdbc:mariadb://localhost:3308/artGallery";
-    protected static String dbPassWord="meryam";
+    protected static String dbURL="jdbc:mysql://localhost:3306/artGallery";
+    protected static String dbPassWord="";
     protected static String dbLogin="root";
-    protected static String driver="org.mariadb.jdbc.Driver";
+    protected static String driver="com.mysql.jdbc.Driver";
 
     protected static Connection connexion=null;
     protected PreparedStatement st = null;
