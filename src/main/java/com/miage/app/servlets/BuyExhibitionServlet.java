@@ -25,7 +25,8 @@ public class BuyExhibitionServlet extends HttpServlet {
         int userID=Integer.parseInt(s.getAttribute("userId").toString());
         ReservationDAO reserva=new ReservationBDD();
         GestionReservation ges=new GestionReservation(reserva);
-         ges.buyExhibition(idE,userID,new Date());
+        System.out.println(userID+" "+idE);
+        ges.buyExhibition(idE,userID,new Date());
         response.sendRedirect("Reservation.jsp");
     }
 

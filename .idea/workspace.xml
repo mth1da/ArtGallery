@@ -9,21 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66c5bedc-0b99-45ab-a276-3f1c389bb186" name="Changes" comment="">
+    <list default="true" id="0b9b3064-4308-44b0-84ab-136b6a1f93ed" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Oeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Oeuvre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/TableauOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/TableauOeuvre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/TypeOeuvre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/TypeOeuvre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/OeuvreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/OeuvreDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/TypeOeuvreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/TypeOeuvreDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/TypeOeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/TypeOeuvreBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/OeuvreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/OeuvreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/GestionOeuvres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/GestionOeuvres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/AddOeuvreServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/AddOeuvreServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/AjoutOeuvre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/AjoutOeuvre.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Oeuvres.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Oeuvres.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/types.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/types.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/DAOContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/DAOContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ReservationBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ReservationBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/BuyExhibitionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/BuyExhibitionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Exhibition.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Exhibition.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/Exhibition.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/Exhibition.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ArtGallery/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +72,7 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.41379312",
+    "project.structure.side.proportion": "0.36091954",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
@@ -90,19 +83,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.7">
-    <configuration name="ConnexionLocal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.miage.app.services.ConnexionLocal" />
-      <module name="ArtGallery" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.miage.app.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Data" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Data" />
       <module name="ArtGallery" />
@@ -125,6 +105,19 @@
     </configuration>
     <configuration name="ProprietaireBDD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.miage.app.dao.jdbc.ProprietaireBDD" />
+      <module name="ArtGallery" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.miage.app.dao.jdbc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReservationBDD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.miage.app.dao.jdbc.ReservationBDD" />
       <module name="ArtGallery" />
       <extension name="coverage">
         <pattern>
@@ -236,7 +229,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ConnexionLocal" />
+      <item itemvalue="Application.ReservationBDD" />
       <item itemvalue="Application.UserBDD" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.ProprietaireBDD" />
@@ -245,11 +238,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ReservationBDD" />
         <item itemvalue="Application.Data" />
         <item itemvalue="Application.ProprietaireBDD" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.UserBDD" />
-        <item itemvalue="Application.ConnexionLocal" />
       </list>
     </recent_temporary>
   </component>

@@ -6,6 +6,7 @@ import com.miage.app.dao.ReservationDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ReservationBDD extends DAOContext implements ReservationDAO {
@@ -19,7 +20,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             st = connexion.prepareStatement(strSql);
             st.setInt(1,r.getIdUser());
             st.setInt(2,r.getIdExhibition());
-            st.executeQuery();
+            st.executeUpdate();
         }catch (SQLException e){
             consoleLogger.writeError("Caught SQLException", e);
         } finally{
@@ -30,6 +31,12 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
                 consoleLogger.writeError("Caught SQLException", e);
             }
         }
+    }
+
+    public static void main(String[] ar){
+        Reservation r=new Reservation(49,1,new Date());
+        ReservationDAO or=new ReservationBDD();
+        or.createReservation(r);
     }
 
     @Override
