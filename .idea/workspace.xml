@@ -10,11 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b9b3064-4308-44b0-84ab-136b6a1f93ed" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Reservation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Reservation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Peinture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Sculpture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Tableau.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/PeintureBDD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/SculptureBDD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/TableauBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,10 +238,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReservationBDD" />
         <item itemvalue="Application.Data" />
         <item itemvalue="Application.ProprietaireBDD" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ReservationBDD" />
         <item itemvalue="Application.UserBDD" />
       </list>
     </recent_temporary>

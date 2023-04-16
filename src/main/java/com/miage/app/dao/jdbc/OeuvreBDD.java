@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OeuvreBDD extends DAOContext implements OeuvreDAO {
+public abstract class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
     @Override
     public void createOeuvre(String title, int userID, Artiste art, Double price, String type) {
@@ -113,22 +113,7 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
         }
         return oeuvreList;
     }
+    protected abstract Oeuvre creatingObject(ResultSet re);
 
-    @Override
-    protected Oeuvre creatingObject(ResultSet re) {
-        try{
-            int id=re.getInt("idOeuvre");
-            String title=re.getString("title");
-            int idArtist=re.getInt("idArtiste");
-            int idUser=re.getInt("idUser");
-            double price=re.getDouble("price");
-            String type=re.getString("nom_type");
-            return new TableauOeuvre(id,title,idArtist,idUser,price,type);
-        } catch (SQLException e) {
-            consoleLogger.writeError("Caught SQLException", e);
-        }
-        return null;
-    }
-
-    }
-
+    protected abstract String getType();
+}
