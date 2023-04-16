@@ -1,8 +1,8 @@
 package com.miage.app.Entity;
 
 public class Sculpture extends Oeuvre{
-    public Sculpture(int id, String name, int idProprio, int idArtiste, double p) {
-        super(id, name, idProprio, idArtiste, p);
+    public Sculpture(int id, String name, int idProprio, int idArtiste, double p, String nom_type) {
+        super(id, name, idProprio, idArtiste, p, nom_type);
     }
 
     @Override
