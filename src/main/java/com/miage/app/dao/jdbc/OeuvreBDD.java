@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OeuvreBDD extends DAOContext implements OeuvreDAO {
+public abstract class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
     public OeuvreBDD(){
         this.connexion=DAOContext.getConnect();
@@ -110,20 +110,7 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
         return oeuvreList;
     }
 
-    @Override
-    protected Oeuvre creatingObject(ResultSet re) {
+    protected abstract Oeuvre creatingObject(ResultSet re);
 
-        try{
-            int id=re.getInt("idOeuvre");
-            String title=re.getString("title");
-            int idArtist=re.getInt("idArtiste");
-            int idUser=re.getInt("idUser");
-            double price=re.getDouble("price");
-            Oeuvre user=new TableauOeuvre(id,title,idArtist,idUser,price);
-            return user;
-        } catch (SQLException e) {
-            System.out.println("Caught SQLException: " + e.getMessage());
-        }
-        return null;
-    }
+    protected abstract String getType();
 }

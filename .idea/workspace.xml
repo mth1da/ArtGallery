@@ -9,15 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66c5bedc-0b99-45ab-a276-3f1c389bb186" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Connexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Inscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/Inscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionProprietaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionProprietaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionVisiteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/services/InscriptionVisiteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/EditProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/EditProfileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/LoginUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/LoginUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/servlets/Servlet.java" afterDir="false" />
+    <list default="true" id="0b9b3064-4308-44b0-84ab-136b6a1f93ed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Peinture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Sculpture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Tableau.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/PeintureBDD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/SculptureBDD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/TableauBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Meryam" />
+        <entry key="$PROJECT_DIR$" value="type_merge" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -199,9 +198,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Data" />
         <item itemvalue="Application.ProprietaireBDD" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Data" />
+        <item itemvalue="Application.ProprietaireBDD" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -246,5 +247,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ArtGallery$Tomcat_10_1_7.ic" NAME="Tomcat 10.1.7 Coverage Results" MODIFIED="1681468555238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
