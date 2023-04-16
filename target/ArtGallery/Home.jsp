@@ -15,6 +15,7 @@
 <br>
 <p> Connection réussie ! </p>
     <a href="modifyProfile.jsp">Modifier son profil</a>
+    <a href="artist.jsp">Les artistes</a>
     <%
     if (session.getAttribute("status").equals("proprietaire")) {
      %>
@@ -24,7 +25,7 @@
     %>
 
     <a href="Exhibition.jsp">Les expositions</a>
-    <a href="Reservation.jsp">Mes reservations</a>
+    <a href="Reservation.jsp">Mes réservations</a>
 
 </body>
 </html>

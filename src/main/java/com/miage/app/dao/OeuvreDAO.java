@@ -15,4 +15,5 @@ public interface OeuvreDAO {
 
     public abstract Iterable<Oeuvre> getAllUserOeuvres(int id);
 
+    Iterable<Oeuvre> getAllOeuvresByArtistId(int id);
 }

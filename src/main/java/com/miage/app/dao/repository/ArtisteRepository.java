@@ -17,4 +17,9 @@ public class ArtisteRepository implements ArtisteDAO {
         return null;
     }
 
+    @Override
+    public Iterable<Artiste> getAllArtists() {
+        return null;
+    }
+
 }

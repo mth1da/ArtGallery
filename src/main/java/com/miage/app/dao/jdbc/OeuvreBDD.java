@@ -115,6 +115,33 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
     }
 
     @Override
+    public Iterable<Oeuvre> getAllOeuvresByArtistId(int id) {
+        List<Oeuvre> oeuvreList=new ArrayList<>();
+        try{
+            DAOContext.getConnect();
+            String strSql="select * FROM OEUVRE WHERE idArtiste= ?";
+            st = connexion.prepareStatement(strSql);
+            st.setInt(1, id);
+            ResultSet re=st.executeQuery();
+            while(re.next()){
+                Oeuvre oeuvre=creatingObject(re);
+                oeuvreList.add(oeuvre);
+            }
+        }catch (SQLException e){
+            consoleLogger.writeError("Caught SQLException", e);
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                consoleLogger.writeError("Caught SQLException", e);
+            }
+        }
+        return oeuvreList;
+    }
+
+
+    @Override
     protected Oeuvre creatingObject(ResultSet re) {
         try{
             int id=re.getInt("idOeuvre");

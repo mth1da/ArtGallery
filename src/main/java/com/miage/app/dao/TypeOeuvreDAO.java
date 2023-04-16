@@ -6,9 +6,7 @@ import com.miage.app.Entity.TypeOeuvre;
 public interface TypeOeuvreDAO {
     public abstract void createType(String name, String description);
 
-    public abstract void updateType(TypeOeuvre type);
-
-    public abstract void deleteType(TypeOeuvre type);
+    public abstract void deleteType(int idType);
 
     public abstract Iterable<TypeOeuvre> getAllTypes();
 }

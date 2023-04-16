@@ -28,6 +28,7 @@ Voici les types d'oeuvres :
 <%   }
 %>
 
+<br>
 <a href="addType.jsp">Ajouter un type d'oeuvre</a>
 <a href="deleteType.jsp">Supprimer un type d'oeuvre</a>
 

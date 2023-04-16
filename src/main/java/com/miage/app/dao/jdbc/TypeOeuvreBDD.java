@@ -35,13 +35,29 @@ public class TypeOeuvreBDD extends DAOContext implements TypeOeuvreDAO {
     }
 
     @Override
-    public void updateType(TypeOeuvre type){
-        //TODO
-    }
+    public void deleteType(int idType){
+        try{
+            //connexion
+            DAOContext.getConnect();
 
-    @Override
-    public void deleteType(TypeOeuvre type){
-        //TODO
+            //Requête permettant de supprimer un type d'oeuvre
+            String query="DELETE * FROM typeoeuvre WHERE idType=?";
+
+            st = connexion.prepareStatement(query);
+
+            st.setInt(1, idType);
+            st.executeUpdate();
+
+        }catch (SQLException e){
+            consoleLogger.writeError("Caught SQLException", e);
+        } finally{
+            try{
+                //Ferme la connexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                consoleLogger.writeError("Caught SQLException", e);
+            }
+        }
     }
 
     @Override

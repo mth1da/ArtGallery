@@ -1,11 +1,13 @@
 package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Artiste;
+import com.miage.app.Entity.TypeOeuvre;
 import com.miage.app.dao.ArtisteDAO;
-import com.miage.app.logging.ConsoleLogger;
 
 import java.sql.*;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ArtisteBDD extends DAOContext implements ArtisteDAO {
@@ -86,4 +88,34 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
         }
         return artiste;
     }
+
+    @Override
+    public Iterable<Artiste> getAllArtists() {
+        List<Artiste> artistes=new ArrayList<>();
+        try{
+            //connexion
+            DAOContext.getConnect();
+
+            String query="select * FROM ARTISTE";
+            st = connexion.prepareStatement(query);
+
+            ResultSet result=st.executeQuery();
+            while(result.next()){
+                Artiste artiste= (Artiste) creatingObject(result);
+                artistes.add(artiste);
+            }
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
+        }
+        return artistes;
+    }
+
+
 }

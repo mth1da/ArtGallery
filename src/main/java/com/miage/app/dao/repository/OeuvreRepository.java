@@ -32,5 +32,10 @@ public class OeuvreRepository implements OeuvreDAO {
         return null;
     }
 
+    @Override
+    public Iterable<Oeuvre> getAllOeuvresByArtistId(int id) {
+        return null;
+    }
+
 
 }
