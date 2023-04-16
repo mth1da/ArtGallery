@@ -19,9 +19,6 @@
 Voici les types d'oeuvres :
 
 <%
-  String s=session.getAttribute("currentUser").toString();
-  UserDAO userDAO=new ProprietaireBDD();
-  int user= ((ProprietaireBDD) userDAO).getUserIdBymail(s);
   TypeOeuvreDAO type=new TypeOeuvreBDD();
   List<TypeOeuvre> types = (List<TypeOeuvre>) type.getAllTypes();
   for(TypeOeuvre type_oeuvre : types){
@@ -31,6 +28,8 @@ Voici les types d'oeuvres :
 <%   }
 %>
 
+<a href="addType.jsp">Ajouter un type d'oeuvre</a>
+<a href="deleteType.jsp">Supprimer un type d'oeuvre</a>
 
 </body>
 </html>

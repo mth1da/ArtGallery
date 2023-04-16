@@ -6,7 +6,7 @@ import com.miage.app.Entity.Oeuvre;
 
 public interface OeuvreDAO {
 
-    void createOeuvre(String title, int userID, Artiste art, Double price);
+    void createOeuvre(String title, int userID, Artiste art, Double price, String type);
 
 
     void updateOeuvre(String title, Double price, int id);

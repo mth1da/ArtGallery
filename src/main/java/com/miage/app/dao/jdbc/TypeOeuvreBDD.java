@@ -12,16 +12,15 @@ import java.util.List;
 
 public class TypeOeuvreBDD extends DAOContext implements TypeOeuvreDAO {
     @Override
-    public void createType(TypeOeuvre type){
+    public void createType(String name, String description){
         try{
             //connexion
             DAOContext.getConnect();
 
-            String query="INSERT INTO TYPEOEUVRE (id,nom_type,caracteristique) VALUES (?,?,?)";
+            String query="INSERT INTO TYPEOEUVRE (nom_type,caracteristique) VALUES (?,?)";
             st = connexion.prepareStatement(query);
-            st.setInt(1, type.getId());
-            st.setString(2, type.getType());
-            st.setString(3, type.getCaracteristique());
+            st.setString(1, name);
+            st.setString(2, description);
             st.executeUpdate();
         } catch (SQLException e){
             System.out.println("Caught SQLException: " + e.getMessage());
@@ -76,11 +75,10 @@ public class TypeOeuvreBDD extends DAOContext implements TypeOeuvreDAO {
     @Override
     protected TypeOeuvre creatingObject(ResultSet result) {
         try{
-            int id=result.getInt("idType");
             String nom_type=result.getString("nom_type");
             //String nom= String.valueOf(result.getType());
             String caracteristique=result.getString("caracteristique");
-            TypeOeuvre type=new TypeOeuvre(id,nom_type,caracteristique);
+            TypeOeuvre type=new TypeOeuvre(nom_type,caracteristique);
             return type;
         } catch (SQLException e) {
             System.out.println("Caught SQLException: " + e.getMessage());

@@ -2,6 +2,10 @@
 <%@ page import="com.miage.app.dao.UserDAO" %>
 <%@ page import="com.miage.app.dao.jdbc.VisiteurBDD" %>
 <%@ page import="com.miage.app.dao.jdbc.ProprietaireBDD" %>
+<%@ page import="com.miage.app.dao.TypeOeuvreDAO" %>
+<%@ page import="com.miage.app.dao.jdbc.TypeOeuvreBDD" %>
+<%@ page import="com.miage.app.Entity.TypeOeuvre" %>
+<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: Salon
@@ -27,35 +31,45 @@
     int userID=Integer.parseInt(session.getAttribute("userId").toString());
 --%>
 <form class="needs-validation" novalidate action="addOeu" method="post">
-    <div class="form-row">
+    <div class="form-control">
         <div class="col-md-4 mb-3">
             <label for="validationCustom01"> Titre de l'oeuvre </label>
-            <input type="text" class="form-control" name="title" id="validationCustom01" placeholder="First name" value="Titre" required>
+            <input type="text" class="form-control" name="title" id="validationCustom01" placeholder="La Joconde" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationCustom02"> Prénom de l'artiste </label>
-            <input type="text" class="form-control" name="name" id="validationCustom02" placeholder="Last name" value="Prénom" required>
+            <input type="text" class="form-control" name="name" id="validationCustom02" placeholder="Leonardo" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="validationCustomUsername">Nom de l'artiste</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend"></span>
-                </div>
-                <input type="text" name="lastName" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please choose a username.
-                </div>
+            <label for="validationCustomName">Nom de l'artiste</label>
+            <input type="text" name="lastName" class="form-control" id="validationCustomName" placeholder="Da Vinci" required>
+            <div class="invalid-feedback">
+                Please choose a name.
             </div>
         </div>
-    </div>
-    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationCustomSelect">Type d'Oeuvre</label>
+            <div class="input-group">
+                <select name="type" id="validationCustomSelect" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected>Sélectionnez un type d'oeuvre</option>
+                    <%
+                        TypeOeuvreDAO type=new TypeOeuvreBDD();
+                        List<TypeOeuvre> types = (List<TypeOeuvre>) type.getAllTypes();
+                        for(TypeOeuvre type_oeuvre : types){
+                    %>
+                    <option value="<%= type_oeuvre.getType()%>"><%= type_oeuvre.getType()%></option>
+                    <%
+                        }
+                    %>
+                </select>
+            </div>
+        </div>
         <div class="col-md-6 mb-3">
             <label for="validationCustom03">Prix de l'oeuvre</label>
             <input type="text" name="price" class="form-control" id="validationCustom03" placeholder="Prix" required>
@@ -63,8 +77,6 @@
                 Please provide a valid price.
             </div>
         </div>
-    </div>
-    <div class="form-group">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
             <label class="form-check-label" for="invalidCheck">
@@ -74,8 +86,8 @@
                 You must agree before submitting.
             </div>
         </div>
-    </div>
     <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
 </form>
 </body>
 

@@ -1,7 +1,6 @@
 <%@ page import="com.miage.app.Entity.Oeuvre" %>
 <%@ page import="com.miage.app.dao.UserDAO" %>
 <%@ page import="com.miage.app.dao.jdbc.ProprietaireBDD" %>
-<%@ page import="com.miage.app.Entity.User" %>
 <%@ page import="com.miage.app.dao.OeuvreDAO" %>
 <%@ page import="com.miage.app.dao.jdbc.OeuvreBDD" %>
 <%@ page import="java.util.List" %><%--

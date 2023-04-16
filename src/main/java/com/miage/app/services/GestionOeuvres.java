@@ -23,8 +23,8 @@ public class GestionOeuvres {
         }
     }
 
-    public void creerOeuvre(String title, int userID, Artiste art, Double price) {
-        this.oeuvreDAO.createOeuvre(title, userID, art, price);
+    public void creerOeuvre(String title, int userID, Artiste art, Double price, String type) {
+        this.oeuvreDAO.createOeuvre(title, userID, art, price, type);
     }
 
     public void suppOeuvre(int id) {

@@ -11,18 +11,19 @@ import java.util.List;
 public class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
     @Override
-    public void createOeuvre(String title, int userID, Artiste art, Double price) {
+    public void createOeuvre(String title, int userID, Artiste art, Double price, String type) {
         try{
             DAOContext.getConnect();
 
             //Requête permettant de créer une nouvelle oeuvre avec les données récupérées
-            String query="INSERT INTO oeuvre (title, idUser, idArtiste, price) VALUES (?,?,?,?)";
+            String query="INSERT INTO oeuvre (title, idUser, idArtiste, price, nom_type) VALUES (?,?,?,?,?)";
             st = connexion.prepareStatement(query);
 
             st.setString(1, title);
             st.setInt(2, userID);
             st.setInt(3,art.getId());
             st.setDouble(4, price);
+            st.setString(5,type);
 
             st.executeUpdate();
         }catch (SQLException e ){
@@ -121,7 +122,8 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
             int idArtist=re.getInt("idArtiste");
             int idUser=re.getInt("idUser");
             double price=re.getDouble("price");
-            return new TableauOeuvre(id,title,idArtist,idUser,price);
+            String type=re.getString("nom_type");
+            return new TableauOeuvre(id,title,idArtist,idUser,price,type);
         } catch (SQLException e) {
             consoleLogger.writeError("Caught SQLException", e);
         }

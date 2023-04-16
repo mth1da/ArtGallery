@@ -12,7 +12,7 @@ public class OeuvreRepository implements OeuvreDAO {
     private static List<Oeuvre> oeuvreList=new ArrayList<>();
 
     @Override
-    public void createOeuvre(String title, int userID, Artiste art, Double price) {
+    public void createOeuvre(String title, int userID, Artiste art, Double price, String type) {
 
     }
 

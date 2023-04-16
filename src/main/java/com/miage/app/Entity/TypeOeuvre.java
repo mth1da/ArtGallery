@@ -6,8 +6,7 @@ public class TypeOeuvre {
     private String nom_type;
     private String caracteristique;
 
-    public TypeOeuvre(int id, String nom_type, String caracteristique){
-        this.id=id;
+    public TypeOeuvre(String nom_type, String caracteristique){
         this.nom_type=nom_type;
         this.caracteristique=caracteristique;
     }

@@ -26,12 +26,13 @@ public class AddOeuvreServlet extends HttpServlet {
         String name = request.getParameter("name");
         String lastName = request.getParameter("lastName");
         Double price = Double.valueOf(request.getParameter("price"));
+        String type = request.getParameter("type");
 
         Artiste art = artiste.getIdByNameAndLastName(name, lastName);
         ges.addArtiste(art, name, lastName);
 
         art = artiste.getIdByNameAndLastName(name, lastName);
-        ges.creerOeuvre(title, userID, art, price);
+        ges.creerOeuvre(title, userID, art, price, type);
 
         response.sendRedirect("Oeuvres.jsp");
     }
