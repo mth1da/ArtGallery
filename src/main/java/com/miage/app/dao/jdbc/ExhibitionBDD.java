@@ -155,5 +155,6 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
         } catch(SQLException e){
             System.out.println("Caught SQLException: " + e.getMessage());
         }
+        return null;
     }
 }

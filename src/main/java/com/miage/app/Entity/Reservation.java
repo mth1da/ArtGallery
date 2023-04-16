@@ -18,6 +18,10 @@ public class Reservation {
         this.idExhibition=idExhibition;
     }
 
+    public Reservation(int idReservation, java.sql.Date date, double price, int idUser) {
+
+    }
+
     public void setIdReservation(int id){
         this.idReservation = id;
     }

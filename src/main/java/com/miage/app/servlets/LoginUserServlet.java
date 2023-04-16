@@ -30,7 +30,7 @@ public class LoginUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        PrintWriter out = response.getWriter();
         try{
             String status=request.getParameter("status");
             String email = request.getParameter("email");
@@ -56,6 +56,7 @@ public class LoginUserServlet extends HttpServlet {
                     s.setAttribute("currentUser",email);
                     s.setAttribute("status",status);
                     s.setAttribute("userId",userDAO.getUserIdByMail(email));
+                    out.println(s.getAttribute("userId"));
                     response.sendRedirect("Home.jsp");
                 } catch (NullPointerException e){
                     System.out.println("Caught Exception: " + e.getMessage());

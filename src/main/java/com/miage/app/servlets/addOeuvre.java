@@ -8,6 +8,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "addOeuvre", value = "/addOeuvre")
 public class addOeuvre extends HttpServlet {
@@ -18,7 +19,7 @@ public class addOeuvre extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        PrintWriter out = response.getWriter();
             HttpSession s = request.getSession();
             int userID=Integer.parseInt(s.getAttribute("userId").toString());
             ArtisteDAO artiste = new ArtisteBDD();
@@ -35,7 +36,7 @@ public class addOeuvre extends HttpServlet {
 
             art = artiste.getIdByNameAndLastName(name, lastName);
             ges.creerOeuvre(title, userID, art, price);
-
+            out.println(userID);
             response.sendRedirect("Oeuvres.jsp");
     }
 }

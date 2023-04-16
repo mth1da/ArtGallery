@@ -61,32 +61,6 @@ public class ProprietaireBDD extends UserBDD{
 
     }
 
-    public int getUserIdBymail(String email){
-        int user=0;
-        try{
-            //connexion
-            DAOContext.getConnect();
-
-            String query="select idUser FROM USER WHERE email= ? AND status= ?";
-            st = connexion.prepareStatement(query);
-            st.setString(1, email);
-            st.setString(2, "proprietaire");
-            ResultSet re=st.executeQuery();
-            while(re.next()){
-                user= re.getInt("idUser");
-            }
-        }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
-        } finally{
-            try{
-                //deconnexion
-                DAOContext.getDeconnect();
-            } catch (SQLException e) {
-                System.out.println("Caught SQLException: " + e.getMessage());
-            }
-        }
-        return user;
-    }
 
 
     @Override
@@ -146,23 +120,18 @@ public class ProprietaireBDD extends UserBDD{
     }
 
     @Override
-    protected User creatingObject(ResultSet re)  {
-        try{
-            String name=re.getString("lastname");
-            String firstname=re.getString("firstname");
-            String mail=re.getString("email");
-            String password=re.getString("password");
-            User user=new Visiteur(name,firstname,password,mail);
-            return user;
-        }catch (SQLException e) {
-            System.out.println("Caught SQLException: " + e.getMessage());
-        }
-        return null;
+    protected User creatingObject(ResultSet re) throws SQLException {
+        String name=re.getString("lastname");
+        String firstname=re.getString("firstname");
+        String mail=re.getString("email");
+        String password=re.getString("password");
+        User user=new Proprietaire(name,firstname,password,mail);
+        return user;
     }
 
     @Override
     protected String getStatus() {
-        return "prorpiétaire";
+        return "proprietaire";
     }
 
     @Override

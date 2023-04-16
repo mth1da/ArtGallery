@@ -199,7 +199,7 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
         return user;
     }
 
-    protected abstract User creatingObject(ResultSet re);
+    protected abstract User creatingObject(ResultSet re) throws SQLException;
 
     protected abstract String getStatus();
 
@@ -233,11 +233,9 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
 
     public int getUserIdBymail(String email){
         int user=0;
+        String strSql="select idUser FROM USER WHERE email= ? AND status= ?";
         try{
-            //connexion
             DAOContext.getConnect();
-
-            String strSql="select idUser FROM USER WHERE email= ? AND status= ?";
             st = connexion.prepareStatement(strSql);
             st.setString(1, email);
             st.setString(2, this.getStatus());
@@ -246,24 +244,16 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
                 user= re.getInt("idUser");
             }
             DAOContext.getDeconnect();
-        } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
-        } finally{
-            try{
-                //deconnexion
-                DAOContext.getDeconnect();
-            } catch (SQLException e) {
-                System.out.println("Caught SQLException: " + e.getMessage());
-            }
+        }catch (Exception ignored){
+
         }
         return user;
     }
 
     public static void main(String[] a){
-
-        ReservationDAO re=new ReservationBDD();
-        re.deleteReservation(1);
-
+        UserDAO o=new ProprietaireBDD();
+      int x=  o.getUserIdByMail("Jcc@gmai.com");
+        System.out.println(x);
     }
 
 }
