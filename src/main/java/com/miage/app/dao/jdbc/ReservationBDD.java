@@ -14,31 +14,44 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
     @Override
     public void createReservation(Reservation r) {
 
-        String strSql="INSERT INTO RESERVATION (idUser,idExhibition) VALUES (?,?)";
+
         try{
             DAOContext.getConnect();
+            String strSql="INSERT INTO RESERVATION (idUser,idExhibition) VALUES (?,?)";
             st = connexion.prepareStatement(strSql);
             st.setInt(1,r.getIdUser());
             st.setInt(2,r.getIdExhibition());
             st.executeQuery();
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
 
     }
 
     @Override
     public void deleteReservation(int r) {
-        String strSql="DELETE FROM reservation WHERE idReservation=? ";
         try{
             DAOContext.getConnect();
+            String strSql="DELETE FROM reservation WHERE idReservation=? ";
             st = connexion.prepareStatement(strSql);
             st.setInt(1, r);
             st.executeUpdate();
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
 
     }
@@ -65,13 +78,17 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
 
 
     @Override
-    protected Reservation creatingObject(ResultSet re) throws SQLException {
-        int idReservation=re.getInt("idReservation");
-        Date date=re.getDate("date");
-        int idUser=re.getInt("idUser");
-        int idEx=re.getInt("idExhibition");
-        Reservation reservation=new Reservation(idUser,idEx);
-        reservation.setIdReservation(idReservation);
-        return reservation;
+    protected Reservation creatingObject(ResultSet re){
+        try{
+            int idReservation=re.getInt("idReservation");
+            int idUser=re.getInt("idUser");
+            int idEx=re.getInt("idExhibition");
+            Reservation reservation=new Reservation(idUser,idEx);
+            reservation.setIdReservation(idReservation);
+            return reservation;
+        }  catch (SQLException e) {
+            System.out.println("Caught SQLException: " + e.getMessage());
+        }
+        return null;
     }
 }
