@@ -17,7 +17,7 @@ public class TypeOeuvreBDD extends DAOContext implements TypeOeuvreDAO {
             //connexion
             DAOContext.getConnect();
 
-            String query="INSERT INTO TYPEOEUVRE (id,nom_type,caracteristique) VALUES (?,?)";
+            String query="INSERT INTO TYPEOEUVRE (id,nom_type,caracteristique) VALUES (?,?,?)";
             st = connexion.prepareStatement(query);
             st.setInt(1, type.getId());
             st.setString(2, type.getType());
