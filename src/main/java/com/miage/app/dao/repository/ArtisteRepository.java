@@ -13,6 +13,11 @@ public class ArtisteRepository implements ArtisteDAO {
     }
 
     @Override
+    public void createArtiste(String name, String lastName) {
+
+    }
+
+    @Override
     public void updateArtiste(Artiste artiste) {
 
     }
@@ -37,6 +42,11 @@ public class ArtisteRepository implements ArtisteDAO {
     @Override
     public List<Artiste> getAllArtistes() {
         return artisteList;
+    }
+
+    @Override
+    public Artiste getIdByNameAndLastName(String name, String lastName) {
+        return null;
     }
 
 }

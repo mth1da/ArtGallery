@@ -8,37 +8,38 @@ import java.sql.ResultSet;
 
 public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
+    @Override
+    public void createArtiste(Artiste artiste) throws SQLException {
 
+    }
 
     @Override
-    public void createArtiste(Artiste artiste){
-        //Requête permettant de créer un nouvel artiste avec les données récupérées
+    public void createArtiste(String name, String lastName) {
 
-        String strSql="INSERT INTO ARTISTE (idArtiste,name,lastname,datenaissance,fonction) VALUES (?,?,?,?,?)";
         try{
-
             //Création de la connection avec BDD
-
             DAOContext.getConnect();
 
-            //Préparer l'état de connexion
+            //Requête permettant de créer un nouvel artiste avec les données récupérées
+            String query= "INSERT INTO artiste (name, lastName) VALUES (?,?)";
 
-            st = connexion.prepareStatement(strSql);
-            st.setInt(1, artiste.getId());
-            st.setString(2, artiste.getName());
-            st.setString(3, artiste.getLastName());
-            st.setInt(4, artiste.getAge());
-            st.setString(5, artiste.getStatus());
+            //Préparation de l'état de connexion
+            st = connexion.prepareStatement(query);
+            st.setString(1, name);
+            st.setString(2, lastName);
 
             //Execution
-
             st.executeUpdate();
 
-            //Ferme la connexion
-
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        } catch (SQLException e){
+            System.out.println("Caught SQLException: " + e.getMessage());
+        } finally {
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                System.out.println("Caught SQLException: " + e.getMessage());
+            }
         }
 
     }
@@ -46,51 +47,16 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
     @Override
     public void updateArtiste(Artiste artiste) {
 
-
     }
 
     @Override
     public void deleteArtiste(Artiste artiste) {
 
-        //Requête permettant de supprimer un artiste
-
-        String strSql="DELETE FROM VISITEUR WHERE idArtiste= ?";
-        try{
-
-            //Création de la connection avec BDD
-            DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            st.setInt(1, artiste.getId());
-            st.executeUpdate();
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
-        }
     }
 
     @Override
     public Artiste getArtisteById(int id) {
-
-        Artiste artiste=null;
-
-        //Requete permettant de selectionner un artiste à l'aide de son id
-
-        String strSql="select * FROM ARTISTE WHERE idArtiste= ?";
-        try{
-
-            //Création de la connection avec BDD
-            DAOContext.getConnect();
-            st = connexion.prepareStatement(strSql);
-            st.setInt(1, id);
-            ResultSet re=st.executeQuery();
-            while(re.next()){
-                artiste=creatingObject(re);
-            }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
-        }
-        return artiste;
+        return null;
     }
 
     @Override
@@ -113,5 +79,28 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
         //Retourne instanciation de Artiste avec les données récupérés
 
         return new Artiste(id,status,name,lastname,age);
+    }
+
+    @Override
+    public Artiste getIdByNameAndLastName(String name, String lastName) {
+        Artiste artiste = null;
+        String strSql= "SELECT * FROM artiste WHERE name=? AND lastName=?";
+        try{
+            DAOContext.getConnect();
+            st = connexion.prepareStatement(strSql);
+            st.setString(1, name);
+            st.setString(2,lastName);
+            ResultSet re = st.executeQuery();
+            while(re.next()){
+                System.out.println(re.getInt("idArtiste"));
+                artiste=creatingObject(re);
+            }
+
+
+            DAOContext.getDeconnect();
+        }catch (Exception ignored){
+
+        }
+        return artiste;
     }
 }
