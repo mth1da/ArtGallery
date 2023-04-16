@@ -23,13 +23,13 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             st.setInt(2,r.getIdExhibition());
             st.executeQuery();
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
 
@@ -44,13 +44,13 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             st.setInt(1, r);
             st.executeUpdate();
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
 
@@ -69,9 +69,15 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
                 Reservation reservation=creatingObject(re);
                 reservationList.add(reservation);
             }
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        }catch (SQLException e){
+            consoleLogger.writeError("Caught SQLException", e);
+        } finally{
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                consoleLogger.writeError("Caught SQLException", e);
+            }
         }
         return reservationList;
     }
@@ -87,7 +93,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
             reservation.setIdReservation(idReservation);
             return reservation;
         }  catch (SQLException e) {
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
         return null;
     }

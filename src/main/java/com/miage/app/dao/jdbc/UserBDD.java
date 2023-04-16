@@ -25,13 +25,13 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
             st.setString(5,r.getType());
             st.executeQuery();
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -49,13 +49,13 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
                 return true;
             }
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return false;
@@ -74,19 +74,19 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
                 user=creatingObject(re);
             }
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return user;
     }
 
-    protected abstract User creatingObject(ResultSet re) throws SQLException;
+    protected abstract User creatingObject(ResultSet re) ;
 
     protected abstract String getStatus();
 
@@ -101,13 +101,13 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
             st.setString(4, this.getStatus());
             st.executeUpdate();
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
 
@@ -122,13 +122,13 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
             st.setString(2, this.getStatus());
             st.executeUpdate();
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
 
@@ -147,13 +147,13 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
                 user= re.getInt("idUser");
             }
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return user;

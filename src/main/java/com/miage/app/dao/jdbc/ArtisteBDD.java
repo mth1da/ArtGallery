@@ -2,6 +2,8 @@ package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Artiste;
 import com.miage.app.dao.ArtisteDAO;
+import com.miage.app.logging.ConsoleLogger;
+
 import java.sql.*;
 import java.sql.ResultSet;
 
@@ -27,13 +29,13 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             st.executeUpdate();
 
         } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally {
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
 
@@ -41,7 +43,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
 
     @Override
-    protected Artiste creatingObject(ResultSet re) throws SQLException {
+    protected Artiste creatingObject(ResultSet re) {
 
         Artiste a=null;
         try{
@@ -54,7 +56,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             //Retourne instanciation de Artiste avec les données récupérés
 
         } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
         return a;
     }
@@ -76,9 +78,15 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
             }
 
 
-            DAOContext.getDeconnect();
-        }catch (Exception ignored){
-
+        } catch (SQLException e){
+            consoleLogger.writeError("Caught SQLException", e);
+        } finally {
+            try{
+                //deconnexion
+                DAOContext.getDeconnect();
+            } catch (SQLException e){
+                consoleLogger.writeError("Caught SQLException", e);
+            }
         }
         return artiste;
     }

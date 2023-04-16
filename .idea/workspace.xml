@@ -11,14 +11,14 @@
   <component name="ChangeListManager">
     <list default="true" id="693d39e1-28c2-487a-aca5-c7307aa942aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Artiste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/Entity/Artiste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ArtisteBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/DAOContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/DAOContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ExhibitionBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/OeuvreBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ProprietaireBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ProprietaireBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ReservationBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/ReservationBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/UserBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/UserBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ArtGallery/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ArtGallery/Home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/VisiteurBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miage/app/dao/jdbc/VisiteurBDD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev2-essai2" />
+        <entry key="$PROJECT_DIR$" value="develop2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

@@ -27,13 +27,13 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
             st.executeUpdate();
         }catch (SQLException e ){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch(SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -50,13 +50,13 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
             st.setInt(3, id);
             st.executeUpdate();
         }catch (SQLException e ){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch(SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -76,13 +76,13 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
             st.executeUpdate();
 
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -102,13 +102,13 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
                 oeuvreList.add(oeuvre);
             }
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //Ferme la connexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return oeuvreList;
@@ -124,7 +124,7 @@ public class OeuvreBDD extends DAOContext implements OeuvreDAO {
             double price=re.getDouble("price");
             return new TableauOeuvre(id,title,idArtist,idUser,price);
         } catch (SQLException e) {
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
         return null;
     }

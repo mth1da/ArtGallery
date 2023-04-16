@@ -25,14 +25,14 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
                 Exhibition exhibition=creatingObject(re);
                 exhibitionList.add(exhibition);
             }
-        }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
-        } finally{
+        } catch (SQLException e){
+            consoleLogger.writeError("Caught SQLException", e);
+        } finally {
             try{
-                //Ferme la connexion
+                //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return exhibitionList;
@@ -51,7 +51,7 @@ public class ExhibitionBDD extends DAOContext implements ExhibitionDAO {
             String room=re.getString("rooms");
             exhibition=new Exhibition(idExhibition,name,startDate,endDate,place,max,room);
         } catch(SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
         return exhibition;
     }

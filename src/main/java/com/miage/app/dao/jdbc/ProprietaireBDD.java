@@ -20,7 +20,7 @@ public class ProprietaireBDD extends UserBDD{
             User user=new Proprietaire(name,firstname,password,mail);
             return user;
         }catch (SQLException e) {
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
         return null;
 
