@@ -24,19 +24,6 @@ public class UserRepository implements UserDAO {
     }
 
     @Override
-    public User getUserById(int id) {
-
-        //Retourne l'utilisateur à partir de l'id
-        User user=null;
-        for(User currUser : us){
-            if(currUser.getId()==id){
-                user=currUser;
-            }
-        }
-        return user;
-    }
-
-    @Override
     public User getUserByMail(String mail) {
         User user=null;
         for(User currUser : us){
@@ -45,12 +32,6 @@ public class UserRepository implements UserDAO {
             }
         }
         return user;
-    }
-
-
-    @Override
-    public Iterable<User> getAllUser() {
-        return us;
     }
 
     @Override

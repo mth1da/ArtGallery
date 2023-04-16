@@ -4,6 +4,7 @@ import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.services.Connexion;
+import com.miage.app.services.ConnexionLocal;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -17,7 +18,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.InvalidParameterException;
 
 @WebServlet(name = "UserServlet", value = "/loginuser")
 public class LoginUserServlet extends HttpServlet {
@@ -31,42 +31,29 @@ public class LoginUserServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        try{
-            String status=request.getParameter("status");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-
-            UserDAO userDAO=null;
-            try{
-                if(status.equals("visiteur")){
-                    userDAO=new VisiteurBDD();
-                }else if(status.equals("proprietaire")){
-                    userDAO=new ProprietaireBDD();
-                }
-            } catch(IllegalArgumentException e){
-                System.out.println("Caught Exception: " + e.getMessage());
-            }
-
-            Connexion con=new Connexion(userDAO);
-            String rep=con.connexionValide(email,password);
-            if(rep.equals("")){
-                try{
-                    out.println("Connexion réussie");
-                    HttpSession s=request.getSession();
-                    s.setAttribute("currentUser",email);
-                    s.setAttribute("status",status);
-                    s.setAttribute("userId",userDAO.getUserIdByMail(email));
-                    response.sendRedirect("Home.jsp");
-                } catch (NullPointerException e){
-                    System.out.println("Caught Exception: " + e.getMessage());
-                }
-
-            }else{
-                out.println(rep);
-            }
-        } catch (InvalidParameterException e){
-            System.out.println("Caught Exception: " + e.getMessage());
+        String status=request.getParameter("status");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        UserDAO userDAO=null;
+        if(status.equals("visiteur")){
+            userDAO=new VisiteurBDD();
+        }else if(status.equals("proprietaire")){
+            userDAO=new ProprietaireBDD();
         }
+        Connexion con=new ConnexionLocal(userDAO);
+        String rep=con.connexionValide(email,password);
+        if(!rep.startsWith("!Erreur")){
+            out.println("Connexion réussi");
+            HttpSession s=request.getSession();
+            s.setAttribute("currentUser",email);
+            s.setAttribute("status",status);
+            s.setAttribute("userId",Integer.parseInt(rep));
+           // out.println(s.getAttribute("currentUser"));
+            response.sendRedirect("Home.jsp");
+        }else{
+            out.println(rep);
+        }
+
     }
 }
 

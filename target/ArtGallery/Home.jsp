@@ -19,7 +19,6 @@
     if (session.getAttribute("status").equals("proprietaire")) {
      %>
     <a href="Oeuvres.jsp">Mes oeuvres</a>
-    <a href="modifyExibServlet">Gérez les expositions</a>
     <a href="types.jsp">Types d'oeuvres</a>
                 <%   }
     %>

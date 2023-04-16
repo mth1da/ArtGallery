@@ -28,6 +28,18 @@
     <servlet-name>modifyExib</servlet-name>
     <servlet-class>com.miage.app.servlets.ModifyExibhitionServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>addOeuvreServ</servlet-name>
+    <servlet-class>com.miage.app.servlets.AddOeuvreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>deleteOeuvreServ</servlet-name>
+    <servlet-class>com.miage.app.servlets.DeleteOeuvreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>modifyOeuvreServ</servlet-name>
+    <servlet-class>com.miage.app.servlets.ModifyOeuvreServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>editProfile</servlet-name>
@@ -52,6 +64,18 @@
   <servlet-mapping>
     <servlet-name>modifyExib</servlet-name>
     <url-pattern>/modifyExibServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addOeuvreServ</servlet-name>
+    <url-pattern>/addOeu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteOeuvreServ</servlet-name>
+    <url-pattern>/deleteOeuvre</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>modifyOeuvreServ</servlet-name>
+    <url-pattern>/modifO</url-pattern>
   </servlet-mapping>
 
 </web-app>

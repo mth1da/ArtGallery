@@ -1,6 +1,7 @@
 
 package com.miage.app.dao.jdbc;
 
+import com.miage.app.logging.ConsoleLogger;
 import jakarta.servlet.ServletContext;
 
 import java.sql.*;
@@ -14,6 +15,12 @@ public abstract class DAOContext {
 
     protected static Connection connexion=null;
     protected PreparedStatement st = null;
+
+    protected ConsoleLogger consoleLogger;
+
+    public DAOContext(){
+        consoleLogger = new ConsoleLogger();
+    }
 
     protected abstract Object creatingObject(ResultSet re) ;
 
