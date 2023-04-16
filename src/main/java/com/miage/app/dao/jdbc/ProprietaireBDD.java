@@ -2,11 +2,8 @@ package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Proprietaire;
 import com.miage.app.Entity.User;
-import com.miage.app.Entity.Visiteur;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProprietaireBDD extends UserBDD{
 

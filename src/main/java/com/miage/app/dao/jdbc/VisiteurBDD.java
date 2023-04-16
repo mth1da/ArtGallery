@@ -23,9 +23,7 @@ public class VisiteurBDD extends UserBDD{
             consoleLogger.writeError("Caught SQLException", e);
         }
         return null;
-
     }
-
     @Override
     protected String getStatus() {
         return "visiteur";

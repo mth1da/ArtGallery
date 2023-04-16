@@ -3,7 +3,6 @@ package com.miage.app.dao.jdbc;
 import com.miage.app.Entity.Reservation;
 import com.miage.app.dao.ReservationDAO;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,7 +12,6 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
 
     @Override
     public void createReservation(Reservation r) {
-
 
         try{
             DAOContext.getConnect();
@@ -32,7 +30,6 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
                 consoleLogger.writeError("Caught SQLException", e);
             }
         }
-
     }
 
     @Override
@@ -53,7 +50,6 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
                 consoleLogger.writeError("Caught SQLException", e);
             }
         }
-
     }
 
     @Override

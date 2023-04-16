@@ -12,7 +12,6 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
 
     @Override
     public void createArtiste(String name, String lastName) {
-
         try{
             //Création de la connection avec BDD
             DAOContext.getConnect();
@@ -38,9 +37,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
                 consoleLogger.writeError("Caught SQLException", e);
             }
         }
-
     }
-
 
     @Override
     protected Artiste creatingObject(ResultSet re) {
@@ -76,7 +73,6 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
                 System.out.println(re.getInt("idArtiste"));
                 artiste=creatingObject(re);
             }
-
 
         } catch (SQLException e){
             consoleLogger.writeError("Caught SQLException", e);
