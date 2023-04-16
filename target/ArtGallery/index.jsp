@@ -13,12 +13,10 @@
         <title>Insert title here</title>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <meta name="google-signin-client_id" content="963886692136-qf170mme1nujosk5cgrqjog58esfrld4.apps.googleusercontent.com">
-
 </head>
 <body>
 <h1>Welcome to the ArtGallery</h1>
 <a href="sign-up.jsp">s'inscrire</a>
 <a href="login.jsp">se connecter</a>
-
 </body>
 </html>

@@ -7,7 +7,7 @@ public class TableauOeuvre extends Oeuvre{
 
     @Override
     public String getPresentationOeuvre() {
-        String s="Ma fameuse oeuvres se nomme  "+this.getName()+" elle a pour prix "+this.getPrice();
+        String s="Ma fameuse oeuvre se nomme  "+this.getName()+" elle a pour prix "+this.getPrice();
         return s;
     }
 
