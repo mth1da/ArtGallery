@@ -40,6 +40,7 @@
     <servlet-name>modifyOeuvreServ</servlet-name>
     <servlet-class>com.miage.app.servlets.ModifyOeuvreServlet</servlet-class>
   </servlet>
+ 
 
   <servlet-mapping>
     <servlet-name>editProfile</servlet-name>
@@ -77,5 +78,6 @@
     <servlet-name>modifyOeuvreServ</servlet-name>
     <url-pattern>/modifO</url-pattern>
   </servlet-mapping>
+
 
 </web-app>
