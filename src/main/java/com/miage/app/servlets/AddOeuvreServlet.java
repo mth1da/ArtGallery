@@ -1,10 +1,14 @@
 package com.miage.app.servlets;
 
 import com.miage.app.Entity.Artiste;
+import com.miage.app.Entity.Oeuvre;
+import com.miage.app.Entity.Tableau;
 import com.miage.app.dao.ArtisteDAO;
 import com.miage.app.dao.OeuvreDAO;
 import com.miage.app.dao.jdbc.ArtisteBDD;
 import com.miage.app.dao.jdbc.OeuvreBDD;
+import com.miage.app.dao.jdbc.PeintureBDD;
+import com.miage.app.dao.jdbc.TableauBDD;
 import com.miage.app.services.GestionOeuvres;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -18,7 +22,16 @@ public class AddOeuvreServlet extends HttpServlet {
 
         HttpSession s = request.getSession();
         int userID=Integer.parseInt(s.getAttribute("userId").toString());
+        String type = request.getParameter("type");
         ArtisteDAO artiste = new ArtisteBDD();
+        OeuvreDAO o=null;
+        if(type.equals("peinture")){
+            o=new PeintureBDD();
+        }else if(type.equals("tableau")){
+            o=new TableauBDD();
+        }else if(type.equals("tableau")){
+
+        }
         OeuvreDAO o = new OeuvreBDD();
         GestionOeuvres ges = new GestionOeuvres(o, artiste);
 
@@ -26,7 +39,7 @@ public class AddOeuvreServlet extends HttpServlet {
         String name = request.getParameter("name");
         String lastName = request.getParameter("lastName");
         Double price = Double.valueOf(request.getParameter("price"));
-        String type = request.getParameter("type");
+
 
         Artiste art = artiste.getIdByNameAndLastName(name, lastName);
         ges.addArtiste(art, name, lastName);

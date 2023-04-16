@@ -15,7 +15,7 @@ public class TableauOeuvre extends Oeuvre{
     }
 
     @Override
-    protected void getInfoSupp() {
-
+    protected String getInfoSupp() {
+        return  "";
     }
 }

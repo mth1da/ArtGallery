@@ -44,7 +44,7 @@ public abstract class Oeuvre {
 
     public abstract String getPresentationOeuvre();
 
-    protected abstract void getInfoSupp();
+    protected abstract String getInfoSupp();
 
 
     protected String getType() {
