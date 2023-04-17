@@ -10,6 +10,7 @@ public abstract class UserBDD extends DAOContext implements UserDAO{
     @Override
     public void createUser(User r) {
         try{
+            //connexion
             DAOContext.getConnect();
             String strSql="INSERT INTO USER (firstname,lastname,email,password,status) VALUES (?,?,?,?,?)";
             st = connexion.prepareStatement(strSql);

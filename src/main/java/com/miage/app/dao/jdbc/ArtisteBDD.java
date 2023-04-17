@@ -14,7 +14,7 @@ public class ArtisteBDD extends DAOContext implements ArtisteDAO {
     @Override
     public void createArtiste(String name, String lastName) {
         try{
-            //Création de la connection avec BDD
+            //Création de la connexion avec BDD
             DAOContext.getConnect();
 
             //Requête permettant de créer un nouvel artiste avec les données récupérées

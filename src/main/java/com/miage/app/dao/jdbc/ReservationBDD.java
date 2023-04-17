@@ -64,6 +64,7 @@ public class ReservationBDD extends DAOContext implements ReservationDAO {
         List<Reservation> reservationList=new ArrayList<>();
         String strSql="select * FROM RESERVATION where idUser=? ";
         try{
+            //connexion
             DAOContext.getConnect();
             st = connexion.prepareStatement(strSql);
             st.setInt(1, id);
