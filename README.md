@@ -1,6 +1,6 @@
 # ArtGallery
 
-Fonctionnalitées développées pour le moment == Inscription (visiteur et propriétaire). Connexion, modification du profil. Afficher, ajouter, supprimer et modifier les oeuvres appartenant au propriétaire. Ajouter un type d'oeuvre. Consulter les expositions qui sont affiché et réserver puis consulter les réservations qui sont affichés.
+Fonctionnalitées développées pour le moment == Inscription (visiteur et propriétaire) local et avec google. Connexion, modification du profil. Afficher, ajouter, supprimer et modifier les oeuvres appartenant au propriétaire. Ajouter un type d'oeuvre. Consulter les expositions qui sont affiché et réserver puis consulter les réservations qui sont affichés.
 
 Le projet a était conçu selon le modèle MVC. Ainsi nous avons une partie view (les .jsp), une partie controller (les servlets) et enfin une partie modèle (la base de données).
 Dans le projet, nous retrouvons plusieurs répertoires : 
@@ -23,11 +23,11 @@ Plus tard on pourra mettre la classe connexion en interface si l'on se connecte 
 
 
 
-Modularité : Le système est découpé en composant indépendant avec des classes différentes pour les inscriptions, la connexion ainsi que la modification du profil et l'accès à la base de données.
+Modularité : Le système est découpé en composant indépendant avec des classes différentes pour les inscriptions, la connexion ainsi que la modification du profil et l'accès à la base de données. Chaque service est une classe (ou abstractioin) : inscription, connexion, gestion oeuvre , modification profil de meme pour les entités et les modules de bas niveau.
 
-Abstraction : Les détails inutiles sont masqués avec l'utilisation de nombreuses interfaces et classes abstraites.
+Abstraction : Les détails inutiles sont masqués avec l'utilisation de nombreuses interfaces et classes abstraites. Exemple de la classe User qui masque la différence entre le propriétaire et le visiteur. En effet les 2 peuvent se connecter/s'inscrire modifier leur profil ainsi que acheter des expositions mais ont certaines différences qu'on cache à travers le user.
 
-Polymorphisme : Utilisation du polymorphisme avec les Ovverride et le principe de ségrégation des interfaces.
+Polymorphisme : Utilisation du polymorphisme avec les Ovverride et le principe de ségrégation des interfaces. On l'utilise avec le User par exemple. Il existe des visiteurs et des propriétaires. Le user s'adapte à son type lorsqu'il le faut.
 
 Injection de dépendance : On le retrouve beaucoup dans les classes représentant les serives tel que l'inscription qui possède un attribut UserDao qui est une interface.
 C'est donc grace à cela que l'on peut choisir d'utiliser la base de données mysql ou bien l'utilisation des listes.
@@ -36,7 +36,7 @@ Encapsulation : Les attributs des classes sont tous privé et récupérés par d
 
 Principes SOLID :
 
-Principe de responsabilité unique : Chaque classe a une seul responsabilité dans notre code.
+Principe de responsabilité unique : Chaque classe a une seul responsabilité dans notre code. (Inscription => permet inscription, User décrit un user, UserDAO accés données du user).
 
 Principe de ouvert/fermé : Pour ajouter un nouveau type d'oeuvre ou un nouveau type de user, il suffit d'étendre la classe User avec une nouvelle classe qui va extend de user ou oeuvre. Donc pas besoin de modifier le code à l'intérieur des classes.
 
@@ -44,7 +44,7 @@ Principe de liskov : Les classes sont substituables car nous utilisons des abstr
 
 Principe de ségrégation des interfaces : Nous utilisons les abstractions les plus hautes afin d'utiliser toutes les fonctionnalités nécessaires.
 
-Principe d'inversion de dépendance : On le retrouve beaucoup dans les classes représentants les serives tel que l'inscription qui possède un attribut UserDao qui est une interface.
+Principe d'inversion de dépendance : On le retrouve beaucoup dans les classes représentants les serives tel que l'inscription qui possède un attribut UserDao qui est une interface. Le service inscription ne dépend pas directement d'une base de donnée sql mais plutot d'une abstraction.
 C'est donc grace à cela que l'on peut choisir d'utiliser la base de données mysql ou bien la base de données avec les listes. Les classes inscriptions dépendent d'une abstraction de la bdd et non pas directement de la bdd.
 
 
