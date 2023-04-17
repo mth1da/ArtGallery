@@ -12,12 +12,12 @@ public class Exhibition {
     private String rooms;
 
     //Constructeur
-    public Exhibition(int id,String name,Date start,Date end,String pl,int nbrMax,String rooms){
+    public Exhibition(int id,String name,Date start,Date end,String place,int nbrMax,String rooms){
         this.idExhibition=id;
         this.name=name;
         this.startDate=start;
         this.endDate=end;
-        this.place=pl;
+        this.place=place;
         this.maxVisitorNb=nbrMax;
         this.rooms=rooms;
     }
@@ -72,8 +72,11 @@ public class Exhibition {
     }
 
     public String getPresentationExhibition(){
-        return "L'éxhibition "+name+" aura lieu le "+startDate+" à "+place+" ayant pour nombre de place"+
-                maxVisitorNb+" dans la salle "+rooms;
+        return "L'exposition "+name+
+                " aura lieu le "+startDate+
+                " à "+place+
+                " ayant pour nombre de place"+maxVisitorNb+
+                " dans la salle "+rooms+".";
     }
 
 }

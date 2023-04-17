@@ -1,11 +1,7 @@
 package com.miage.app.services;
 
-import com.miage.app.Entity.Proprietaire;
 import com.miage.app.Entity.User;
-import com.miage.app.Entity.Visiteur;
 import com.miage.app.dao.UserDAO;
-import com.miage.app.dao.jdbc.ProprietaireBDD;
-import com.miage.app.dao.jdbc.VisiteurBDD;
 
 public class InscriptionLocal implements Inscription{
     private UserDAO userDAO;
@@ -19,10 +15,10 @@ public class InscriptionLocal implements Inscription{
     @Override
     public String creeCompte() {
         String reponse=verificationCoordonneeCompte(user.getEmail(),user.getMdp());
-        //Si le compte n'existe pas et les données ont bien été saisis:
+        //Si le compte n'existe pas et les données ont bien été saisies:
         if(reponse.equals("")){
             saveAccount(user);
-            reponse="Votre compte a bien était enregister";
+            reponse="Votre compte a bien été enregistré";
         }
         return reponse;
     }

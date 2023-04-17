@@ -21,7 +21,8 @@
   for(TypeOeuvre type_oeuvre : types){
 %>
 <form class="needs-validation" novalidate action="delete-type" method="post">
-  <input type="submit" value="Supprimer"><input type="Hidden" value="<%=type_oeuvre.getId()%>" name="id" id="deleteType"><h6><%= type_oeuvre.getType()%></h6>
+  <input type="Hidden" value="<%=type_oeuvre.getId()%>" name="id" id="deleteType"><h6><%= type_oeuvre.getType()%></h6>
+  <input type="submit" value="Supprimer">
 </form>
 <%   }
 %>

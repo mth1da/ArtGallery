@@ -1,8 +1,6 @@
 package com.miage.app.services;
 
 import com.miage.app.dao.UserDAO;
-import com.miage.app.dao.jdbc.ProprietaireBDD;
-import com.miage.app.dao.jdbc.VisiteurBDD;
 
 public class ConnexionLocal implements Connexion{
 

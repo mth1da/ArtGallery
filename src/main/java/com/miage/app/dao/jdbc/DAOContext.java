@@ -2,7 +2,6 @@
 package com.miage.app.dao.jdbc;
 
 import com.miage.app.logging.ConsoleLogger;
-import jakarta.servlet.ServletContext;
 
 import java.sql.*;
 

@@ -5,7 +5,6 @@ import java.util.List;
 public class Artiste {
 
     private final int id;
-
     private final String fonction;
     private final String name;
     private final String prenom;
@@ -40,8 +39,8 @@ public class Artiste {
         return this.fonction;
     }
 
-    public void addOeuvre(Oeuvre o){
-        this.oeuvres.add(o);
+    public void addOeuvre(Oeuvre oeuvre){
+        this.oeuvres.add(oeuvre);
     }
 
 

@@ -3,11 +3,10 @@ package com.miage.app.servlets;
 import com.miage.app.Entity.User;
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
-import com.miage.app.dao.jdbc.UserBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
+import com.miage.app.logging.ConsoleLogger;
 import com.miage.app.services.*;
 import jakarta.servlet.annotation.WebServlet;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,10 +15,12 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.InvalidParameterException;
-import java.sql.SQLException;
 
 @WebServlet(name = "editProfile", urlPatterns = "/editservlet")
 public class EditProfileServlet extends HttpServlet {
+
+    protected ConsoleLogger consoleLogger;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -43,7 +44,7 @@ public class EditProfileServlet extends HttpServlet {
                     userDAO=new ProprietaireBDD();
                 }
             } catch(IllegalArgumentException e){
-                System.out.println("Caught Exception: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
 
             try{
@@ -57,11 +58,11 @@ public class EditProfileServlet extends HttpServlet {
                 out.println(user.getEmail());
                 /*response.sendRedirect("Home.jsp");*/
             } catch (NullPointerException e){
-                System.out.println("Caught Exception: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
             
         } catch (InvalidParameterException e){
-            System.out.println("Caught Exception: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
 
     }

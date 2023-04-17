@@ -14,7 +14,6 @@ public class UpdateProfile {
         userDAO.deleteUser(user);
     }
 
-
     public void updateUser(User user) {
         this.userDAO.updateUser(user);
     }

@@ -1,7 +1,5 @@
 package com.miage.app.dao.jdbc;
 
-import com.miage.app.Entity.Oeuvre;
-import com.miage.app.Entity.TableauOeuvre;
 import com.miage.app.Entity.TypeOeuvre;
 import com.miage.app.dao.TypeOeuvreDAO;
 
@@ -23,13 +21,13 @@ public class TypeOeuvreBDD extends DAOContext implements TypeOeuvreDAO {
             st.setString(2, description);
             st.executeUpdate();
         } catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e) {
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
     }
@@ -41,7 +39,7 @@ public class TypeOeuvreBDD extends DAOContext implements TypeOeuvreDAO {
             DAOContext.getConnect();
 
             //Requête permettant de supprimer un type d'oeuvre
-            String query="DELETE * FROM typeoeuvre WHERE idType=?";
+            String query="DELETE FROM typeoeuvre WHERE id=?";
 
             st = connexion.prepareStatement(query);
 
@@ -76,13 +74,13 @@ public class TypeOeuvreBDD extends DAOContext implements TypeOeuvreDAO {
                 types.add(type);
             }
         }catch (SQLException e){
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         } finally{
             try{
                 //deconnexion
                 DAOContext.getDeconnect();
             } catch (SQLException e){
-                System.out.println("Caught SQLException: " + e.getMessage());
+                consoleLogger.writeError("Caught SQLException", e);
             }
         }
         return types;
@@ -97,7 +95,7 @@ public class TypeOeuvreBDD extends DAOContext implements TypeOeuvreDAO {
             TypeOeuvre type=new TypeOeuvre(nom_type,caracteristique);
             return type;
         } catch (SQLException e) {
-            System.out.println("Caught SQLException: " + e.getMessage());
+            consoleLogger.writeError("Caught SQLException", e);
         }
         return null;
     }

@@ -1,18 +1,13 @@
 package com.miage.app.servlets;
 
-import com.miage.app.Entity.Reservation;
 import com.miage.app.dao.ReservationDAO;
-import com.miage.app.dao.UserDAO;
-import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.ReservationBDD;
-import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.services.GestionReservation;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
 
 @WebServlet(name = "buyExhibition", value = "/buyExb")

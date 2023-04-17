@@ -14,7 +14,7 @@
     <center> Home page </center>
 <br>
 <p> Connection réussie ! </p>
-    <a href="modifyProfile.jsp">Modifier son profil</a>
+    <a href="modifyProfile.jsp">Modifier mon profil</a>
     <a href="artist.jsp">Les artistes</a>
     <%
     if (session.getAttribute("status").equals("proprietaire")) {

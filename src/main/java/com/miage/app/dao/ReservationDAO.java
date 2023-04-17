@@ -4,10 +4,9 @@ import com.miage.app.Entity.Reservation;
 
 public interface ReservationDAO {
 
-    public abstract void createReservation(Reservation r);
+    void createReservation(Reservation reservation);
 
+    void deleteReservation(int r);
 
-    public abstract void deleteReservation(int r);
-
-    public abstract Iterable<Reservation> getReservationByUser(int id);
+    Iterable<Reservation> getReservationByUser(int id);
 }

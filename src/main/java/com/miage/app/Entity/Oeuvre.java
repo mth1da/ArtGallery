@@ -9,12 +9,12 @@ public abstract class Oeuvre {
     private String nom_type;
 
     //Constructeur
-    protected Oeuvre(int id, String name, int idProprio, int idArtiste,double p, String nom_type) {
+    protected Oeuvre(int id, String name, int idProprio, int idArtiste,double price, String nom_type) {
         this.id = id;
         this.name = name;
         this.idProprio = idProprio;
         this.idArtiste = idArtiste;
-        this.price=p;
+        this.price=price;
         this.nom_type=nom_type;
     }
 
@@ -45,7 +45,6 @@ public abstract class Oeuvre {
     public abstract String getPresentationOeuvre();
 
     protected abstract String getInfoSupp();
-
 
     protected String getType() {
         return this.nom_type;

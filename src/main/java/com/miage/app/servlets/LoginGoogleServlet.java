@@ -2,7 +2,6 @@ package com.miage.app.servlets;
 
 import com.miage.app.services.Connexion;
 import com.miage.app.services.ConnexionGoogle;
-import com.miage.app.services.ConnexionLocal;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class OeuvreBDD extends DAOContext implements OeuvreDAO {
+public class OeuvreBDD extends DAOContext implements OeuvreDAO {
 
     @Override
     public void createOeuvre(String title, int userID, Artiste art, Double price, String type) {
@@ -87,7 +87,6 @@ public abstract class OeuvreBDD extends DAOContext implements OeuvreDAO {
         }
     }
 
-
     @Override
     public Iterable<Oeuvre> getAllUserOeuvres(int id) {
         List<Oeuvre> oeuvreList=new ArrayList<>();
@@ -113,14 +112,17 @@ public abstract class OeuvreBDD extends DAOContext implements OeuvreDAO {
         }
         return oeuvreList;
     }
-    protected abstract Oeuvre creatingObject(ResultSet re);
+
+    protected Oeuvre creatingObject(ResultSet re) {
+        return null;
+    }
 
     @Override
     public Iterable<Oeuvre> getAllOeuvresByArtistId(int id) {
         List<Oeuvre> oeuvreList=new ArrayList<>();
         try{
             DAOContext.getConnect();
-            String strSql="select * FROM OEUVRE WHERE idArtiste= ?";
+            String strSql="select * FROM OEUVRE WHERE idArtiste=?";
             st = connexion.prepareStatement(strSql);
             st.setInt(1, id);
             ResultSet re=st.executeQuery();

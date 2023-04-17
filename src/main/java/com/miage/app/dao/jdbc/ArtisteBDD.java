@@ -1,7 +1,6 @@
 package com.miage.app.dao.jdbc;
 
 import com.miage.app.Entity.Artiste;
-import com.miage.app.Entity.TypeOeuvre;
 import com.miage.app.dao.ArtisteDAO;
 
 import java.sql.*;

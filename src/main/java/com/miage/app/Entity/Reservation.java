@@ -1,7 +1,5 @@
 package com.miage.app.Entity;
 
-import com.miage.app.dao.jdbc.DAOContext;
-
 import java.util.Date;
 
 public class Reservation {
@@ -9,7 +7,6 @@ public class Reservation {
     private Date date;
     private double price;
     private int idUser;
-
     private int idExhibition;
 
     //Constructeur
@@ -24,10 +21,13 @@ public class Reservation {
         this.idExhibition=idExhibition;
     }
 
+    public int getIdReservation(){
+        return this.idReservation;
+    }
+
     public void setIdReservation(int id){
         this.idReservation = id;
     }
-
 
     public void setPrice(double price){
         this.price=price;
@@ -35,10 +35,6 @@ public class Reservation {
 
     public void setDate(Date date){
         this.date=date;
-    }
-
-    public int getIdReservation(){
-        return this.idReservation;
     }
 
     public int getIdUser(){

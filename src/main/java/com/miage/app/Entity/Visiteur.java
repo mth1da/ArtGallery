@@ -11,8 +11,6 @@ public class Visiteur extends User{
         super(nom, prenom, mdp, email);
     }
 
-
-
     @Override
     public void displayUser() {
         System.out.println("Coordonnées du Visiteur : ");

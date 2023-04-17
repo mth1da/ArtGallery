@@ -3,7 +3,6 @@ package com.miage.app.servlets;
 import com.miage.app.dao.OeuvreDAO;
 import com.miage.app.dao.jdbc.OeuvreBDD;
 import com.miage.app.services.GestionOeuvres;
-import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 

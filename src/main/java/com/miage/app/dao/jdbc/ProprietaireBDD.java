@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProprietaireBDD extends UserBDD{
-
     @Override
     protected User creatingObject(ResultSet re) {
         try{

@@ -30,7 +30,7 @@ Voici les artistes :
         List<Oeuvre> oeuvres = (List<Oeuvre>) oeuvre.getAllOeuvresByArtistId(arti.getId());
         for(Oeuvre oe : oeuvres){
 %>
-<p><%= oe.getName()%>, <%= oe.getPrice()%>€</p>
+<p><%= oe.getName()%>, <%= oe.getPrice()%></p>
 <%
         }
     }

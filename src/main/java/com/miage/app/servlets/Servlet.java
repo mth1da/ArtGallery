@@ -16,14 +16,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "srvt", value = "/srv")
 public class Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String status = request.getParameter("status");
         PrintWriter out = response.getWriter();
-
 
         //Création d'un tableau de string
         String [] str=new String[4];
@@ -46,7 +44,7 @@ public class Servlet extends HttpServlet {
         }
         Inscription v=new InscriptionLocal(userDAO,user);
         v.creeCompte();
-        out.println("Inscription réussi veuiller vous connecter");
+        out.println("Inscription réussie veuillez vous connecter");
 
     }
 
