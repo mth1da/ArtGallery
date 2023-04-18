@@ -1,20 +1,18 @@
 package com.miage.app.dao;
 
+import com.miage.app.Entity.Artiste;
 import com.miage.app.Entity.Oeuvre;
-
 
 public interface OeuvreDAO {
 
-    public abstract void createOeuvre(Oeuvre o);
+    void createOeuvre(String title, int userID, Artiste art, Double price, String type);
 
-    public abstract void updateOeuvre(Oeuvre o);
 
-    public abstract void deleteOeuvre(Oeuvre o);
+    void updateOeuvre(String title, Double price, int id);
 
-    public abstract Oeuvre getOeuvreById(int o);
+    void deleteOeuvre(int idOeuvre);
 
-    public abstract Iterable<Oeuvre> getAllOeuvres();
+    Iterable<Oeuvre> getAllUserOeuvres(int id);
 
-    public abstract Iterable<Oeuvre> getAllUserOeuvres(int id);
-
+    Iterable<Oeuvre> getAllOeuvresByArtistId(int id);
 }

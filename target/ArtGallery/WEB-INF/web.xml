@@ -5,29 +5,79 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>ServletPro</servlet-name>
-    <servlet-class>com.miage.app.SignupServletProprietaire</servlet-class>
+    <servlet-name>editProfile</servlet-name>
+    <servlet-class>com.miage.app.servlets.EditProfileServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.miage.app.LoginServlet</servlet-class>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.miage.app.servlets.LoginUserServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>ServletVis</servlet-name>
-    <servlet-class>com.miage.app.SignupServletVisiteur</servlet-class>
+    <servlet-name>srvt</servlet-name>
+    <servlet-class>com.miage.app.servlets.Servlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>buyExhibition</servlet-name>
+    <servlet-class>com.miage.app.servlets.BuyExhibitionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteReservatio</servlet-name>
+    <servlet-class>com.miage.app.servlets.DeleteReservationServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>modifyExib</servlet-name>
+    <servlet-class>com.miage.app.servlets.ModifyExibhitionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>addOeuvreServ</servlet-name>
+    <servlet-class>com.miage.app.servlets.AddOeuvreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>deleteOeuvreServ</servlet-name>
+    <servlet-class>com.miage.app.servlets.DeleteOeuvreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>modifyOeuvreServ</servlet-name>
+    <servlet-class>com.miage.app.servlets.ModifyOeuvreServlet</servlet-class>
+  </servlet>
+ 
 
   <servlet-mapping>
-    <servlet-name>ServletPro</servlet-name>
-    <url-pattern>/servletProprietaire</url-pattern>
+    <servlet-name>editProfile</servlet-name>
+    <url-pattern>/editservlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/login</url-pattern>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/loginuser</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>ServletVis</servlet-name>
-    <url-pattern>/servletVisiteur</url-pattern>
+    <servlet-name>srvt</servlet-name>
+    <url-pattern>/srv</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buyExhibition</servlet-name>
+    <url-pattern>/buyExb</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteReservatio</servlet-name>
+    <url-pattern>/deleteReser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>modifyExib</servlet-name>
+    <url-pattern>/modifyExibServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addOeuvreServ</servlet-name>
+    <url-pattern>/addOeu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteOeuvreServ</servlet-name>
+    <url-pattern>/deleteOeuvre</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>modifyOeuvreServ</servlet-name>
+    <url-pattern>/modifO</url-pattern>
+  </servlet-mapping>
+
 
 </web-app>

@@ -5,17 +5,15 @@ import com.miage.app.Entity.User;
 
 public interface UserDAO {
 
-    public abstract void createUser(User r);
+    void createUser(User user);
 
-    public abstract void updateUser(User r);
+    void updateUser(User user);
 
-    public abstract void deleteUser(User r);
+    void deleteUser(User user);
 
-    public abstract User getUserById(int id);
+    User getUserByMail(String mail);
 
-    public abstract User getUserByMail(String mail);
+    boolean getUserConnection(String email,String password);
 
-    public abstract Iterable<User> getAllUser();
-
-    public abstract boolean getUserConnection(String email,String password);
+    int getUserIdByMail(String email);
 }

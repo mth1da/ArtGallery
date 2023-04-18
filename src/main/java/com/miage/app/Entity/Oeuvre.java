@@ -6,14 +6,16 @@ public abstract class Oeuvre {
     private final int idProprio;
     private final int idArtiste;
     private double price;
+    private String nom_type;
 
     //Constructeur
-    protected Oeuvre(int id, String name, int idProprio, int idArtiste,double p) {
+    protected Oeuvre(int id, String name, int idProprio, int idArtiste,double price, String nom_type) {
         this.id = id;
         this.name = name;
         this.idProprio = idProprio;
         this.idArtiste = idArtiste;
-        this.price=p;
+        this.price=price;
+        this.nom_type=nom_type;
     }
 
     public int getId(){
@@ -42,7 +44,9 @@ public abstract class Oeuvre {
 
     public abstract String getPresentationOeuvre();
 
-    protected abstract void getInfoSupp();
+    protected abstract String getInfoSupp();
 
-
+    protected String getType() {
+        return this.nom_type;
+    }
 }

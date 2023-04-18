@@ -11,9 +11,8 @@ public class UpdateProfile {
     }
 
     public void deleteAccount(User user, UserDAO userDAO) {
-
+        userDAO.deleteUser(user);
     }
-
 
     public void updateUser(User user) {
         this.userDAO.updateUser(user);

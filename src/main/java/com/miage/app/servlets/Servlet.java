@@ -1,11 +1,13 @@
 package com.miage.app.servlets;
 
+import com.miage.app.Entity.Proprietaire;
+import com.miage.app.Entity.User;
+import com.miage.app.Entity.Visiteur;
 import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.services.Inscription;
-import com.miage.app.services.InscriptionProprietaire;
-import com.miage.app.services.InscriptionVisiteur;
+import com.miage.app.services.InscriptionLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,14 +16,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 @WebServlet(name = "srvt", value = "/srv")
 public class Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String status = request.getParameter("status");
         PrintWriter out = response.getWriter();
-        out.println(status);
 
         //Création d'un tableau de string
         String [] str=new String[4];
@@ -33,16 +33,19 @@ public class Servlet extends HttpServlet {
         str[3]=request.getParameter("email");
 
         //création du compte selon si c'est un propriétaire ou visiteur
-
+        UserDAO userDAO=null;
+        User user=null;
         if(status.equals("visiteur")){
-            UserDAO ust=new VisiteurBDD();
-            Inscription v=new InscriptionVisiteur(str,ust);
-            v.creeCompte();
+            userDAO=new VisiteurBDD();
+            user=new Visiteur(str[0],str[1],str[2],str[3]);
         }else if(status.equals("proprietaire")){
-            UserDAO ust=new ProprietaireBDD();
-            Inscription v=new InscriptionProprietaire(str,ust);
-            v.creeCompte();
+            userDAO=new ProprietaireBDD();
+            user=new Proprietaire(str[0],str[1],str[2],str[3]);
         }
+        Inscription v=new InscriptionLocal(userDAO,user);
+        v.creeCompte();
+        out.println("Inscription réussie veuillez vous connecter");
+
     }
 
 

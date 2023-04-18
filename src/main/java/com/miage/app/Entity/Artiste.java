@@ -5,21 +5,18 @@ import java.util.List;
 public class Artiste {
 
     private final int id;
-
-    private final String status;
+    private final String fonction;
     private final String name;
     private final String prenom;
 
-    private final int age;
     private List<Oeuvre> oeuvres;
 
     //Constructeur
-    public Artiste(int id, String status, String nom, String prenom, int age){
+    public Artiste(int id, String nom, String prenom,String fonction){
         this.id=id;
-        this.status=status;
+        this.fonction=fonction;
         this.name=nom;
         this.prenom=prenom;
-        this.age = age;
     }
 
     public String getName(){
@@ -39,15 +36,12 @@ public class Artiste {
     }
 
     public String getStatus(){
-        return this.status;
+        return this.fonction;
     }
 
-    public void addOeuvre(Oeuvre o){
-        this.oeuvres.add(o);
+    public void addOeuvre(Oeuvre oeuvre){
+        this.oeuvres.add(oeuvre);
     }
 
-    public int getAge(){
-        return this.age;
-    }
 
 }

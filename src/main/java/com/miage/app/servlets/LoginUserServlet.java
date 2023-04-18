@@ -4,9 +4,8 @@ import com.miage.app.dao.UserDAO;
 import com.miage.app.dao.jdbc.ProprietaireBDD;
 import com.miage.app.dao.jdbc.VisiteurBDD;
 import com.miage.app.services.Connexion;
-import jakarta.servlet.*;
+import com.miage.app.services.ConnexionLocal;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,9 +13,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "UserServlet", value = "/loginuser")
 public class LoginUserServlet extends HttpServlet {
@@ -33,20 +29,20 @@ public class LoginUserServlet extends HttpServlet {
         String status=request.getParameter("status");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
         UserDAO userDAO=null;
         if(status.equals("visiteur")){
             userDAO=new VisiteurBDD();
         }else if(status.equals("proprietaire")){
             userDAO=new ProprietaireBDD();
         }
-        Connexion con=new Connexion(userDAO);
+        Connexion con=new ConnexionLocal(userDAO);
         String rep=con.connexionValide(email,password);
-        if(rep.equals("")){
+        if(!rep.startsWith("!Erreur")){
             out.println("Connexion réussi");
             HttpSession s=request.getSession();
             s.setAttribute("currentUser",email);
             s.setAttribute("status",status);
+            s.setAttribute("userId",Integer.parseInt(rep));
            // out.println(s.getAttribute("currentUser"));
             response.sendRedirect("Home.jsp");
         }else{
